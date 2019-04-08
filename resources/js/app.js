@@ -5,10 +5,10 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import './bootstrap';
 
-window.Vue = require('vue');
-
+import Vue from 'vue';
+import Routes from './routes.js'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,7 +20,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import App from './views/App';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,6 +28,15 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// 4. Create and mount the root instance.
+// Make sure to inject the router with the router option to make the
+// whole app router-aware.
 const app = new Vue({
-    el: '#app'
-});
+  el: "#app",
+  router : Routes,
+  render: h => h(App),
+})
+
+export default app;
+
+// Now the app has started!
