@@ -6162,6 +6162,10 @@ table {
   z-index: auto;
 }
 
+h1 {
+  font-family: "Curse Casual JVE";
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

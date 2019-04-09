@@ -1772,6 +1772,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "bread-crumb",
   props: ["firstLink", "secondLink", "thirdLink"],
@@ -1781,6 +1783,9 @@ __webpack_require__.r(__webpack_exports__);
       return str.split("-").map(function capitalize(part) {
         return part.charAt(0).toUpperCase() + part.slice(1);
       }).join(" ");
+    },
+    capitalize: function capitalize(str) {
+      return str.toUpperCase();
     }
   }
 });
@@ -22967,25 +22972,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-signifly-grey-lightest py-2" }, [
-    _c("ul", { staticClass: "main-breadcrumbs flex" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "/" + _vm.firstLink } }, [
-          _vm._v(_vm._s(_vm.prettify(_vm.firstLink)))
-        ])
+  return _c(
+    "div",
+    { staticClass: "bg-signifly-grey-lightest py-2 flex flex-col px-6" },
+    [
+      _c("ul", { staticClass: "main-breadcrumbs flex pl-6" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" + _vm.firstLink } }, [
+            _vm._v(_vm._s(_vm.prettify(_vm.firstLink)))
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.secondLink
+          ? _c("li", [
+              _c("a", { attrs: { href: "/" + _vm.secondLink } }, [
+                _vm._v(_vm._s(_vm.prettify(_vm.secondLink)))
+              ])
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
-      _vm.secondLink
-        ? _c("li", [
-            _c("a", { attrs: { href: "/" + _vm.secondLink } }, [
-              _vm._v(_vm._s(_vm.prettify(_vm.secondLink)))
-            ])
-          ])
-        : _vm._e()
-    ])
-  ])
+      _c("hr", { staticClass: "border-solid border-grey border-t-2" }),
+      _vm._v(" "),
+      _c("h1", { staticClass: "py-3" }, [
+        _vm._v(_vm._s(_vm.prettify(_vm.capitalize(_vm.firstLink))))
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
