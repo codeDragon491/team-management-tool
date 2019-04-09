@@ -73,7 +73,7 @@ a {
    display: flex;
    align-items: center;
    width: 100%;
-   height: 4em;
+   height: 4rem;
    background: #ff1a45;
 }
 
@@ -90,10 +90,10 @@ a {
 .sidebar__nav {
    position: fixed;
    top: 0;
-   left: -15em;
+   left: -15rem;
    overflow: hidden;
    transition: all .3s ease-in;
-   width: 15em;
+   width: 15rem;
    height: 100%;
    background: #ff2b53;
    color: rgba(255, 255, 255, 0.7);
@@ -111,7 +111,7 @@ a {
    top: 4rem;
    margin: 0;
    padding: 0;
-   width: 15em;
+   width: 15rem;
 }
 
 .sidebar__nav ul li {
@@ -158,18 +158,18 @@ a {
 }
 
 /* Mobile First */
-@media (min-width: 42em) {
+@media (min-width: 42rem) {
    .sidebar-layout__content {
-      margin-left: 4em;
+      margin-left: 4rem;
    }
    
    /* Sidebar */
    .sidebar__trigger {
-      width: 4em;
+      width: 4rem;
    }
 
    .sidebar__nav {
-      width: 4em;
+      width: 4rem;
       left: 0;
    }
     sidebar__nav-link > svg {
@@ -180,13 +180,13 @@ a {
    .sidebar__nav:focus,
    .sidebar__trigger:hover + .sidebar__nav,
    .sidebar__trigger:focus + .sidebar__nav {
-      width: 15em;
+      width: 15rem;
    }
 }
 
-@media (min-width: 68em) {
+@media (min-width: 68rem) {
    .sidebar-layout__content {
-      margin-left: 15em;
+      margin-left: 15rem;
    }
    
    /* Sidebar */
@@ -195,7 +195,7 @@ a {
    }
    
    .sidebar__nav {
-      width: 15em;
+      width: 15rem;
    }
 }
 
