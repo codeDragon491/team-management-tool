@@ -1804,6 +1804,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "side-bar",
@@ -1855,7 +1860,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#logo svg {\n  display: block;\n  margin: 1.5rem auto 1.5rem auto;\n  max-width: 5rem;\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "#logo svg {\n  max-width: 5rem;\n  width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -1874,7 +1879,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* Primary Styles */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\nem {\n  font-style: normal;\n  font-weight: 500;\n  font-family: National-Book;\n}\na {\n  text-decoration: none;\n  color: inherit;\n}\n\n/* Layout */\n.sidebar__layout {\n  display: flex;\n  width: 100%;\n  min-height: 100vh;\n}\n.sidebar-layout__content {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex: 1;\n}\n\n/* Sidebar */\n.sidebar__trigger {\n  z-index: 2;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 4em;\n  background: #ff1a45;\n}\n.sidebar__trigger > .burger {\n  width: 2rem;\n  height: 2rem;\n  display: inline-block;\n  margin: 1.5em 0 0 1.5em;\n}\n.sidebar__trigger > .burger > span {\n  border-top: 1px solid #fff;\n}\n.sidebar__nav {\n  position: fixed;\n  top: 0;\n  left: -15em;\n  overflow: hidden;\n  transition: all .3s ease-in;\n  width: 15em;\n  height: 100%;\n  background: #ff2b53;\n  color: rgba(255, 255, 255, .7);\n}\n.sidebar__nav:hover,\n.sidebar__nav:focus,\n.sidebar__trigger:focus + .sidebar__nav,\n.sidebar__trigger:hover + .sidebar__nav {\n  left: 0;\n}\n.sidebar__nav ul {\n  margin-top: 4em;\n  margin: 0;\n  padding: 0;\n  width: 15em;\n}\n.sidebar__nav ul li {\n  width: 100%;\n}\n.sidebar__nav-link {\n  cursor: pointer;\n  position: relative;\n  display: inline-block;\n  width: 100%;\n  height: 4rem;\n  color: white;\n}\n.sidebar__nav-link em {\n  position: absolute;\n  top: 50%;\n  left: 4.5rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.sidebar__nav ul:hover .sidebar__nav-link {\n  opacity: .7;\n}\n.sidebar__nav ul:hover .sidebar__nav-link:hover {\n  opacity: 1;\n}\n.sidebar__nav ul li a {\n  display: block;\n}\n.sidebar__nav-link > svg {\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  left: 1rem;\n  display: inline-block;\n  width: 3rem;\n  height: 3rem;\n}\n.sidebar__nav-link > svg::before {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n\n/* Mobile First */\n@media (min-width: 42em) {\n.sidebar-layout__content {\n    margin-left: 4em;\n}/* Sidebar */\n.sidebar__trigger {\n    width: 4em;\n}\n.sidebar__nav {\n    width: 4em;\n    left: 0;\n}\n.sidebar__nav:hover,\n  .sidebar__nav:focus,\n  .sidebar__trigger:hover + .sidebar__nav,\n  .sidebar__trigger:focus + .sidebar__nav {\n    width: 15em;\n}\n}\n@media (min-width: 68em) {\n.sidebar-layout__content {\n    margin-left: 15em;\n}/* Sidebar */\n.sidebar__trigger {\n    display: none;\n}\n.sidebar__nav {\n    width: 15em;\n}\n.sidebar__nav ul {\n    top: 1.3em;\n}\n}\n", ""]);
+exports.push([module.i, "/* Primary Styles */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\nem {\n  font-style: normal;\n  font-weight: 500;\n  font-family: National-Book;\n}\na {\n  text-decoration: none;\n  color: inherit;\n}\n\n/*Center logo*/\n.center {\n  position: absolute;\n  margin-left: -40px;\n  left: 50%;\n}\n\n/* Layout */\n.sidebar__layout {\n  display: flex;\n  width: 100%;\n  min-height: 100vh;\n}\n.sidebar-layout__content {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex: 1;\n}\n\n/* Sidebar */\n.sidebar__trigger {\n  z-index: 2;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: 4em;\n  background: #ff1a45;\n}\n.sidebar__trigger > .burger {\n  justify-self: flex-start;\n  margin-left: 1rem;\n  width: 2rem;\n  height: 2rem;\n}\n.sidebar__trigger > .burger > span {\n  display: block;\n  border-top: 2px solid #fff;\n}\n.sidebar__nav {\n  position: fixed;\n  top: 0;\n  left: -15em;\n  overflow: hidden;\n  transition: all .3s ease-in;\n  width: 15em;\n  height: 100%;\n  background: #ff2b53;\n  color: rgba(255, 255, 255, .7);\n}\n.sidebar__nav:hover,\n.sidebar__nav:focus,\n.sidebar__trigger:focus + .sidebar__nav,\n.sidebar__trigger:hover + .sidebar__nav {\n  left: 0;\n}\n.sidebar__nav ul {\n  position: absolute;\n  top: 4rem;\n  margin: 0;\n  padding: 0;\n  width: 15em;\n}\n.sidebar__nav ul li {\n  width: 100%;\n}\n.sidebar__nav-link {\n  cursor: pointer;\n  position: relative;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: 4rem;\n  color: white;\n}\n.sidebar__nav-link em {\n  margin-left: .5rem;\n}\n.sidebar__nav ul:hover .sidebar__nav-link {\n  opacity: .7;\n}\n.sidebar__nav ul:hover .sidebar__nav-link:hover {\n  opacity: 1;\n}\n.sidebar__nav ul li a {\n  display: block;\n}\n.sidebar__nav-link > svg {\n  margin-left: .5rem;\n  width: 3rem;\n  height: 3rem;\n}\n.sidebar__nav-link > svg::before {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n\n/* Mobile First */\n@media (min-width: 42em) {\n.sidebar-layout__content {\n    margin-left: 4em;\n}/* Sidebar */\n.sidebar__trigger {\n    width: 4em;\n}\n.sidebar__nav {\n    width: 4em;\n    left: 0;\n}\nsidebar__nav-link > svg {\n    left: .5rem;\n}\n.sidebar__nav:hover,\n  .sidebar__nav:focus,\n  .sidebar__trigger:hover + .sidebar__nav,\n  .sidebar__trigger:focus + .sidebar__nav {\n    width: 15em;\n}\n}\n@media (min-width: 68em) {\n.sidebar-layout__content {\n    margin-left: 15em;\n}/* Sidebar */\n.sidebar__trigger {\n    display: none;\n}\n.sidebar__nav {\n    width: 15em;\n}\n}\n", ""]);
 
 // exports
 
@@ -22781,7 +22786,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("a", { attrs: { href: "/", id: "logo", "data-v-4172309d": "" } }, [
+  return _c("a", { attrs: { href: "/", id: "logo" } }, [
     _c(
       "svg",
       {
@@ -22863,13 +22868,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "sidebar__layout" }, [
-    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "sidebar__trigger", attrs: { href: "#0" } },
+      [_vm._m(0), _vm._v(" "), _c("logo", { staticClass: "md:hidden center" })],
+      1
+    ),
     _vm._v(" "),
     _c(
       "nav",
       { staticClass: "sidebar__nav" },
       [
-        _c("logo"),
+        _c("logo", { staticClass: "hidden md:block center mt-3" }),
         _vm._v(" "),
         _c(
           "ul",
@@ -23078,20 +23088,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "sidebar__trigger", attrs: { href: "#0" } }, [
-      _c("div", { staticClass: "burger" }, [
-        _c("span", { staticClass: "w-full", attrs: { "data-v-4172309d": "" } }),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "line w-full",
-          attrs: { "data-v-4172309d": "" }
-        }),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "line w-full",
-          attrs: { "data-v-4172309d": "" }
-        })
-      ])
+    return _c("div", { staticClass: "burger" }, [
+      _c("span", { staticClass: "w-full p-1" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "w-full p-1" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "w-full p-1" })
     ])
   }
 ]
