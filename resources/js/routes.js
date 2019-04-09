@@ -3,10 +3,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter)
-// 1. Define route components.
-// These can be imported from other files
-import ProjectRequests from  './pages/project-requests.vue';
+    // 1. Define route components.
+    // These can be imported from other files
+import ProjectRequests from './pages/project-requests.vue';
 import ProjectTeams from './pages/project-teams.vue';
+import CreateTeam from './pages/create-team.vue';
 
 // 2. Define some routes
 // Each route should map to a component. The "component" can
@@ -14,14 +15,15 @@ import ProjectTeams from './pages/project-teams.vue';
 // `Vue.extend()`, or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-  { path: '/project-requests', component: ProjectRequests },
-  { path: '/project-teams', component: ProjectTeams }
-]
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
+        { path: '/project-requests', component: ProjectRequests },
+        { path: '/project-teams', component: ProjectTeams },
+        { path: '/project-teams/create-team', component: CreateTeam }
+    ]
+    // 3. Create the router instance and pass the `routes` option
+    // You can pass in additional options here, but let's
+    // keep it simple for now.
 const router = new VueRouter({
-  routes // short for `routes: routes`
+    routes // short for `routes: routes`
 })
 
 /**

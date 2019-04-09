@@ -1774,9 +1774,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "bread-crumb",
   props: ["firstLink", "secondLink", "thirdLink"],
+  mounted: function mounted() {
+    console.log(this.$route);
+  },
   computed: {},
   methods: {
     prettify: function prettify(str) {
@@ -1856,6 +1861,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/create-team.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/create-team.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_bread_crumb_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/bread-crumb.vue */ "./resources/js/components/bread-crumb.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "create-team",
+  components: {
+    BreadCrumb: _components_bread_crumb_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/project-requests.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/project-requests.vue?vue&type=script&lang=js& ***!
@@ -1891,6 +1930,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_bread_crumb_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/bread-crumb.vue */ "./resources/js/components/bread-crumb.vue");
+//
+//
+//
 //
 //
 //
@@ -1956,7 +1998,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".main-breadcrumbs li {\n  font-weight: 500;\n  font-family: National-Book;\n  font-size: 1rem;\n  padding-right: 2rem;\n}\n", ""]);
+exports.push([module.i, ".main-breadcrumbs .link {\n  font-weight: 500;\n  font-family: National-Book;\n  font-size: 1rem;\n  padding-right: 2rem;\n}\n", ""]);
 
 // exports
 
@@ -22984,40 +23026,49 @@ var render = function() {
     "div",
     { staticClass: "bg-signifly-grey-lightest py-2 flex flex-col px-6" },
     [
-      _c("ul", { staticClass: "main-breadcrumbs flex pl-6" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/" + _vm.firstLink } }, [
-            _vm._v(_vm._s(_vm.prettify(_vm.firstLink)))
-          ])
-        ]),
-        _vm._v(" "),
-        _vm.secondLink
-          ? _c("li", [
-              _c("a", { attrs: { href: "/" + _vm.secondLink } }, [
-                _vm._v(_vm._s(_vm.prettify(_vm.secondLink)))
-              ])
-            ])
-          : _vm._e()
-      ]),
+      _c(
+        "ul",
+        { staticClass: "main-breadcrumbs flex pl-6" },
+        [
+          _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
+            _vm._v("Home")
+          ]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "link", attrs: { to: "/" + _vm.firstLink } },
+            [_vm._v(_vm._s(_vm.prettify(_vm.firstLink)))]
+          ),
+          _vm._v(" "),
+          _vm.secondLink
+            ? _c(
+                "router-link",
+                {
+                  staticClass: "link",
+                  attrs: { to: this.$route.path + "/" + _vm.secondLink }
+                },
+                [_vm._v(_vm._s(_vm.prettify(_vm.secondLink)))]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("router-view")
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("hr", { staticClass: "border-solid border-grey border-t-2" }),
       _vm._v(" "),
-      _c("h1", { staticClass: "py-3" }, [
-        _vm._v(_vm._s(_vm.prettify(_vm.capitalize(_vm.firstLink))))
-      ])
+      !_vm.secondLink
+        ? _c("h1", { staticClass: "py-3" }, [
+            _vm._v(_vm._s(_vm.prettify(_vm.capitalize(_vm.firstLink))))
+          ])
+        : _c("h1", { staticClass: "py-3" }, [
+            _vm._v(_vm._s(_vm.prettify(_vm.capitalize(_vm.secondLink))))
+          ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Home")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -23354,6 +23405,57 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/create-team.vue?vue&type=template&id=12444a96&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/create-team.vue?vue&type=template&id=12444a96& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "w-full" },
+    [
+      _c("bread-crumb", {
+        staticClass: "hidden md:flex",
+        attrs: { "first-link": "project-teams", "second-link": "create-team" }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "main-content text-center" },
+        [
+          _c("h1", { staticClass: "my-10" }, [_vm._v("CREATE TEAM")]),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: "/create-team" } }, [
+            _c("button", { staticClass: "cta-button" }, [_vm._v("SAVE TEAM")])
+          ]),
+          _vm._v(" "),
+          _c("router-view"),
+          _vm._v(" "),
+          _c("div", { staticClass: "sub-content" })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/project-requests.vue?vue&type=template&id=52609d61&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/project-requests.vue?vue&type=template&id=52609d61& ***!
@@ -23412,102 +23514,113 @@ var render = function() {
         attrs: { "first-link": "project-teams" }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "main-content text-center" }, [
-        _c("h1", { staticClass: "my-10" }, [_vm._v("PROJECT TEAMS")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "max-w-xs mx-auto" }, [
-          _c(
-            "svg",
-            {
-              staticStyle: { "enable-background": "new 0 95 301.1 227" },
-              attrs: {
-                version: "1.1",
-                id: "__JzFRSX1__Layer_1",
-                xmlns: "http://www.w3.org/2000/svg",
-                "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                x: "0px",
-                y: "0px",
-                viewBox: "0 95 301.1 227",
-                "xml:space": "preserve"
-              }
-            },
-            [
-              _c("g", { attrs: { fill: "#ede6de" } }, [
-                _c("polygon", {
-                  attrs: {
-                    points:
-                      "162.4,124.8 152.7,123.3 156.9,95.7 139.7,122.2 149.4,123.6 145.2,151.3"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M37.7,209.6c-0.4-1.9-2.3-3.1-4.2-2.7c-1.9,0.4-3.1,2.3-2.7,4.2c2.2,10.1,11.4,17.4,21.7,17.4s19.4-7.3,21.7-17.4c0.4-1.9-0.8-3.8-2.7-4.2s-3.8,0.8-4.2,2.7c-1.5,6.9-7.8,11.9-14.9,11.9S39.3,216.5,37.7,209.6z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M23.9,195.3c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C20.4,193.8,22,195.3,23.9,195.3z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M59.2,195.3c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C55.7,193.8,57.3,195.3,59.2,195.3z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M169.6,241c-1.9-0.4-3.8,0.8-4.2,2.7c-1.5,6.9-7.8,11.9-14.9,11.9s-13.3-5-14.9-11.9c-0.4-1.9-2.3-3.1-4.2-2.7c-1.9,0.4-3.1,2.3-2.7,4.2c2.2,10.1,11.4,17.4,21.7,17.4s19.4-7.3,21.7-17.4C172.7,243.3,171.5,241.4,169.6,241z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M140.5,225.9c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5S140.5,221.8,140.5,225.9z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M168.3,211.4c-8,0-14.5,6.5-14.5,14.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5C182.8,217.9,176.3,211.4,168.3,211.4z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M233.8,272.7c-0.4-1.9-2.3-3.1-4.2-2.7s-3.1,2.3-2.7,4.2c2.2,10.1,11.4,17.4,21.7,17.4c10.3,0,19.4-7.3,21.7-17.4c0.4-1.9-0.8-3.8-2.7-4.2c-1.9-0.4-3.8,0.8-4.2,2.7c-1.5,6.9-7.8,11.9-14.9,11.9S235.3,279.6,233.8,272.7z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M219.9,258.5c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C216.4,256.9,218,258.5,219.9,258.5z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M255.2,258.5c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C251.7,256.9,253.3,258.5,255.2,258.5z"
-                  }
-                }),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M32.3,320.7h69.3c0.1,0,0.1,0,0.2,0s0.1,0,0.2,0h97.6h0.5h72.3c15.8,0,28.7-12.9,28.7-28.7v-41c0-27.3-22.2-49.6-49.6-49.6h-5.9c-17.7,0-33.3,9.3-42.1,23.4v-3.9c0-27.3-22.2-49.6-49.6-49.6H148c-18.3,0-34.3,10-42.9,24.8v-11.5c0-27.3-22.2-49.6-49.6-49.6h-5.9C22.3,135,0,157.2,0,184.6v103.9C0,306.2,14.5,320.7,32.3,320.7z M245.6,208.5h5.9c23.5,0,42.6,19.1,42.6,42.6V292c0,12-9.7,21.7-21.7,21.7h-68.8v-69.4C206.8,224,224.4,208.5,245.6,208.5z M105.5,220.9c0-23.5,19.1-42.6,42.6-42.6h5.9c23.5,0,42.6,19.1,42.6,42.6v22.9c-0.3,2.4-0.5,4.8-0.5,7.2v62.7h-90.6L105.5,220.9L105.5,220.9zM7,184.6C7,161.1,26.1,142,49.6,142h5.9c23.5,0,42.6,19.1,42.6,42.6v129.1H32.3C18.4,313.7,7,302.4,7,288.4V184.6L7,184.6z"
-                  }
-                })
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c("button", { staticClass: "cta-button" }, [_vm._v("CREATE MY TEAM")])
-      ])
+      _c(
+        "div",
+        { staticClass: "main-content text-center" },
+        [
+          _c("h1", { staticClass: "my-10" }, [_vm._v("PROJECT TEAMS")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "max-w-xs mx-auto" }, [
+            _c(
+              "svg",
+              {
+                staticStyle: { "enable-background": "new 0 95 301.1 227" },
+                attrs: {
+                  version: "1.1",
+                  id: "__JzFRSX1__Layer_1",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                  x: "0px",
+                  y: "0px",
+                  viewBox: "0 95 301.1 227",
+                  "xml:space": "preserve"
+                }
+              },
+              [
+                _c("g", { attrs: { fill: "#ede6de" } }, [
+                  _c("polygon", {
+                    attrs: {
+                      points:
+                        "162.4,124.8 152.7,123.3 156.9,95.7 139.7,122.2 149.4,123.6 145.2,151.3"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M37.7,209.6c-0.4-1.9-2.3-3.1-4.2-2.7c-1.9,0.4-3.1,2.3-2.7,4.2c2.2,10.1,11.4,17.4,21.7,17.4s19.4-7.3,21.7-17.4c0.4-1.9-0.8-3.8-2.7-4.2s-3.8,0.8-4.2,2.7c-1.5,6.9-7.8,11.9-14.9,11.9S39.3,216.5,37.7,209.6z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M23.9,195.3c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C20.4,193.8,22,195.3,23.9,195.3z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M59.2,195.3c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C55.7,193.8,57.3,195.3,59.2,195.3z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M169.6,241c-1.9-0.4-3.8,0.8-4.2,2.7c-1.5,6.9-7.8,11.9-14.9,11.9s-13.3-5-14.9-11.9c-0.4-1.9-2.3-3.1-4.2-2.7c-1.9,0.4-3.1,2.3-2.7,4.2c2.2,10.1,11.4,17.4,21.7,17.4s19.4-7.3,21.7-17.4C172.7,243.3,171.5,241.4,169.6,241z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M140.5,225.9c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5S140.5,221.8,140.5,225.9z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M168.3,211.4c-8,0-14.5,6.5-14.5,14.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5C182.8,217.9,176.3,211.4,168.3,211.4z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M233.8,272.7c-0.4-1.9-2.3-3.1-4.2-2.7s-3.1,2.3-2.7,4.2c2.2,10.1,11.4,17.4,21.7,17.4c10.3,0,19.4-7.3,21.7-17.4c0.4-1.9-0.8-3.8-2.7-4.2c-1.9-0.4-3.8,0.8-4.2,2.7c-1.5,6.9-7.8,11.9-14.9,11.9S235.3,279.6,233.8,272.7z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M219.9,258.5c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C216.4,256.9,218,258.5,219.9,258.5z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M255.2,258.5c1.9,0,3.5-1.6,3.5-3.5c0-4.2,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5c0,1.9,1.6,3.5,3.5,3.5s3.5-1.6,3.5-3.5c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5C251.7,256.9,253.3,258.5,255.2,258.5z"
+                    }
+                  }),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M32.3,320.7h69.3c0.1,0,0.1,0,0.2,0s0.1,0,0.2,0h97.6h0.5h72.3c15.8,0,28.7-12.9,28.7-28.7v-41c0-27.3-22.2-49.6-49.6-49.6h-5.9c-17.7,0-33.3,9.3-42.1,23.4v-3.9c0-27.3-22.2-49.6-49.6-49.6H148c-18.3,0-34.3,10-42.9,24.8v-11.5c0-27.3-22.2-49.6-49.6-49.6h-5.9C22.3,135,0,157.2,0,184.6v103.9C0,306.2,14.5,320.7,32.3,320.7z M245.6,208.5h5.9c23.5,0,42.6,19.1,42.6,42.6V292c0,12-9.7,21.7-21.7,21.7h-68.8v-69.4C206.8,224,224.4,208.5,245.6,208.5z M105.5,220.9c0-23.5,19.1-42.6,42.6-42.6h5.9c23.5,0,42.6,19.1,42.6,42.6v22.9c-0.3,2.4-0.5,4.8-0.5,7.2v62.7h-90.6L105.5,220.9L105.5,220.9zM7,184.6C7,161.1,26.1,142,49.6,142h5.9c23.5,0,42.6,19.1,42.6,42.6v129.1H32.3C18.4,313.7,7,302.4,7,288.4V184.6L7,184.6z"
+                    }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: "/project-teams/create-team" } }, [
+            _c("button", { staticClass: "cta-button" }, [
+              _vm._v("CREATE MY TEAM")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("router-view")
+        ],
+        1
+      )
     ],
     1
   )
@@ -38697,6 +38810,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/create-team.vue":
+/*!********************************************!*\
+  !*** ./resources/js/pages/create-team.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _create_team_vue_vue_type_template_id_12444a96___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-team.vue?vue&type=template&id=12444a96& */ "./resources/js/pages/create-team.vue?vue&type=template&id=12444a96&");
+/* harmony import */ var _create_team_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-team.vue?vue&type=script&lang=js& */ "./resources/js/pages/create-team.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _create_team_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _create_team_vue_vue_type_template_id_12444a96___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _create_team_vue_vue_type_template_id_12444a96___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/create-team.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/create-team.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/pages/create-team.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_team_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./create-team.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/create-team.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_team_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/create-team.vue?vue&type=template&id=12444a96&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/pages/create-team.vue?vue&type=template&id=12444a96& ***!
+  \***************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_team_vue_vue_type_template_id_12444a96___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./create-team.vue?vue&type=template&id=12444a96& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/create-team.vue?vue&type=template&id=12444a96&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_team_vue_vue_type_template_id_12444a96___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_team_vue_vue_type_template_id_12444a96___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/project-requests.vue":
 /*!*************************************************!*\
   !*** ./resources/js/pages/project-requests.vue ***!
@@ -38849,12 +39031,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_project_requests_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/project-requests.vue */ "./resources/js/pages/project-requests.vue");
 /* harmony import */ var _pages_project_teams_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/project-teams.vue */ "./resources/js/pages/project-teams.vue");
+/* harmony import */ var _pages_create_team_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/create-team.vue */ "./resources/js/pages/create-team.vue");
 // 0. If using a module system (e.g. via vue-cli), import Vue and VueRouter
 // and then call `Vue.use(VueRouter)`.
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // 1. Define route components.
 // These can be imported from other files
+
 
 
  // 2. Define some routes
@@ -38869,6 +39053,9 @@ var routes = [{
 }, {
   path: '/project-teams',
   component: _pages_project_teams_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, {
+  path: '/project-teams/create-team',
+  component: _pages_create_team_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }]; // 3. Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
 // keep it simple for now.
