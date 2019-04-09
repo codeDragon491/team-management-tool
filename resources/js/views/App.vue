@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="md:flex main__layout">
         <side-bar></side-bar>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -14,3 +15,12 @@ import SideBar from "../components/side-bar.vue";
         }
     }
 </script>
+<style scoped>
+/* Layout */
+.main__layout {
+   width: 100vw;
+   min-height: 100vh;
+}
+
+</style>
+
