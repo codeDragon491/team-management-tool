@@ -4,7 +4,23 @@
 // Variables
 @import 'variables';
 @tailwind components;
+.cta-button {
+    background-color: $signifly-pink;
+    padding: 1rem;
+    border-radius: .125rem;
+    color: white;
+}
+
 @tailwind utilities;
+body {
+    line-height: 1.625rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 h1 {
     font-family: "Curse Casual JVE";
+}
+
+p {
+    font-family: National-Book;
 }

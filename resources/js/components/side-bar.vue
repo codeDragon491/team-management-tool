@@ -25,185 +25,180 @@
 </div>
 </template>
 <script>
-import Logo from '../components/logo.vue';
+import Logo from "../components/logo.vue";
 export default {
-    name: "side-bar",
-    components: {Logo}    
-}
+  name: "side-bar",
+  components: { Logo }
+};
 </script>
 <style>
 /* Primary Styles */
-*, *::before, *::after {
-   box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 em {
-   font-style: normal;
-   font-weight: 500;
-   font-family: National-Book;
+  font-style: normal;
+  font-weight: 500;
+  font-family: National-Book;
 }
 
 a {
-   text-decoration: none;
-   color: inherit;
-} 
+  text-decoration: none;
+  color: inherit;
+}
 /*Center logo*/
 .center {
-   position: absolute;
-   margin-left: -40px;
-   left: 50%; 
+  position: absolute;
+  margin-left: -40px;
+  left: 50%;
 }
 /* Layout */
 .sidebar__layout {
-   display: flex;
-   width: 100%;
-   height: auto;
+  display: flex;
+  width: 100%;
+  height: auto;
 }
 
 .sidebar-layout__content {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 /* Sidebar */
 .sidebar__trigger {
-   z-index: 2;
-   display: flex;
-   align-items: center;
-   width: 100%;
-   height: 4rem;
-   background: #ff1a45;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  background: #ff1a45;
 }
 
 .sidebar__trigger > .burger {
-   justify-self: flex-start;
-   margin-left: 1rem;
-   width: 2rem;
-   height: 2rem;
+  justify-self: flex-start;
+  margin-left: 1rem;
+  width: 2rem;
+  height: 2rem;
 }
-.sidebar__trigger > .burger > span{
+.sidebar__trigger > .burger > span {
   display: block;
   border-top: 2px solid #ffffff;
 }
 .sidebar__nav {
-   position: fixed;
-   top: 0;
-   left: -15rem;
-   overflow: hidden;
-   transition: all .3s ease-in;
-   width: 15rem;
-   height: 100%;
-   background: #ff2b53;
-   color: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  top: 0;
+  left: -15rem;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+  width: 15rem;
+  height: 100%;
+  background: #ff2b53;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .sidebar__nav:hover,
 .sidebar__nav:focus,
 .sidebar__trigger:focus + .sidebar__nav,
 .sidebar__trigger:hover + .sidebar__nav {
-   left: 0;
+  left: 0;
 }
 
 .sidebar__nav ul {
-   position: absolute;
-   top: 4rem;
-   margin: 0;
-   padding: 0;
-   width: 15rem;
-}
-
-.sidebar__nav ul li {
-   width: 100%;
+  position: absolute;
+  top: 4rem;
+  margin: 0;
+  padding: 0;
+  width: 15rem;
 }
 
 .sidebar__nav-link {
-   cursor: pointer;
-   position: relative;
-   display: flex;
-   align-items: center;
-   width: 100%;
-   height: 4rem;
-   color: white;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: white;
 }
 
 .sidebar__nav-link em {
-   margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
-.sidebar__nav ul:hover .sidebar__nav-link{ 
-   opacity: 0.7;
+.sidebar__nav ul:hover .sidebar__nav-link {
+  opacity: 0.7;
 }
 
-.sidebar__nav ul:hover .sidebar__nav-link:hover{ 
-   opacity: 1;
+.sidebar__nav ul:hover .sidebar__nav-link:hover {
+  opacity: 1;
 }
-.sidebar__nav ul li a{ 
-   display: block;
+.sidebar__nav ul li a {
+  display: block;
 }
-
 
 .sidebar__nav-link > svg {
-   margin-left: .5rem;
-   width: 3rem;
-   height: 3rem;
+  margin-left: 0.5rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .sidebar__nav-link > svg::before {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Mobile First */
 @media (min-width: 42rem) {
-   .sidebar__layout {
-      max-width: 15rem;
-      width: auto;
-   }
-   .sidebar-layout__content {
-      margin-left: 4rem;
-   }
-   
-   /* Sidebar */
-   .sidebar__trigger {
-      width: 4rem;
-   }
+  .sidebar__layout {
+    max-width: 15rem;
+    width: auto;
+  }
+  .sidebar-layout__content {
+    margin-left: 4rem;
+  }
 
-   .sidebar__nav {
-      width: 4rem;
-      left: 0;
-   }
-    sidebar__nav-link > svg {
-      left: .5rem;
-   }
-   
-   .sidebar__nav:hover,
-   .sidebar__nav:focus,
-   .sidebar__trigger:hover + .sidebar__nav,
-   .sidebar__trigger:focus + .sidebar__nav {
-      width: 15rem;
-   }
+  /* Sidebar */
+  .sidebar__trigger {
+    width: 4rem;
+  }
+
+  .sidebar__nav {
+    width: 4rem;
+    left: 0;
+  }
+  sidebar__nav-link > svg {
+    left: 0.5rem;
+  }
+
+  .sidebar__nav:hover,
+  .sidebar__nav:focus,
+  .sidebar__trigger:hover + .sidebar__nav,
+  .sidebar__trigger:focus + .sidebar__nav {
+    width: 15rem;
+  }
 }
 
 @media (min-width: 68rem) {
-   .sidebar__layout {
-      width: 100%;
-   }
-   .sidebar-layout__content {
-      margin-left: 15rem;
-   }
-   
-   /* Sidebar */
-   .sidebar__trigger {
-      display: none
-   }
-   
-   .sidebar__nav {
-      width: 15rem;
-   }
-}
+  .sidebar__layout {
+    width: 100%;
+  }
+  .sidebar-layout__content {
+    margin-left: 15rem;
+  }
 
+  /* Sidebar */
+  .sidebar__trigger {
+    display: none;
+  }
+
+  .sidebar__nav {
+    width: 15rem;
+  }
+}
 </style>
 
