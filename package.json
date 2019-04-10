@@ -22,6 +22,8 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
-        "vue-router": "^3.0.2"
+        "jquery": "^3.3.1",
+        "vue-router": "^3.0.2",
+        "vue-seamless-scroll": "^1.1.16"
     }
 }

@@ -90,6 +90,7 @@ a {
 }
 .sidebar__nav {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: -15rem;
   overflow: hidden;

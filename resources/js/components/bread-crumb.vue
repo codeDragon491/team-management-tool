@@ -36,10 +36,17 @@ export default {
 </script>
 <style>
 .main-breadcrumbs .link {
-  font-weight: 500;
+  font-weight: bold;
   font-family: National-Book;
   font-size: 1rem;
   padding-right: 2rem;
+}
+.main-breadcrumbs .link:nth-of-type(2)::before,
+.link:nth-of-type(3)::before {
+  font-family: "Ionicons";
+  content: "\f3d1";
+  position: relative;
+  right: 1rem;
 }
 </style>
 

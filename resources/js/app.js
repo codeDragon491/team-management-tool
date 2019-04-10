@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -32,9 +31,9 @@ import App from './views/App';
 // Make sure to inject the router with the router option to make the
 // whole app router-aware.
 const app = new Vue({
-  el: "#app",
-  router : Routes,
-  render: h => h(App),
+    el: "#app",
+    router: Routes,
+    render: h => h(App),
 })
 
 export default app;
