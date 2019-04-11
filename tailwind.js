@@ -128,6 +128,7 @@ let colors = {
     'pink-lighter': '#ffbbca',
     'pink-lightest': '#ffebef',
 
+    'signifly-grey-light': '#e6f0f6',
     'signifly-grey-lightest': '#F7F8F9',
     'signifly-pink': '#ff6f8a'
 }

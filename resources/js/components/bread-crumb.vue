@@ -7,7 +7,7 @@
 	         <router-link class="link" v-if="secondLink" :to="this.$route.path + '/' + secondLink">{{prettify(secondLink)}}</router-link>
            <router-view></router-view>
         </ul>
-        <hr class="border-solid border-grey border-t">
+        <hr class="border-solid border-signifly-grey-light border-t">
         <h1 v-if="!secondLink" class="py-3">{{prettify(capitalize(firstLink))}}</h1>
         <h1 v-else class="py-3">{{prettify(capitalize(secondLink))}}</h1>
     </div>
