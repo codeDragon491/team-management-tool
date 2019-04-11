@@ -2090,7 +2090,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-group {\n  padding-bottom: 1.125rem;\n}\n.form-control {\n  display: block;\n  width: 50%;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.control-label {\n  font-size: 16px;\n  color: #12424d;\n  font-weight: 700;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.paddles .paddle {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 3em;\n}\n.paddles .left-paddle {\n  left: 0;\n}\n.paddles .right-paddle {\n  right: 0;\n}\n.paddles .hidden {\n  display: none;\n}\n.warp {\n  width: 100%;\n  height: 237px;\n  overflow: hidden;\n}\n.warp ul {\n  list-style: none;\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  max-width: 12rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.profileImage {\n  border-radius: 9999px;\n}\n", ""]);
+exports.push([module.i, ".form-group {\n  padding-bottom: 1.125rem;\n}\n.form-control {\n  display: block;\n  width: 50%;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.control-label {\n  font-size: 16px;\n  color: #12424d;\n  font-weight: 700;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.paddles .paddle {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 3em;\n}\n.paddles .left-paddle {\n  left: 0;\n}\n.paddles .right-paddle {\n  right: 0;\n}\n.paddles .hidden {\n  display: none;\n}\n.warp {\n  width: 100%;\n  height: 237px;\n  overflow: hidden;\n}\n.warp ul {\n  list-style: none;\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  max-width: 12rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n", ""]);
 
 // exports
 
@@ -33545,7 +33545,7 @@ var render = function() {
     [
       _c(
         "ul",
-        { staticClass: "main-breadcrumbs flex pl-6" },
+        { staticClass: "main-breadcrumbs flex pl-0" },
         [
           _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
             _vm._v("Home")

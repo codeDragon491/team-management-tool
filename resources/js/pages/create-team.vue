@@ -186,7 +186,4 @@ label {
   justify-content: space-between;
   font-size: 15px;
 }
-.profileImage {
-  border-radius: 9999px;
-}
 </style>

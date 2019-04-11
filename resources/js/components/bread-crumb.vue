@@ -1,6 +1,6 @@
 <template>
     <div class="bg-signifly-grey-lightest py-2 flex flex-col px-6">
-        <ul class="main-breadcrumbs flex pl-6">
+        <ul class="main-breadcrumbs flex pl-0">
 	         <router-link class="link" to="/">Home</router-link>
 	         <router-link class="link" :to="'/' + firstLink">{{prettify(firstLink)}}</router-link>
 	         <router-link class="link" v-if="secondLink" :to="this.$route.path + '/' + secondLink">{{prettify(secondLink)}}</router-link>
