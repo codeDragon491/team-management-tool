@@ -33572,7 +33572,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("hr", { staticClass: "border-solid border-grey border-t-2" }),
+      _c("hr", { staticClass: "border-solid border-grey border-t" }),
       _vm._v(" "),
       !_vm.secondLink
         ? _c("h1", { staticClass: "py-3" }, [
