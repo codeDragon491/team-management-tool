@@ -144,7 +144,6 @@ export default {
 }
 .control-label {
   font-size: 16px;
-  color: #12424d;
   font-weight: 700;
 }
 
