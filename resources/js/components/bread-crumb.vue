@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-signifly-grey-lightest py-2 flex flex-col px-6">
+<div class="hidden md:block">
+    <div class="bg-signifly-grey-lightest py-2 p-5 w-full">
         <ul class="main-breadcrumbs flex pl-0">
 	         <router-link class="link" to="/">Home</router-link>
 	         <router-link class="link" :to="'/' + firstLink">{{prettify(firstLink)}}</router-link>
@@ -10,6 +11,7 @@
         <h1 v-if="!secondLink" class="py-3">{{prettify(capitalize(firstLink))}}</h1>
         <h1 v-else class="py-3">{{prettify(capitalize(secondLink))}}</h1>
     </div>
+  </div>
 </template>
 <script>
 export default {

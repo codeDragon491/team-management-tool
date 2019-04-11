@@ -1,8 +1,8 @@
 <template>
-    <div class="w-full">
+    <div class="w-full xl:max-w-3xl">
        <bread-crumb first-link="project-teams" second-link="create-team" class="hidden md:flex"></bread-crumb>
-       <div class="main-content w-full text-center">
-            <div class="sub-content bg-signifly-grey-lightest m-5 p-5 flex flex-col">
+       <div class="main-content m-5 text-center">
+            <div class="sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col">
                 <div class="form-group flex flex-col items-start">
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
@@ -14,13 +14,14 @@
                         Consultants<span>*</span>
                     </label>
                     <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
+                      <!--<div class="disabled" style="position: absolute; margin: 75px 0px 0px -30px; transform: translate(-100%, -50%);"><span class="name" style="display: block; width: 30px; height: 40px; cursor: pointer; background-color: white; text-align: center; line-height: 40px;">&lt;</span></div>
+                      <div class="" style="position: absolute; margin: 75px 0px 0px 432px; transform: translateY(-50%);"><span class="name" style="display: block; width: 30px; height: 40px; cursor: pointer; background-color: white; text-align: center; line-height: 40px;">&gt;</span></div>-->
                     <ul>
                       <li v-for="item in listData">
-                      <div class="w-full">
+                      <div class="w-full p-2">
                         <img class="w-full rounded-full" :src="item.imageLink">
-                        <p v-text="item.fullName">
-                      </p>
-                      <p v-text="item.title"></p>
+                        <p v-text="item.fullName"></p>
+                        <p v-text="item.title"></p>
                       </div>
                       </li>
                     </ul>
@@ -63,48 +64,48 @@ export default {
         },
         {
           fullName: "Name",
+          imageLink:
+            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
+          imageLink:
+            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
+          imageLink:
+            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
+          imageLink:
+            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
+          imageLink:
+            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
+          imageLink:
+            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
@@ -116,7 +117,9 @@ export default {
     classOption: function() {
       return {
         limitMoveNum: 5,
-        direction: 3
+        direction: 3,
+        singleWidth: 134
+        //autoPlay: false
       };
     }
   }
@@ -170,9 +173,12 @@ label {
 }
 
 .warp {
-  width: 100%;
-  height: 237px;
+  max-width: 70rem;
+  height: 250px;
   overflow: hidden;
+  div:nth-of-type(3n) {
+    width: 220rem !important;
+  }
 }
 .warp ul {
   list-style: none;
@@ -180,7 +186,7 @@ label {
   display: flex;
 }
 .warp ul li {
-  max-width: 12rem;
+  width: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

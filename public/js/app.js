@@ -1776,6 +1776,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "bread-crumb",
   props: ["firstLink", "secondLink", "thirdLink"],
@@ -1915,6 +1917,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "create-team",
@@ -1934,41 +1937,37 @@ __webpack_require__.r(__webpack_exports__);
         bioLink: ""
       }, {
         fullName: "Name",
+        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
+        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
+        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
+        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
+        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
-        title: "Title",
-        contactInfo: "",
-        bioLink: ""
-      }, {
-        fullName: "Name",
-        title: "Title",
-        contactInfo: "",
-        bioLink: ""
-      }, {
-        fullName: "Name",
+        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
@@ -1979,7 +1978,9 @@ __webpack_require__.r(__webpack_exports__);
     classOption: function classOption() {
       return {
         limitMoveNum: 5,
-        direction: 3
+        direction: 3,
+        singleWidth: 134 //autoPlay: false
+
       };
     }
   }
@@ -2090,7 +2091,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-group {\n  padding-bottom: 1.125rem;\n}\n.form-control {\n  display: block;\n  width: 50%;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.control-label {\n  font-size: 16px;\n  color: #12424d;\n  font-weight: 700;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.paddles .paddle {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 3em;\n}\n.paddles .left-paddle {\n  left: 0;\n}\n.paddles .right-paddle {\n  right: 0;\n}\n.paddles .hidden {\n  display: none;\n}\n.warp {\n  width: 100%;\n  height: 237px;\n  overflow: hidden;\n}\n.warp ul {\n  list-style: none;\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  max-width: 12rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n", ""]);
+exports.push([module.i, ".form-group {\n  padding-bottom: 1.125rem;\n}\n.form-control {\n  display: block;\n  width: 50%;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.control-label {\n  font-size: 16px;\n  color: #12424d;\n  font-weight: 700;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.paddles .paddle {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 3em;\n}\n.paddles .left-paddle {\n  left: 0;\n}\n.paddles .right-paddle {\n  right: 0;\n}\n.paddles .hidden {\n  display: none;\n}\n.warp {\n  max-width: 70rem;\n  height: 250px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  list-style: none;\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  width: 10rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n", ""]);
 
 // exports
 
@@ -33539,10 +33540,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "bg-signifly-grey-lightest py-2 flex flex-col px-6" },
-    [
+  return _c("div", { staticClass: "hidden md:block" }, [
+    _c("div", { staticClass: "bg-signifly-grey-lightest py-2 p-5 w-full" }, [
       _c(
         "ul",
         { staticClass: "main-breadcrumbs flex pl-0" },
@@ -33582,8 +33581,8 @@ var render = function() {
         : _c("h1", { staticClass: "py-3" }, [
             _vm._v(_vm._s(_vm.prettify(_vm.capitalize(_vm.secondLink))))
           ])
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -33939,7 +33938,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-full" },
+    { staticClass: "w-full xl:max-w-3xl" },
     [
       _c("bread-crumb", {
         staticClass: "hidden md:flex",
@@ -33948,13 +33947,13 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "main-content w-full text-center" },
+        { staticClass: "main-content m-5 text-center" },
         [
           _c(
             "div",
             {
               staticClass:
-                "sub-content bg-signifly-grey-lightest m-5 p-5 flex flex-col"
+                "sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col"
             },
             [
               _vm._m(0),
@@ -33979,7 +33978,7 @@ var render = function() {
                         "ul",
                         _vm._l(_vm.listData, function(item) {
                           return _c("li", [
-                            _c("div", { staticClass: "w-full" }, [
+                            _c("div", { staticClass: "w-full p-2" }, [
                               _c("img", {
                                 staticClass: "w-full rounded-full",
                                 attrs: { src: item.imageLink }
@@ -34236,7 +34235,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "my-10" }, [
-      _vm._v("Create your own project team using drag and drop. "),
+      _vm._v("Create your own project team using... "),
       _c("br"),
       _vm._v("You can compose your team of members with diffferent background.")
     ])
