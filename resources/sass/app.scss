@@ -16,6 +16,10 @@
     line-height: 26px;
 }
 
+.hover\:.zoom {
+    transform: scale(1.5);
+}
+
 @tailwind utilities;
 body {
     line-height: 1.625rem;

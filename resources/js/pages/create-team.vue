@@ -13,7 +13,7 @@
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
-                    <team-members :listData="consultantsData"></team-members>
+                    <team-members :listData="consultantsData" @clicked="addToProjectTeam"></team-members>
                 </div>
             </div>   
             <router-link class="" to="/create-team">
@@ -31,6 +31,7 @@ export default {
   components: { BreadCrumb, TeamMembers },
   data() {
     return {
+      projectTeam: [],
       styleObject: {
         "background-image": "url(item.imageLink)"
       },
@@ -94,7 +95,13 @@ export default {
       ]
     };
   },
-  computed: {}
+  computed: {},
+  methods: {
+    addToProjectTeam: function(value) {
+      this.projectTeam.push(value);
+      console.log(this.projectTeam);
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -157,10 +164,14 @@ label {
   display: flex;
 }
 .warp ul li {
+  transition: transform 0.2s;
   width: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-size: 15px;
+}
+.warp ul li:hover {
+  transform: scale(1.1);
 }
 </style>
