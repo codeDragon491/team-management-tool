@@ -7,13 +7,25 @@
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
-	                <input type="text" name="title" id="id_title" required="" placeholder="Project team title" class="form-control" maxlength="128">
+	                <input type="text" name="title" id="id_title" placeholder="Project team title" class="form-control" maxlength="128">
                 </div>
                 <div class="form-group w-full flex flex-col">
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
                     <team-members :listData="consultantsData" @clicked="addToProjectTeam"></team-members>
+                </div>
+                <div class="form-group w-full flex flex-col">
+                    <label class="control-label mr-auto">
+                        Designers<span>*</span>
+                    </label>
+                    <team-members :listData="designersData" @clicked="addToProjectTeam"></team-members>
+                </div>
+                 <div class="form-group w-full flex flex-col">
+                    <label class="control-label mr-auto">
+                        Tech<span>*</span>
+                    </label>
+                    <team-members :listData="techData" @clicked="addToProjectTeam"></team-members>
                 </div>
             </div>   
             <router-link class="" to="/create-team">
@@ -38,56 +50,151 @@ export default {
       consultantsData: [
         {
           fullName: "Name",
-          imageLink:
-            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+          imageLink: "img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
-          imageLink:
-            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+          imageLink: "img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
-          imageLink:
-            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+          imageLink: "img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
-          imageLink:
-            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+          imageLink: "img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
-          imageLink:
-            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+          imageLink: "img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
-          imageLink:
-            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+          imageLink: "img/1545302645-mv-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
         },
         {
           fullName: "Name",
-          imageLink:
-            "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+          imageLink: "img/1545302645-mv-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        }
+      ],
+      designersData: [
+        {
+          fullName: "Name",
+          imageLink: "img/1545301854-as-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545301854-as-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545301854-as-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545301854-as-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545301854-as-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545301854-as-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545301854-as-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        }
+      ],
+      techData: [
+        {
+          fullName: "Name",
+          imageLink: "img/1545302775-th-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545302775-th-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545302775-th-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545302775-th-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545302775-th-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545302775-th-main.jpg",
+          title: "Title",
+          contactInfo: "",
+          bioLink: ""
+        },
+        {
+          fullName: "Name",
+          imageLink: "img/1545302775-th-main.jpg",
           title: "Title",
           contactInfo: "",
           bioLink: ""
@@ -97,8 +204,8 @@ export default {
   },
   computed: {},
   methods: {
-    addToProjectTeam: function(value) {
-      this.projectTeam.push(value);
+    addToProjectTeam: function(member) {
+      this.projectTeam.push(member);
       console.log(this.projectTeam);
     }
   }

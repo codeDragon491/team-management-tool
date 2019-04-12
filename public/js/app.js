@@ -1951,6 +1951,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1967,43 +1979,129 @@ __webpack_require__.r(__webpack_exports__);
       },
       consultantsData: [{
         fullName: "Name",
-        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+        imageLink: "img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
-        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+        imageLink: "img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
-        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+        imageLink: "img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
-        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+        imageLink: "img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
-        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+        imageLink: "img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
-        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+        imageLink: "img/1545302645-mv-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
       }, {
         fullName: "Name",
-        imageLink: "http://team-management-tool.test/img/1545302645-mv-main.jpg",
+        imageLink: "img/1545302645-mv-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }],
+      designersData: [{
+        fullName: "Name",
+        imageLink: "img/1545301854-as-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545301854-as-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545301854-as-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545301854-as-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545301854-as-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545301854-as-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545301854-as-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }],
+      techData: [{
+        fullName: "Name",
+        imageLink: "img/1545302775-th-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545302775-th-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545302775-th-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545302775-th-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545302775-th-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545302775-th-main.jpg",
+        title: "Title",
+        contactInfo: "",
+        bioLink: ""
+      }, {
+        fullName: "Name",
+        imageLink: "img/1545302775-th-main.jpg",
         title: "Title",
         contactInfo: "",
         bioLink: ""
@@ -2012,8 +2110,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {},
   methods: {
-    addToProjectTeam: function addToProjectTeam(value) {
-      this.projectTeam.push(value);
+    addToProjectTeam: function addToProjectTeam(member) {
+      this.projectTeam.push(member);
       console.log(this.projectTeam);
     }
   }
@@ -34067,6 +34165,34 @@ var render = function() {
                   })
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group w-full flex flex-col" },
+                [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("team-members", {
+                    attrs: { listData: _vm.designersData },
+                    on: { clicked: _vm.addToProjectTeam }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group w-full flex flex-col" },
+                [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("team-members", {
+                    attrs: { listData: _vm.techData },
+                    on: { clicked: _vm.addToProjectTeam }
+                  })
+                ],
+                1
               )
             ]
           ),
@@ -34106,7 +34232,6 @@ var staticRenderFns = [
           type: "text",
           name: "title",
           id: "id_title",
-          required: "",
           placeholder: "Project team title",
           maxlength: "128"
         }
@@ -34119,6 +34244,24 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "control-label mr-auto" }, [
       _vm._v("\n                        Consultants"),
+      _c("span", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label mr-auto" }, [
+      _vm._v("\n                        Designers"),
+      _c("span", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label mr-auto" }, [
+      _vm._v("\n                        Tech"),
       _c("span", [_vm._v("*")])
     ])
   }
