@@ -11,6 +11,11 @@
     color: white;
 }
 
+.description {
+    font-weight: 300;
+    line-height: 26px;
+}
+
 @tailwind utilities;
 body {
     line-height: 1.625rem;

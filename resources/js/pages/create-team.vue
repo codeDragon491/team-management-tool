@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full xl:max-w-3xl">
+    <div class="w-full xl:min-w-65">
        <bread-crumb first-link="project-teams" second-link="create-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
             <div class="sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col">
@@ -13,27 +13,7 @@
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
-                    <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
-                      <!--<div class="disabled" style="position: absolute; margin: 75px 0px 0px -30px; transform: translate(-100%, -50%);"><span class="name" style="display: block; width: 30px; height: 40px; cursor: pointer; background-color: white; text-align: center; line-height: 40px;">&lt;</span></div>
-                      <div class="" style="position: absolute; margin: 75px 0px 0px 432px; transform: translateY(-50%);"><span class="name" style="display: block; width: 30px; height: 40px; cursor: pointer; background-color: white; text-align: center; line-height: 40px;">&gt;</span></div>-->
-                    <ul>
-                      <li v-for="item in listData">
-                      <div class="w-full p-2">
-                        <img class="w-full rounded-full" :src="item.imageLink">
-                        <p v-text="item.fullName"></p>
-                        <p v-text="item.title"></p>
-                      </div>
-                      </li>
-                    </ul>
-                  </vue-seamless-scroll>
-                    	<!--<div class="paddles">
-                      <button class="left-paddle paddle hidden">
-                        <
-                      </button>
-                      <button class="right-paddle paddle">
-                        >
-                      </button>
-	                  </div>-->
+                    <team-members :listData="consultantsData"></team-members>
                 </div>
             </div>   
             <router-link class="" to="/create-team">
@@ -45,15 +25,16 @@
 </template>
 <script>
 import BreadCrumb from "../components/bread-crumb.vue";
+import TeamMembers from "../components/team-members.vue";
 export default {
   name: "create-team",
-  components: { BreadCrumb },
+  components: { BreadCrumb, TeamMembers },
   data() {
     return {
       styleObject: {
         "background-image": "url(item.imageLink)"
       },
-      listData: [
+      consultantsData: [
         {
           fullName: "Name",
           imageLink:
@@ -113,16 +94,7 @@ export default {
       ]
     };
   },
-  computed: {
-    classOption: function() {
-      return {
-        limitMoveNum: 5,
-        direction: 3,
-        singleWidth: 134
-        //autoPlay: false
-      };
-    }
-  }
+  computed: {}
 };
 </script>
 <style lang="scss">
