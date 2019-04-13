@@ -7,7 +7,7 @@
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
-	                <input type="text" name="title" id="id_title" placeholder="Project team title" class="form-control" maxlength="128">
+	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="form-control" maxlength="128">
                 </div>
                 <div class="form-group w-full flex flex-col">
                     <label class="control-label mr-auto">
@@ -27,11 +27,11 @@
                     </label>
                     <team-members :listData="techData" @clicked="addToProjectTeam"></team-members>
                 </div>
-            </div>   
-            <router-link class="" to="/create-team">
-            <button class="cta-button mt-5">SAVE TEAM</button>
+            </div>
+            <router-link to="/view-team">
+              <button @click="saveTeam" class="cta-button mt-5">SAVE TEAM</button>
             </router-link>
-             <router-view></router-view>   
+             <router-view></router-view>  
        </div>
     </div>
 </template>
@@ -43,6 +43,7 @@ export default {
   components: { BreadCrumb, TeamMembers },
   data() {
     return {
+      projectTitle: "",
       projectTeam: [],
       styleObject: {
         "background-image": "url(item.imageLink)"
@@ -207,6 +208,14 @@ export default {
     addToProjectTeam: function(member) {
       this.projectTeam.push(member);
       console.log(this.projectTeam);
+    },
+    saveTeam: function() {
+      let data = {
+        projectTitle: this.projectTitle,
+        projectTeam: this.projectTeam
+      };
+      console.log(data);
+      this.$emit("teamSaved", data);
     }
   }
 };

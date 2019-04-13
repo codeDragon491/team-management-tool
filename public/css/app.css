@@ -874,6 +874,10 @@ table {
   background-color: #ff6f8a;
 }
 
+.bg-signifly-red-light {
+  background-color: #ff2b53;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -1178,6 +1182,10 @@ table {
   background-color: #ff6f8a;
 }
 
+.hover\:bg-signifly-red-light:hover {
+  background-color: #ff2b53;
+}
+
 .focus\:bg-transparent:focus {
   background-color: transparent;
 }
@@ -1480,6 +1488,10 @@ table {
 
 .focus\:bg-signifly-pink:focus {
   background-color: #ff6f8a;
+}
+
+.focus\:bg-signifly-red-light:focus {
+  background-color: #ff2b53;
 }
 
 .bg-bottom {
@@ -1858,6 +1870,10 @@ table {
   border-color: #ff6f8a;
 }
 
+.border-signifly-red-light {
+  border-color: #ff2b53;
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -2162,6 +2178,10 @@ table {
   border-color: #ff6f8a;
 }
 
+.hover\:border-signifly-red-light:hover {
+  border-color: #ff2b53;
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -2464,6 +2484,10 @@ table {
 
 .focus\:border-signifly-pink:focus {
   border-color: #ff6f8a;
+}
+
+.focus\:border-signifly-red-light:focus {
+  border-color: #ff2b53;
 }
 
 .rounded-none {
@@ -5265,6 +5289,10 @@ table {
   color: #ff6f8a;
 }
 
+.text-signifly-red-light {
+  color: #ff2b53;
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -5569,6 +5597,10 @@ table {
   color: #ff6f8a;
 }
 
+.hover\:text-signifly-red-light:hover {
+  color: #ff2b53;
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -5871,6 +5903,10 @@ table {
 
 .focus\:text-signifly-pink:focus {
   color: #ff6f8a;
+}
+
+.focus\:text-signifly-red-light:focus {
+  color: #ff2b53;
 }
 
 .text-xs {
@@ -6624,6 +6660,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .sm\:bg-signifly-red-light {
+    background-color: #ff2b53;
+  }
+
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -6928,6 +6968,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .sm\:hover\:bg-signifly-red-light:hover {
+    background-color: #ff2b53;
+  }
+
   .sm\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -7230,6 +7274,10 @@ p {
 
   .sm\:focus\:bg-signifly-pink:focus {
     background-color: #ff6f8a;
+  }
+
+  .sm\:focus\:bg-signifly-red-light:focus {
+    background-color: #ff2b53;
   }
 
   .sm\:bg-bottom {
@@ -7600,6 +7648,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .sm\:border-signifly-red-light {
+    border-color: #ff2b53;
+  }
+
   .sm\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -7904,6 +7956,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .sm\:hover\:border-signifly-red-light:hover {
+    border-color: #ff2b53;
+  }
+
   .sm\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -8206,6 +8262,10 @@ p {
 
   .sm\:focus\:border-signifly-pink:focus {
     border-color: #ff6f8a;
+  }
+
+  .sm\:focus\:border-signifly-red-light:focus {
+    border-color: #ff2b53;
   }
 
   .sm\:rounded-none {
@@ -10991,6 +11051,10 @@ p {
     color: #ff6f8a;
   }
 
+  .sm\:text-signifly-red-light {
+    color: #ff2b53;
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -11295,6 +11359,10 @@ p {
     color: #ff6f8a;
   }
 
+  .sm\:hover\:text-signifly-red-light:hover {
+    color: #ff2b53;
+  }
+
   .sm\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -11597,6 +11665,10 @@ p {
 
   .sm\:focus\:text-signifly-pink:focus {
     color: #ff6f8a;
+  }
+
+  .sm\:focus\:text-signifly-red-light:focus {
+    color: #ff2b53;
   }
 
   .sm\:text-xs {
@@ -12338,6 +12410,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .md\:bg-signifly-red-light {
+    background-color: #ff2b53;
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -12642,6 +12718,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .md\:hover\:bg-signifly-red-light:hover {
+    background-color: #ff2b53;
+  }
+
   .md\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -12944,6 +13024,10 @@ p {
 
   .md\:focus\:bg-signifly-pink:focus {
     background-color: #ff6f8a;
+  }
+
+  .md\:focus\:bg-signifly-red-light:focus {
+    background-color: #ff2b53;
   }
 
   .md\:bg-bottom {
@@ -13314,6 +13398,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .md\:border-signifly-red-light {
+    border-color: #ff2b53;
+  }
+
   .md\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -13618,6 +13706,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .md\:hover\:border-signifly-red-light:hover {
+    border-color: #ff2b53;
+  }
+
   .md\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -13920,6 +14012,10 @@ p {
 
   .md\:focus\:border-signifly-pink:focus {
     border-color: #ff6f8a;
+  }
+
+  .md\:focus\:border-signifly-red-light:focus {
+    border-color: #ff2b53;
   }
 
   .md\:rounded-none {
@@ -16705,6 +16801,10 @@ p {
     color: #ff6f8a;
   }
 
+  .md\:text-signifly-red-light {
+    color: #ff2b53;
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -17009,6 +17109,10 @@ p {
     color: #ff6f8a;
   }
 
+  .md\:hover\:text-signifly-red-light:hover {
+    color: #ff2b53;
+  }
+
   .md\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -17311,6 +17415,10 @@ p {
 
   .md\:focus\:text-signifly-pink:focus {
     color: #ff6f8a;
+  }
+
+  .md\:focus\:text-signifly-red-light:focus {
+    color: #ff2b53;
   }
 
   .md\:text-xs {
@@ -18052,6 +18160,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .lg\:bg-signifly-red-light {
+    background-color: #ff2b53;
+  }
+
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -18356,6 +18468,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .lg\:hover\:bg-signifly-red-light:hover {
+    background-color: #ff2b53;
+  }
+
   .lg\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -18658,6 +18774,10 @@ p {
 
   .lg\:focus\:bg-signifly-pink:focus {
     background-color: #ff6f8a;
+  }
+
+  .lg\:focus\:bg-signifly-red-light:focus {
+    background-color: #ff2b53;
   }
 
   .lg\:bg-bottom {
@@ -19028,6 +19148,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .lg\:border-signifly-red-light {
+    border-color: #ff2b53;
+  }
+
   .lg\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -19332,6 +19456,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .lg\:hover\:border-signifly-red-light:hover {
+    border-color: #ff2b53;
+  }
+
   .lg\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -19634,6 +19762,10 @@ p {
 
   .lg\:focus\:border-signifly-pink:focus {
     border-color: #ff6f8a;
+  }
+
+  .lg\:focus\:border-signifly-red-light:focus {
+    border-color: #ff2b53;
   }
 
   .lg\:rounded-none {
@@ -22419,6 +22551,10 @@ p {
     color: #ff6f8a;
   }
 
+  .lg\:text-signifly-red-light {
+    color: #ff2b53;
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -22723,6 +22859,10 @@ p {
     color: #ff6f8a;
   }
 
+  .lg\:hover\:text-signifly-red-light:hover {
+    color: #ff2b53;
+  }
+
   .lg\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -23025,6 +23165,10 @@ p {
 
   .lg\:focus\:text-signifly-pink:focus {
     color: #ff6f8a;
+  }
+
+  .lg\:focus\:text-signifly-red-light:focus {
+    color: #ff2b53;
   }
 
   .lg\:text-xs {
@@ -23766,6 +23910,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .xl\:bg-signifly-red-light {
+    background-color: #ff2b53;
+  }
+
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -24070,6 +24218,10 @@ p {
     background-color: #ff6f8a;
   }
 
+  .xl\:hover\:bg-signifly-red-light:hover {
+    background-color: #ff2b53;
+  }
+
   .xl\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -24372,6 +24524,10 @@ p {
 
   .xl\:focus\:bg-signifly-pink:focus {
     background-color: #ff6f8a;
+  }
+
+  .xl\:focus\:bg-signifly-red-light:focus {
+    background-color: #ff2b53;
   }
 
   .xl\:bg-bottom {
@@ -24742,6 +24898,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .xl\:border-signifly-red-light {
+    border-color: #ff2b53;
+  }
+
   .xl\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -25046,6 +25206,10 @@ p {
     border-color: #ff6f8a;
   }
 
+  .xl\:hover\:border-signifly-red-light:hover {
+    border-color: #ff2b53;
+  }
+
   .xl\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -25348,6 +25512,10 @@ p {
 
   .xl\:focus\:border-signifly-pink:focus {
     border-color: #ff6f8a;
+  }
+
+  .xl\:focus\:border-signifly-red-light:focus {
+    border-color: #ff2b53;
   }
 
   .xl\:rounded-none {
@@ -28133,6 +28301,10 @@ p {
     color: #ff6f8a;
   }
 
+  .xl\:text-signifly-red-light {
+    color: #ff2b53;
+  }
+
   .xl\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -28437,6 +28609,10 @@ p {
     color: #ff6f8a;
   }
 
+  .xl\:hover\:text-signifly-red-light:hover {
+    color: #ff2b53;
+  }
+
   .xl\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -28739,6 +28915,10 @@ p {
 
   .xl\:focus\:text-signifly-pink:focus {
     color: #ff6f8a;
+  }
+
+  .xl\:focus\:text-signifly-red-light:focus {
+    color: #ff2b53;
   }
 
   .xl\:text-xs {

@@ -130,7 +130,8 @@ let colors = {
 
     'signifly-grey-light': '#e6f0f6',
     'signifly-grey-lightest': '#F7F8F9',
-    'signifly-pink': '#ff6f8a'
+    'signifly-pink': '#ff6f8a',
+    'signifly-red-light': '#ff2b53'
 }
 
 module.exports = {

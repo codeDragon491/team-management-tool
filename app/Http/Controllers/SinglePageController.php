@@ -9,4 +9,7 @@ class SinglePageController extends Controller
     public function index() {
         return view('app');
     }
+    public function display() {
+        return view('teamDisplay');
+    }
 }

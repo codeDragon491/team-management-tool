@@ -3,7 +3,7 @@
     <head>
         @include('shared._header')
 
-        <title>Team management tool | Signifly</title>
+        <title>Project Team | Signifly</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -15,7 +15,7 @@
 
     </head>
     <body>
-        <div id="app">
+        <div id="teamDisplay">
         </div>
     </body>
     <script type="text/javascript" src="{{ mix('js/app.js')}}"></script>
