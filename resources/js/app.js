@@ -8,6 +8,8 @@ import './bootstrap';
 
 import Vue from 'vue';
 import Routes from './routes.js'
+import store from './store/index.js'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -34,6 +36,7 @@ const app = new Vue({
     el: "#app",
     router: Routes,
     render: h => h(App),
+    store
 })
 
 export default app;

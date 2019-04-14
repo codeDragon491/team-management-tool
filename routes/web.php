@@ -18,3 +18,5 @@
 Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
 
 //Route::get('/view-team', 'SinglePageController@display');
+
+Route::post('/create-project-team', 'SinglePageController@createProjectTeam');

@@ -207,15 +207,17 @@ export default {
   methods: {
     addToProjectTeam: function(member) {
       this.projectTeam.push(member);
-      console.log(this.projectTeam);
+      //console.log(this.projectTeam);
     },
     saveTeam: function() {
       let data = {
         projectTitle: this.projectTitle,
         projectTeam: this.projectTeam
       };
-      console.log(data);
+      //console.log(data);
       this.$emit("teamSaved", data);
+      this.$store.dispatch("ADD_PROJECT_TITLE", data.projectTitle);
+      console.log(this.$store.state.projectTitle);
     }
   }
 };

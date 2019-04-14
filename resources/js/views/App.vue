@@ -9,6 +9,7 @@
 <script>
 import SideBar from "../components/side-bar.vue";
 import HeaderBar from "../components/header-bar.vue";
+
 export default {
   name: "App",
   components: { SideBar, HeaderBar },
@@ -18,7 +19,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.path);
+    //console.log(this.$route.path);
   }
 };
 </script>

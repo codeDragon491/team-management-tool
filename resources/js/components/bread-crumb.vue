@@ -4,7 +4,7 @@
         <ul class="main-breadcrumbs flex pl-0">
 	         <router-link class="link" to="/">Home</router-link>
 	         <router-link class="link" :to="'/' + firstLink">{{prettify(firstLink)}}</router-link>
-	         <router-link class="link" v-if="secondLink" :to="this.$route.path + '/' + secondLink">{{prettify(secondLink)}}</router-link>
+	         <router-link class="link" v-if="secondLink" :to="this.$route.path">{{prettify(secondLink)}}</router-link>
            <router-view></router-view>
         </ul>
         <hr class="border-solid border-signifly-grey-light border-t">
@@ -18,7 +18,7 @@ export default {
   name: "bread-crumb",
   props: ["firstLink", "secondLink", "thirdLink"],
   mounted() {
-    console.log(this.$route);
+    //console.log(this.$route);
   },
   computed: {},
   methods: {
