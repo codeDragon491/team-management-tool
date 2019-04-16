@@ -3,6 +3,14 @@
        <bread-crumb first-link="project-teams" second-link="create-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
             <div class="sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col">
+              <div class="form-group flex flex-col items-start">
+                <p class="text-left text-red" v-if="errors.length">
+                  <b>Please correct the following error(s):</b>
+                  <ul class="p-0">
+                    <li v-for="error in errors">{{ error }}</li>
+                  </ul>
+                </p>
+               </div>
                 <div class="form-group flex flex-col items-start">
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
@@ -45,23 +53,39 @@ export default {
   },
   data() {
     return {
-      projectTitle: "",
+      errors: [],
+      projectTitle: null,
       projectTeamEmails: [],
+      consultantsData: [],
+      designersData: [],
+      techData: [],
       styleObject: {
         "background-image": "url(item.imageLink)"
       },
-      consultantsData: [],
-      designersData: [],
-      techData: []
     };
   },
   computed: {},
   methods: {
+
+    checkForm: function () {
+      if (this.projectTitle &&  this.projectTeamEmails.length > 4) {
+        return true;
+      }
+      
+      this.errors = [];
+
+      if (!this.projectTitle) {
+        this.errors.push('Project team title required.');
+      }
+      if (this.projectTeamEmails.length < 4 ) {
+        this.errors.push('At least four teammember must be selected.');
+    } },
     addToProjectTeam: function(email) {
       this.projectTeamEmails.push(email);
       console.log(this.projectTeamEmails);
     },
     saveTeam: function() {
+    if (this.checkForm()) {
       let data = {
         projectTitle: this.projectTitle,
         projectTeamEmails: this.projectTeamEmails
@@ -82,6 +106,7 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
+      }
     },
     filterTeamMembersData: function() {
       let teamMembers = window.data.teamMembers;

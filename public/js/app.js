@@ -2338,7 +2338,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2349,7 +2348,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      hidden: false,
       projectTitle: JSON.parse(localStorage.getItem('projectRequest')).project_title
     };
   },
@@ -2364,7 +2362,6 @@ __webpack_require__.r(__webpack_exports__);
       $("body").mousestop(function (event) {
         Object(timers__WEBPACK_IMPORTED_MODULE_2__["setTimeout"])(function () {
           $(".header-menu").css("top", "-80px");
-          this.hidden = true;
         }, 10000);
       });
     }
@@ -2538,6 +2535,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2553,43 +2558,61 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      projectTitle: "",
+      errors: [],
+      projectTitle: null,
       projectTeamEmails: [],
-      styleObject: {
-        "background-image": "url(item.imageLink)"
-      },
       consultantsData: [],
       designersData: [],
-      techData: []
+      techData: [],
+      styleObject: {
+        "background-image": "url(item.imageLink)"
+      }
     };
   },
   computed: {},
   methods: {
+    checkForm: function checkForm() {
+      if (this.projectTitle && this.projectTeamEmails.length > 4) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.projectTitle) {
+        this.errors.push('Project team title required.');
+      }
+
+      if (this.projectTeamEmails.length < 4) {
+        this.errors.push('At least four teammember must be selected.');
+      }
+    },
     addToProjectTeam: function addToProjectTeam(email) {
       this.projectTeamEmails.push(email);
       console.log(this.projectTeamEmails);
     },
     saveTeam: function saveTeam() {
-      var data = {
-        projectTitle: this.projectTitle,
-        projectTeamEmails: this.projectTeamEmails
-      }; // Send a POST request
+      if (this.checkForm()) {
+        var data = {
+          projectTitle: this.projectTitle,
+          projectTeamEmails: this.projectTeamEmails
+        }; // Send a POST request
 
-      axios({
-        method: "post",
-        url: "/create-project-team",
-        data: data
-      }).then(function (response) {
-        var projectRequestId = response.data.projectRequest.id; //console.log(projectRequestId)
+        axios({
+          method: "post",
+          url: "/create-project-team",
+          data: data
+        }).then(function (response) {
+          var projectRequestId = response.data.projectRequest.id; //console.log(projectRequestId)
 
-        _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push({
-          path: "/view-project-team/".concat(projectRequestId)
+          _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push({
+            path: "/view-project-team/".concat(projectRequestId)
+          });
+          localStorage.setItem('projectRequest', JSON.stringify(response.data.projectRequest));
+          localStorage.setItem('projectTeam', JSON.stringify(response.data.projectTeam));
+        })["catch"](function (error) {
+          console.log(error);
         });
-        localStorage.setItem('projectRequest', JSON.stringify(response.data.projectRequest));
-        localStorage.setItem('projectTeam', JSON.stringify(response.data.projectTeam));
-      })["catch"](function (error) {
-        console.log(error);
-      });
+      }
     },
     filterTeamMembersData: function filterTeamMembersData() {
       var teamMembers = window.data.teamMembers;
@@ -55647,8 +55670,6 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm.hidden ? _c("div", { staticClass: "py-10" }) : _vm._e(),
-        _vm._v(" "),
         _c("logo", { staticClass: "header-menu-logo" }),
         _vm._v(" "),
         _c("h1", { staticClass: "header-title" }, [
@@ -56091,6 +56112,23 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "form-group flex flex-col items-start" }, [
+              _vm.errors.length
+                ? _c("p", { staticClass: "text-left text-red" }, [
+                    _c("b", [_vm._v("Please correct the following error(s):")]),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "p-0" },
+                      _vm._l(_vm.errors, function(error) {
+                        return _c("li", [_vm._v(_vm._s(error))])
+                      }),
+                      0
+                    )
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group flex flex-col items-start" }, [
               _vm._m(0),
               _vm._v(" "),
               _c("input", {
@@ -56426,7 +56464,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-full bg-signifly-red-light" }, [
+  return _c("div", { staticClass: "w-full bg-white" }, [
     _c("div", { staticClass: "mx-5" }, [
       _c(
         "ul",
@@ -56442,15 +56480,21 @@ var render = function() {
                   attrs: { src: teammember.picture }
                 }),
                 _vm._v(" "),
-                _c("p", { domProps: { textContent: _vm._s(teammember.name) } }),
+                _c("p", {
+                  staticClass: "text-black",
+                  domProps: { textContent: _vm._s(teammember.name) }
+                }),
                 _vm._v(" "),
                 _c("p", {
+                  staticClass: "text-black",
                   domProps: { textContent: _vm._s(teammember.title) }
                 }),
                 _vm._v(" "),
-                _c("router-link", { attrs: { to: "" } }, [
-                  _vm._v("Bio & Details")
-                ])
+                _c(
+                  "router-link",
+                  { staticClass: "text-black", attrs: { to: "" } },
+                  [_vm._v("Bio & Details")]
+                )
               ],
               1
             )

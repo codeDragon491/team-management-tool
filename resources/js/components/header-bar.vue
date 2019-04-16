@@ -16,7 +16,6 @@
                 </div>
                 <router-view></router-view>
             </div>
-            <div v-if="hidden" class="py-10"></div>
             <logo class="header-menu-logo"></logo>
             <h1 class="header-title">{{projectTitle}}</h1>
         </div>
@@ -31,7 +30,6 @@ export default {
   components: { Logo },
   data() {
     return {
-      hidden: false,
       projectTitle: JSON.parse(localStorage.getItem('projectRequest')).project_title   
     };
   },
@@ -47,7 +45,6 @@ export default {
       $("body").mousestop(function(event) {
         setTimeout(function() {
           $(".header-menu").css("top", "-80px");
-          this.hidden = true;
         }, 10000);
       });
     }
