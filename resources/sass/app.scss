@@ -3,6 +3,22 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 // Variables
 @import 'variables';
+body {
+    line-height: 1.625rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+    font-family: "Curse Casual JVE";
+}
+
+p {
+    font-family: National-Book;
+}
+
+ul {
+    list-style: none;
+}
 @tailwind components;
 .cta-button {
     background-color: $signifly-pink;
@@ -21,15 +37,3 @@
 }
 
 @tailwind utilities;
-body {
-    line-height: 1.625rem;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-h1 {
-    font-family: "Curse Casual JVE";
-}
-
-p {
-    font-family: National-Book;
-}

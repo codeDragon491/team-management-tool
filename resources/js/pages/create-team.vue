@@ -73,10 +73,11 @@ export default {
         data: data
       })
         .then(function(response) { 
-          let projectRequestId = response.data.projectRequestId;
+          let projectRequestId = response.data.projectRequest.id;
           //console.log(projectRequestId)
           Router.push({ path: `/view-project-team/${projectRequestId}` });
-          window.data.projectTeam = response.data.projectTeam;
+          localStorage.setItem( 'projectRequest', JSON.stringify(response.data.projectRequest));
+          localStorage.setItem( 'projectTeam', JSON.stringify(response.data.projectTeam));
         })
         .catch(function(error) {
           console.log(error);
@@ -152,7 +153,6 @@ label {
   }
 }
 .warp ul {
-  list-style: none;
   padding: 0;
   display: flex;
 }

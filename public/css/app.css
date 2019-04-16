@@ -502,6 +502,23 @@ table {
   border-collapse: collapse;
 }
 
+body {
+  line-height: 1.625rem;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  font-family: "Curse Casual JVE";
+}
+
+p {
+  font-family: National-Book;
+}
+
+ul {
+  list-style: none;
+}
+
 .container {
   width: 100%;
 }
@@ -6317,19 +6334,6 @@ table {
 
 .z-auto {
   z-index: auto;
-}
-
-body {
-  line-height: 1.625rem;
-  font-family: "Source Sans Pro", sans-serif;
-}
-
-h1 {
-  font-family: "Curse Casual JVE";
-}
-
-p {
-  font-family: National-Book;
 }
 
 @media (min-width: 576px) {

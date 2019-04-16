@@ -21,7 +21,7 @@ export default {
   },
   mounted() {
     //console.log(this.$route.path);
-    console.log(this.teamMembers);
+    //console.log(this.teamMembers);
   }
 };
 </script>

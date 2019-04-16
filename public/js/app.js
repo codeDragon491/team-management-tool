@@ -2338,6 +2338,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2347,10 +2348,13 @@ __webpack_require__.r(__webpack_exports__);
     Logo: _components_logo_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      hidden: false,
+      projectTitle: JSON.parse(localStorage.getItem('projectRequest')).project_title
+    };
   },
   mounted: function mounted() {
-    this.displayHeaderMenu();
+    this.displayHeaderMenu(); //console.log(JSON.parse(localStorage.getItem('projectRequest')).project_title)
   },
   methods: {
     displayHeaderMenu: function displayHeaderMenu() {
@@ -2360,6 +2364,7 @@ __webpack_require__.r(__webpack_exports__);
       $("body").mousestop(function (event) {
         Object(timers__WEBPACK_IMPORTED_MODULE_2__["setTimeout"])(function () {
           $(".header-menu").css("top", "-80px");
+          this.hidden = true;
         }, 10000);
       });
     }
@@ -2575,12 +2580,13 @@ __webpack_require__.r(__webpack_exports__);
         url: "/create-project-team",
         data: data
       }).then(function (response) {
-        var projectRequestId = response.data.projectRequestId; //console.log(projectRequestId)
+        var projectRequestId = response.data.projectRequest.id; //console.log(projectRequestId)
 
         _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push({
           path: "/view-project-team/".concat(projectRequestId)
         });
-        window.data.projectTeam = response.data.projectTeam;
+        localStorage.setItem('projectRequest', JSON.stringify(response.data.projectRequest));
+        localStorage.setItem('projectTeam', JSON.stringify(response.data.projectTeam));
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2676,9 +2682,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "view-project-team",
-  components: {}
+  components: {},
+  data: function data() {
+    return {
+      headerBar: document.getElementsByClassName(".header-menu"),
+      projectTeamData: JSON.parse(localStorage.getItem('projectTeam'))
+    };
+  },
+  mounted: function mounted() {},
+  computed: {}
 });
 
 /***/ }),
@@ -2716,9 +2742,8 @@ __webpack_require__.r(__webpack_exports__);
       displayHeaderMenu: false
     };
   },
-  mounted: function mounted() {
-    //console.log(this.$route.path);
-    console.log(this.teamMembers);
+  mounted: function mounted() {//console.log(this.$route.path);
+    //console.log(this.teamMembers);
   }
 });
 
@@ -7986,7 +8011,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-group {\n  padding-bottom: 1.125rem;\n}\n.form-control {\n  display: block;\n  width: 50%;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.paddles .paddle {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 3em;\n}\n.paddles .left-paddle {\n  left: 0;\n}\n.paddles .right-paddle {\n  right: 0;\n}\n.paddles .hidden {\n  display: none;\n}\n.warp {\n  max-width: 70rem;\n  height: 250px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  list-style: none;\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  transition: -webkit-transform .2s;\n  transition: transform .2s;\n  transition: transform .2s, -webkit-transform .2s;\n  width: 10rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.warp ul li:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".form-group {\n  padding-bottom: 1.125rem;\n}\n.form-control {\n  display: block;\n  width: 50%;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.paddles .paddle {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 3em;\n}\n.paddles .left-paddle {\n  left: 0;\n}\n.paddles .right-paddle {\n  right: 0;\n}\n.paddles .hidden {\n  display: none;\n}\n.warp {\n  max-width: 70rem;\n  height: 250px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  transition: -webkit-transform .2s;\n  transition: transform .2s;\n  transition: transform .2s, -webkit-transform .2s;\n  width: 10rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.warp ul li:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -55556,7 +55581,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "header-button",
-                    attrs: { tag: "li", to: "project-teams/create-team" }
+                    attrs: { tag: "li", to: "/project-teams/create-team" }
                   },
                   [
                     _c(
@@ -55622,10 +55647,12 @@ var render = function() {
           1
         ),
         _vm._v(" "),
+        _vm.hidden ? _c("div", { staticClass: "py-10" }) : _vm._e(),
+        _vm._v(" "),
         _c("logo", { staticClass: "header-menu-logo" }),
         _vm._v(" "),
         _c("h1", { staticClass: "header-title" }, [
-          _vm._v(_vm._s(this.$store.projectTitle))
+          _vm._v(_vm._s(_vm.projectTitle))
         ])
       ],
       1
@@ -56399,7 +56426,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-full bg-signifly-red-light" })
+  return _c("div", { staticClass: "w-full bg-signifly-red-light" }, [
+    _c("div", { staticClass: "mx-5" }, [
+      _c(
+        "ul",
+        { staticClass: "w-full flex flex-wrap justify-center p-0" },
+        _vm._l(_vm.projectTeamData, function(teammember) {
+          return _c("li", { staticClass: "hover:cursor-pointer" }, [
+            _c(
+              "div",
+              { staticClass: "w-full px-2 py-10" },
+              [
+                _c("img", {
+                  staticClass: "w-full rounded-sm",
+                  attrs: { src: teammember.picture }
+                }),
+                _vm._v(" "),
+                _c("p", { domProps: { textContent: _vm._s(teammember.name) } }),
+                _vm._v(" "),
+                _c("p", {
+                  domProps: { textContent: _vm._s(teammember.title) }
+                }),
+                _vm._v(" "),
+                _c("router-link", { attrs: { to: "" } }, [
+                  _vm._v("Bio & Details")
+                ])
+              ],
+              1
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

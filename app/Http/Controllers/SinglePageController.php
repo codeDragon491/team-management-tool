@@ -21,9 +21,9 @@ class SinglePageController extends Controller
         return view('app', compact('teamMembers'));
     }
 
-    public function viewProjectTeam($projectRequestId) { 
+    /*public function viewProjectTeam($projectRequestId) { 
         return view('view-project-team');
-    }
+    }*/
 
             public function createProjectTeam(Request $request){
                 try {
@@ -33,11 +33,12 @@ class SinglePageController extends Controller
                     ->update([
                         'project_request_id' => $projectRequest->id 
                     ]);
-                    $projectTeam = TeamMember::get();
+
+                    $projectTeam = TeamMember::where('project_request_id', $projectRequest->id)->get();
 
                 return response()->json( [
                     'success'=> true,
-                    'projectRequestId' => $projectRequest->id,
+                    'projectRequest' => $projectRequest,
                     'projectTeam' => $projectTeam
                 ]);
 
