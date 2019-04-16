@@ -2582,8 +2582,8 @@ __webpack_require__.r(__webpack_exports__);
         this.errors.push('Project team title required.');
       }
 
-      if (this.projectTeamEmails.length < 4) {
-        this.errors.push('At least four teammember must be selected.');
+      if (this.projectTeamEmails.type == "consultant" && this.projectTeamEmails.length < 1) {
+        this.errors.push('At least one consultant must be selected.');
       }
     },
     addToProjectTeam: function addToProjectTeam(email) {
