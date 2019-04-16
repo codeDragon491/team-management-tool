@@ -3804,8 +3804,8 @@ table {
   min-width: 0;
 }
 
-.min-w-65 {
-  min-width: 65rem;
+.min-w-50 {
+  min-width: 50rem;
 }
 
 .min-w-full {
@@ -9582,8 +9582,8 @@ p {
     min-width: 0;
   }
 
-  .sm\:min-w-65 {
-    min-width: 65rem;
+  .sm\:min-w-50 {
+    min-width: 50rem;
   }
 
   .sm\:min-w-full {
@@ -15332,8 +15332,8 @@ p {
     min-width: 0;
   }
 
-  .md\:min-w-65 {
-    min-width: 65rem;
+  .md\:min-w-50 {
+    min-width: 50rem;
   }
 
   .md\:min-w-full {
@@ -21082,8 +21082,8 @@ p {
     min-width: 0;
   }
 
-  .lg\:min-w-65 {
-    min-width: 65rem;
+  .lg\:min-w-50 {
+    min-width: 50rem;
   }
 
   .lg\:min-w-full {
@@ -26832,8 +26832,8 @@ p {
     min-width: 0;
   }
 
-  .xl\:min-w-65 {
-    min-width: 65rem;
+  .xl\:min-w-50 {
+    min-width: 50rem;
   }
 
   .xl\:min-w-full {

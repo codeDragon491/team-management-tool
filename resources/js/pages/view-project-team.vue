@@ -4,7 +4,7 @@
 </template>
 <script>
 export default {
-  name: "view-team",
+  name: "view-project-team",
   components: {}
 };
 </script>

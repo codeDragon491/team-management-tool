@@ -18,5 +18,6 @@
         <div id="app">
         </div>
     </body>
+    <script>window.data = @json(compact('teamMembers'))</script>
     <script type="text/javascript" src="{{ mix('js/app.js')}}"></script>
 </html>

@@ -1,6 +1,6 @@
 <template>
     <div v-on:mousemove="displayHeaderMenu == true" class="md:flex main__layout">
-        <side-bar v-if="this.$route.path !== '/view-team'"></side-bar>
+        <side-bar v-if="!this.$route.path.includes('/view-project-team')"></side-bar>
         <header-bar v-else :displayHeaderMenu="displayHeaderMenu"></header-bar>
         <router-view></router-view>
     </div>
@@ -13,6 +13,7 @@ import HeaderBar from "../components/header-bar.vue";
 export default {
   name: "App",
   components: { SideBar, HeaderBar },
+  props: ["teamMembers"],
   data() {
     return {
       displayHeaderMenu: false
@@ -20,6 +21,7 @@ export default {
   },
   mounted() {
     //console.log(this.$route.path);
+    console.log(this.teamMembers);
   }
 };
 </script>

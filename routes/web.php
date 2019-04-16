@@ -15,8 +15,10 @@
     return view('welcome');
 });*/
 
-Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
+Route::get('/', 'SinglePageController@index');
 
-//Route::get('/view-team', 'SinglePageController@display');
+Route::get('/view-project-team/{project_request_id}', 'SinglePageController@viewProjectTeam')->name('view.project.team');
 
 Route::post('/create-project-team', 'SinglePageController@createProjectTeam');
+
+//Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');

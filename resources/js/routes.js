@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 import ProjectRequests from './pages/project-requests.vue';
 import ProjectTeams from './pages/project-teams.vue';
 import CreateTeam from './pages/create-team.vue';
-import ViewTeam from './pages/view-team.vue';
+import ViewProjectTeam from './pages/view-project-team.vue';
 
 // 2. Define some routes
 // Each route should map to a component. The "component" can
@@ -19,7 +19,7 @@ const routes = [
         { path: '/project-requests', component: ProjectRequests },
         { path: '/project-teams', component: ProjectTeams },
         { path: '/project-teams/create-team', component: CreateTeam },
-        { path: '/view-team', component: ViewTeam }
+        { path: '/view-project-team/:id', component: ViewProjectTeam }
     ]
     // 3. Create the router instance and pass the `routes` option
     // You can pass in additional options here, but let's

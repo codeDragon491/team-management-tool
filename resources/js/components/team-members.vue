@@ -3,10 +3,10 @@
                       <!--<div class="disabled" style="position: absolute; margin: 75px 0px 0px -30px; transform: translate(-100%, -50%);"><span class="name" style="display: block; width: 30px; height: 40px; cursor: pointer; background-color: white; text-align: center; line-height: 40px;">&lt;</span></div>
                       <div class="" style="position: absolute; margin: 75px 0px 0px 432px; transform: translateY(-50%);"><span class="name" style="display: block; width: 30px; height: 40px; cursor: pointer; background-color: white; text-align: center; line-height: 40px;">&gt;</span></div>-->
                     <ul>
-                      <li class="hover:cursor-pointer" v-for="item in listData" @click.prevent="$emit('clicked', item.fullName)">
+                      <li class="hover:cursor-pointer" v-for="item in listData" @click.prevent="$emit('clicked', item.email)">
                       <div class="w-full p-4">
-                        <img class="w-full rounded-full" :src="item.imageLink">
-                        <p v-text="item.fullName"></p>
+                        <img class="w-full rounded-full" :src="item.picture">
+                        <p v-text="item.name"></p>
                         <p v-text="item.title"></p>
                       </div>
                       </li>
@@ -33,10 +33,10 @@ export default {
         //singleWidth: 134
         //autoPlay: false
       };
-    },
-    checked() {
-      return this.item.fullName === this.selected;
     }
+    /*checked() {
+      return this.item.email === this.selected;
+    }*/
   }
 };
 </script>

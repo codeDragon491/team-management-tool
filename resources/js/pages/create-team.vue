@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full xl:min-w-65">
+    <div class="w-full lg:min-w-50">
        <bread-crumb first-link="project-teams" second-link="create-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
             <div class="sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col">
@@ -28,196 +28,71 @@
                     <team-members :listData="techData" @clicked="addToProjectTeam"></team-members>
                 </div>
             </div>
-            <router-link to="/view-team">
               <button @click="saveTeam" class="cta-button mt-5">SAVE TEAM</button>
-            </router-link>
-             <router-view></router-view>  
        </div>
     </div>
 </template>
 <script>
 import BreadCrumb from "../components/bread-crumb.vue";
 import TeamMembers from "../components/team-members.vue";
+import Router from '../routes';
+import { json } from "body-parser";
 export default {
   name: "create-team",
   components: { BreadCrumb, TeamMembers },
+  mounted() {
+    this.filterTeamMembersData();
+  },
   data() {
     return {
       projectTitle: "",
-      projectTeam: [],
+      projectTeamEmails: [],
       styleObject: {
         "background-image": "url(item.imageLink)"
       },
-      consultantsData: [
-        {
-          fullName: "Name",
-          imageLink: "img/1545302645-mv-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302645-mv-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302645-mv-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302645-mv-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302645-mv-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302645-mv-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302645-mv-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        }
-      ],
-      designersData: [
-        {
-          fullName: "Name",
-          imageLink: "img/1545301854-as-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545301854-as-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545301854-as-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545301854-as-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545301854-as-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545301854-as-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545301854-as-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        }
-      ],
-      techData: [
-        {
-          fullName: "Name",
-          imageLink: "img/1545302775-th-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302775-th-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302775-th-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302775-th-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302775-th-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302775-th-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        },
-        {
-          fullName: "Name",
-          imageLink: "img/1545302775-th-main.jpg",
-          title: "Title",
-          contactInfo: "",
-          bioLink: ""
-        }
-      ]
+      consultantsData: [],
+      designersData: [],
+      techData: []
     };
   },
   computed: {},
   methods: {
-    addToProjectTeam: function(member) {
-      this.projectTeam.push(member);
-      //console.log(this.projectTeam);
+    addToProjectTeam: function(email) {
+      this.projectTeamEmails.push(email);
+      console.log(this.projectTeamEmails);
     },
     saveTeam: function() {
       let data = {
         projectTitle: this.projectTitle,
-        projectTeam: this.projectTeam
+        projectTeamEmails: this.projectTeamEmails
       };
-      //console.log(data);
-      this.$emit("teamSaved", data);
-      this.$store.dispatch("ADD_PROJECT_TITLE", data.projectTitle);
-      console.log(this.$store.state.projectTitle);
+      // Send a POST request
+      axios({
+        method: "post",
+        url: "/create-project-team",
+        data: data
+      })
+        .then(function(response) { 
+          let projectRequestId = response.data.projectRequestId;
+          //console.log(projectRequestId)
+          Router.push({ path: `/view-project-team/${projectRequestId}` });
+          window.data.projectTeam = response.data.projectTeam;
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    filterTeamMembersData: function() {
+      let teamMembers = window.data.teamMembers;
+      this.consultantsData = teamMembers.filter(
+        teamMember => teamMember.type === "consultant"
+      );
+      this.designersData = teamMembers.filter(
+        teamMember => teamMember.type === "designer"
+      );
+      this.techData = teamMembers.filter(
+        teamMember => teamMember.type === "tech"
+      );
     }
   }
 };
