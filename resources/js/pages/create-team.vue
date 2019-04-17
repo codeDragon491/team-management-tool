@@ -77,11 +77,34 @@ export default {
       if (!this.projectTitle) {
         this.errors.push('Project team title required.');
       }
-      if (this.projectTeamEmails.type == "consultant" && this.projectTeamEmails.length < 1 ) {
+      if (this.projectTeamEmails.filter(
+        teamMember => teamMember.type === "consultant" ).length < 1 ) {
         this.errors.push('At least one consultant must be selected.');
-    } },
-    addToProjectTeam: function(email) {
-      this.projectTeamEmails.push(email);
+      }
+      if (this.projectTeamEmails.filter(
+        teamMember => teamMember.type === "consultant" ).length > 1 ) {
+        this.errors.push('You cannot select more then one consultant.');
+      }
+      if (this.projectTeamEmails.filter(
+        teamMember => teamMember.type === "designer" ).length < 1 ) {
+        this.errors.push('At least one designer must be selected.');
+      }
+      if (this.projectTeamEmails.filter(
+        teamMember => teamMember.type === "designer" ).length > 1 ) {
+        this.errors.push('You cannot select more then one designer.');
+      }
+      if (this.projectTeamEmails.filter(
+        teamMember => teamMember.type === "tech" ).length < 1 ) {
+        this.errors.push('At least one techie must be selected.');
+      }
+      if (this.projectTeamEmails.filter(
+        teamMember => teamMember.type === "tech" ).length > 1 ) {
+        this.errors.push('You cannot select more then one techie.');
+      }
+    
+    },
+    addToProjectTeam: function(email, type) {
+      this.projectTeamEmails.push({email, type});
       console.log(this.projectTeamEmails);
     },
     saveTeam: function() {
