@@ -11,10 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 //Route::get('/', 'SinglePageController@index');
 
 //Route::get('/view-project-team/{project_request_id}', 'SinglePageController@viewProjectTeam')->name('view.project.team');

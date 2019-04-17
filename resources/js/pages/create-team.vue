@@ -21,19 +21,19 @@
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
-                    <team-members :listData="consultantsData" @clicked="toggleToProjectTeam"></team-members>
+                    <team-members :projectTeam="projectTeam" :listData="consultantsData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
                 <div class="form-group w-full flex flex-col">
                     <label class="control-label mr-auto">
                         Designers<span>*</span>
                     </label>
-                    <team-members :listData="designersData" @clicked="toggleToProjectTeam"></team-members>
+                    <team-members :projectTeam="projectTeam" :listData="designersData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
                  <div class="form-group w-full flex flex-col">
                     <label class="control-label mr-auto">
                         Tech<span>*</span>
                     </label>
-                    <team-members :listData="techData" @clicked="toggleToProjectTeam"></team-members>
+                    <team-members :projectTeam="projectTeam" :listData="techData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
             </div>
               <button @click="saveTeam" class="cta-button mt-5">SAVE TEAM</button>
@@ -43,7 +43,7 @@
 <script>
 import BreadCrumb from "../components/bread-crumb.vue";
 import TeamMembers from "../components/team-members.vue";
-import Router from '../routes';
+import Router from "../routes";
 import { json } from "body-parser";
 export default {
   name: "create-team",
@@ -61,84 +61,109 @@ export default {
       techData: [],
       styleObject: {
         "background-image": "url(item.imageLink)"
-      },
+      }
     };
   },
   computed: {},
   methods: {
-
-    checkForm: function () {
-      if (this.projectTitle &&  this.projectTeam.length > 2) {
+    checkForm: function() {
+      if (this.projectTitle && this.projectTeam.length > 2) {
         return true;
       }
-      
+
       this.errors = [];
 
       if (!this.projectTitle) {
-        this.errors.push('Project team title required.');
+        this.errors.push("Project team title required.");
       }
-      if (this.projectTitle && this.projectTitle.length < 5 ) {
-        this.errors.push('Project team must be at least five chaarcters.');
+      if (this.projectTitle && this.projectTitle.length < 5) {
+        this.errors.push("Project team must be at least five chaarcters.");
       }
-      if (this.projectTitle && !this.projectTitle.match( /^[0-9a-zA-Z]+$/) ) {
-        this.errors.push('Project team must contain only alphanumeric characters.');
+      if (this.projectTitle && !this.projectTitle.match(/^[0-9a-zA-Z]+$/)) {
+        this.errors.push(
+          "Project team must contain only alphanumeric characters."
+        );
       }
-      if (this.projectTeam.filter(
-        teamMember => teamMember.type === "consultant" ).length < 1 ) {
-        this.errors.push('At least one consultant must be selected.');
+      if (
+        this.projectTeam.filter(teamMember => teamMember.type === "consultant")
+          .length < 1
+      ) {
+        this.errors.push("At least one consultant must be selected.");
       }
-      if (this.projectTeam.filter(
-        teamMember => teamMember.type === "consultant" ).length > 1 ) {
-        this.errors.push('You cannot select more then one consultant.');
+      if (
+        this.projectTeam.filter(teamMember => teamMember.type === "consultant")
+          .length > 1
+      ) {
+        this.errors.push("You cannot select more then one consultant.");
       }
-      if (this.projectTeam.filter(
-        teamMember => teamMember.type === "designer" ).length < 1 ) {
-        this.errors.push('At least one designer must be selected.');
+      if (
+        this.projectTeam.filter(teamMember => teamMember.type === "designer")
+          .length < 1
+      ) {
+        this.errors.push("At least one designer must be selected.");
       }
-      if (this.projectTeam.filter(
-        teamMember => teamMember.type === "designer" ).length > 1 ) {
-        this.errors.push('You cannot select more then one designer.');
+      if (
+        this.projectTeam.filter(teamMember => teamMember.type === "designer")
+          .length > 1
+      ) {
+        this.errors.push("You cannot select more then one designer.");
       }
-      if (this.projectTeam.filter(
-        teamMember => teamMember.type === "tech" ).length < 1 ) {
-        this.errors.push('At least one techie must be selected.');
+      if (
+        this.projectTeam.filter(teamMember => teamMember.type === "tech")
+          .length < 1
+      ) {
+        this.errors.push("At least one techie must be selected.");
       }
-      if (this.projectTeam.filter(
-        teamMember => teamMember.type === "tech" ).length > 1 ) {
-        this.errors.push('You cannot select more then one techie.');
+      if (
+        this.projectTeam.filter(teamMember => teamMember.type === "tech")
+          .length > 1
+      ) {
+        this.errors.push("You cannot select more then one techie.");
       }
-    
     },
     toggleToProjectTeam: function(email, type) {
-      if(!this.projectTeam.some(teamMember => teamMember.email === email)) {
-      this.projectTeam.push({email, type});
-      } else { delete this.projectTeam[this.projectTeam.indexOf({email, type})];
+      if (!this.projectTeam.some(teamMember => teamMember.email === email)) {
+        this.projectTeam.push({ email, type });
+        //console.log(this.projectTeam);
+      } else {
+        this.projectTeam = this.projectTeam.filter(
+          teamMember => teamMember.email !== email
+        );
+        //console.log(this.projectTeam);
       }
-      console.log(this.projectTeam);
     },
     saveTeam: function() {
-    if (this.checkForm()) {
-      let data = {
-        projectTitle: this.projectTitle,
-        projectTeamEmails: this.projectTeam.map(function(teamMember){ delete teamMember.type; return teamMember })
-      };
-      console.log(data)
-      // Send a POST request
-      axios({
-        method: "post",
-        url: "/create-project-team",
-        data: data
-      })
-        .then(function(response) { 
-          let projectRequestId = response.data.projectRequest.id;
-          //console.log(projectRequestId)
-          Router.push({ path: `/view-project-team/${projectRequestId}` });
-          localStorage.setItem( 'projectRequest', JSON.stringify(response.data.projectRequest));
-          localStorage.setItem( 'projectTeam', JSON.stringify(response.data.projectTeam));
+      if (this.checkForm()) {
+        let data = {
+          projectTitle: this.projectTitle,
+          projectTeamEmails: this.projectTeam.map(function(teamMember) {
+            delete teamMember.type;
+            return teamMember;
+          })
+        };
+        console.log(data);
+        // Send a POST request
+        axios({
+          method: "post",
+          url: "/create-project-team",
+          data: data
         })
-        .catch(function(error) {
-          console.log(error);
-        });
+          .then(function(response) {
+            let projectRequestId = response.data.projectRequest.id;
+            //console.log(projectRequestId)
+            Router.push({ path: `/view-project-team/${projectRequestId}` });
+            localStorage.setItem(
+              "projectRequest",
+              JSON.stringify(response.data.projectRequest)
+            );
+            localStorage.setItem(
+              "projectTeam",
+              JSON.stringify(response.data.projectTeam)
+            );
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
       }
     },
     filterTeamMembersData: function() {

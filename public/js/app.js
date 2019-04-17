@@ -2461,14 +2461,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "team-members",
-  props: ["listData", "selected"],
+  props: ["listData", "projectTeam"],
   computed: {
     classOption: function classOption() {
       return {
@@ -2478,10 +2473,6 @@ __webpack_require__.r(__webpack_exports__);
 
       };
     }
-    /*checked() {
-      return this.item.email === this.selected;
-    }*/
-
   }
 });
 
@@ -2579,51 +2570,51 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = [];
 
       if (!this.projectTitle) {
-        this.errors.push('Project team title required.');
+        this.errors.push("Project team title required.");
       }
 
       if (this.projectTitle && this.projectTitle.length < 5) {
-        this.errors.push('Project team must be at least five chaarcters.');
+        this.errors.push("Project team must be at least five chaarcters.");
       }
 
       if (this.projectTitle && !this.projectTitle.match(/^[0-9a-zA-Z]+$/)) {
-        this.errors.push('Project team must contain only alphanumeric characters.');
+        this.errors.push("Project team must contain only alphanumeric characters.");
       }
 
       if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "consultant";
       }).length < 1) {
-        this.errors.push('At least one consultant must be selected.');
+        this.errors.push("At least one consultant must be selected.");
       }
 
       if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "consultant";
       }).length > 1) {
-        this.errors.push('You cannot select more then one consultant.');
+        this.errors.push("You cannot select more then one consultant.");
       }
 
       if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "designer";
       }).length < 1) {
-        this.errors.push('At least one designer must be selected.');
+        this.errors.push("At least one designer must be selected.");
       }
 
       if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "designer";
       }).length > 1) {
-        this.errors.push('You cannot select more then one designer.');
+        this.errors.push("You cannot select more then one designer.");
       }
 
       if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "tech";
       }).length < 1) {
-        this.errors.push('At least one techie must be selected.');
+        this.errors.push("At least one techie must be selected.");
       }
 
       if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "tech";
       }).length > 1) {
-        this.errors.push('You cannot select more then one techie.');
+        this.errors.push("You cannot select more then one techie.");
       }
     },
     toggleToProjectTeam: function toggleToProjectTeam(email, type) {
@@ -2633,15 +2624,12 @@ __webpack_require__.r(__webpack_exports__);
         this.projectTeam.push({
           email: email,
           type: type
-        });
+        }); //console.log(this.projectTeam);
       } else {
-        delete this.projectTeam[this.projectTeam.indexOf({
-          email: email,
-          type: type
-        })];
+        this.projectTeam = this.projectTeam.filter(function (teamMember) {
+          return teamMember.email !== email;
+        }); //console.log(this.projectTeam);
       }
-
-      console.log(this.projectTeam);
     },
     saveTeam: function saveTeam() {
       if (this.checkForm()) {
@@ -2664,8 +2652,8 @@ __webpack_require__.r(__webpack_exports__);
           _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push({
             path: "/view-project-team/".concat(projectRequestId)
           });
-          localStorage.setItem('projectRequest', JSON.stringify(response.data.projectRequest));
-          localStorage.setItem('projectTeam', JSON.stringify(response.data.projectTeam));
+          localStorage.setItem("projectRequest", JSON.stringify(response.data.projectRequest));
+          localStorage.setItem("projectTeam", JSON.stringify(response.data.projectTeam));
         })["catch"](function (error) {
           console.log(error);
         });
@@ -56091,10 +56079,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "vue-seamless-scroll",
-    {
-      staticClass: "warp",
-      attrs: { data: _vm.listData, "class-option": _vm.classOption }
-    },
+    { staticClass: "warp", attrs: { "class-option": _vm.classOption } },
     [
       _c(
         "ul",
@@ -56111,10 +56096,41 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "w-full p-4" }, [
-                _c("img", {
-                  staticClass: "w-full rounded-full",
-                  attrs: { src: item.picture }
-                }),
+                _c("div", { staticClass: "w-full relative" }, [
+                  _c("img", {
+                    staticClass: "w-full rounded-full",
+                    class: {
+                      "opacity-50": _vm.projectTeam.some(function(teamMember) {
+                        return teamMember.email === item.email
+                      })
+                    },
+                    attrs: { src: item.picture }
+                  }),
+                  _vm._v(" "),
+                  _vm.projectTeam.some(function(teamMember) {
+                    return teamMember.email === item.email
+                  })
+                    ? _c(
+                        "svg",
+                        {
+                          staticClass: "absolute pin w-",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            viewBox: "0 0 512 512"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "#90e3b6",
+                              d:
+                                "M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"
+                            }
+                          })
+                        ]
+                      )
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
                 _c("p", { domProps: { textContent: _vm._s(item.name) } }),
                 _vm._v(" "),
@@ -56223,7 +56239,10 @@ var render = function() {
                 _vm._m(1),
                 _vm._v(" "),
                 _c("team-members", {
-                  attrs: { listData: _vm.consultantsData },
+                  attrs: {
+                    projectTeam: _vm.projectTeam,
+                    listData: _vm.consultantsData
+                  },
                   on: { clicked: _vm.toggleToProjectTeam }
                 })
               ],
@@ -56237,7 +56256,10 @@ var render = function() {
                 _vm._m(2),
                 _vm._v(" "),
                 _c("team-members", {
-                  attrs: { listData: _vm.designersData },
+                  attrs: {
+                    projectTeam: _vm.projectTeam,
+                    listData: _vm.designersData
+                  },
                   on: { clicked: _vm.toggleToProjectTeam }
                 })
               ],
@@ -56251,7 +56273,10 @@ var render = function() {
                 _vm._m(3),
                 _vm._v(" "),
                 _c("team-members", {
-                  attrs: { listData: _vm.techData },
+                  attrs: {
+                    projectTeam: _vm.projectTeam,
+                    listData: _vm.techData
+                  },
                   on: { clicked: _vm.toggleToProjectTeam }
                 })
               ],
@@ -56473,7 +56498,7 @@ var render = function() {
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
-          _c("router-link", { attrs: { to: "/project-teams/create-team" } }, [
+          _c("router-link", { attrs: { to: "project-teams/create-team" } }, [
             _c("button", { staticClass: "cta-button" }, [
               _vm._v("CREATE MY TEAM")
             ])
