@@ -59,7 +59,7 @@ class SinglePageController extends Controller
 
                 $clientEmail = Client::where('id', $clientId)->value('email');
 
-                Mail::to($clientEmail->send(new ProjectRequestMail()));
+                Mail::to($clientEmail)->send(new ProjectRequestMail());
         
                 return ['success' => true, 'message' => 'Email was sent'];
                 //return redirect()->back();
