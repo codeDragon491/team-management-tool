@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\ProjectRequest;
 use App\Models\TeamMember;
+use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ProjectRequestMail;
 
 class SinglePageController extends Controller
 {
     protected $teamMembers;
     protected $projectRequests;
+    protected $clients;
 
-    public function __construct(TeamMember $teamMembers, ProjectRequest $projectRequests) {
+    public function __construct(TeamMember $teamMembers, ProjectRequest $projectRequests, Client $clients) {
         $this->teamMembers = $teamMembers;
         $this->projectRequests = $projectRequests;
+        $this->clients = $clients;
     }
 
     public function index() {
@@ -49,4 +54,15 @@ class SinglePageController extends Controller
                 }
 
             }
+
+            public function sendProjectTeam($clientId) {
+
+                $clientEmail = Client::where('id', $clientId)->value('email');
+
+                Mail::to($clientEmail->send(new ProjectRequestMail()));
+        
+                return ['success' => true, 'message' => 'Email was sent'];
+                //return redirect()->back();
+            }
+
 }

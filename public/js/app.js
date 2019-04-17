@@ -2348,7 +2348,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      projectTitle: JSON.parse(localStorage.getItem('projectRequest')).project_title
+      projectTitle: JSON.parse(localStorage.getItem("projectRequest")).project_title
     };
   },
   mounted: function mounted() {
@@ -2363,6 +2363,16 @@ __webpack_require__.r(__webpack_exports__);
         Object(timers__WEBPACK_IMPORTED_MODULE_2__["setTimeout"])(function () {
           $(".header-menu").css("top", "-80px");
         }, 10000);
+      });
+    },
+    sendTeam: function sendTeam() {
+      var clientId = 1;
+      axios({
+        method: "get",
+        url: "/send-project-team/" + clientId,
+        data: data
+      }).then(function (response) {})["catch"](function (error) {
+        console.log(error);
       });
     }
   }
@@ -55634,7 +55644,7 @@ var render = function() {
       [
         _c(
           "div",
-          { staticClass: "header-menu bg-signifly-pink" },
+          { staticClass: "header-menu bg-signifly-red-light" },
           [
             _c("logo", { staticClass: "header-menu-logo" }),
             _vm._v(" "),
@@ -55683,7 +55693,11 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "header-button", attrs: { title: "Send team" } },
+              {
+                staticClass: "header-button",
+                attrs: { title: "Send team" },
+                on: { click: _vm.sendTeam }
+              },
               [
                 _c(
                   "svg",

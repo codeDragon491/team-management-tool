@@ -17,4 +17,6 @@
 
 Route::post('/create-project-team', 'SinglePageController@createProjectTeam');
 
+Route::get('/send-project-team/{client_id}', 'SinglePageController@sendProjectTeam');
+
 Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');

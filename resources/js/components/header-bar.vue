@@ -2,7 +2,7 @@
     <div class="dashboard-header">
         <h2 class="header-customer-name">Mærsk Line</h2>
         <div class="header">
-            <div class="header-menu bg-signifly-pink">
+            <div class="header-menu bg-signifly-red-light">
                 <logo class="header-menu-logo"></logo>
                 <div class="header-button" title="Recompose team">
                     <router-link class="header-button" tag="li" to="/project-teams/create-team">
@@ -10,7 +10,7 @@
                         <span class="header-button-text">Recompose team</span>
                     </router-link>
                 </div>
-                <div class="header-button" title="Send team">
+                <div @click="sendTeam" class="header-button" title="Send team">
                     <svg class="header-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"/></svg>
                     <span class="header-button-text">Send team</span>
                 </div>
@@ -30,7 +30,8 @@ export default {
   components: { Logo },
   data() {
     return {
-      projectTitle: JSON.parse(localStorage.getItem('projectRequest')).project_title   
+      projectTitle: JSON.parse(localStorage.getItem("projectRequest"))
+        .project_title
     };
   },
   mounted() {
@@ -47,6 +48,18 @@ export default {
           $(".header-menu").css("top", "-80px");
         }, 10000);
       });
+    },
+    sendTeam: function() {
+      let clientId = 1;
+      axios({
+        method: "get",
+        url: "/send-project-team/" + clientId,
+        data: data
+      })
+        .then(function(response) {})
+        .catch(function(error) {
+          console.log(error);
+        });
     }
   }
 };
