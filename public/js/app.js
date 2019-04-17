@@ -2560,7 +2560,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       errors: [],
       projectTitle: null,
-      projectTeamEmails: [],
+      projectTeam: [],
       consultantsData: [],
       designersData: [],
       techData: [],
@@ -2572,7 +2572,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   methods: {
     checkForm: function checkForm() {
-      if (this.projectTitle && this.projectTeamEmails.length > 4) {
+      if (this.projectTitle && this.projectTeam.length > 2) {
         return true;
       }
 
@@ -2582,63 +2582,77 @@ __webpack_require__.r(__webpack_exports__);
         this.errors.push('Project team title required.');
       }
 
-      if (this.projectTitle.length < 5) {
+      if (this.projectTitle && this.projectTitle.length < 5) {
         this.errors.push('Project team must be at least five chaarcters.');
       }
 
-      if (!this.projectTitle.match(/^[0-9a-zA-Z]+$/)) {
+      if (this.projectTitle && !this.projectTitle.match(/^[0-9a-zA-Z]+$/)) {
         this.errors.push('Project team must contain only alphanumeric characters.');
       }
 
-      if (this.projectTeamEmails.filter(function (teamMember) {
+      if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "consultant";
       }).length < 1) {
         this.errors.push('At least one consultant must be selected.');
       }
 
-      if (this.projectTeamEmails.filter(function (teamMember) {
+      if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "consultant";
       }).length > 1) {
         this.errors.push('You cannot select more then one consultant.');
       }
 
-      if (this.projectTeamEmails.filter(function (teamMember) {
+      if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "designer";
       }).length < 1) {
         this.errors.push('At least one designer must be selected.');
       }
 
-      if (this.projectTeamEmails.filter(function (teamMember) {
+      if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "designer";
       }).length > 1) {
         this.errors.push('You cannot select more then one designer.');
       }
 
-      if (this.projectTeamEmails.filter(function (teamMember) {
+      if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "tech";
       }).length < 1) {
         this.errors.push('At least one techie must be selected.');
       }
 
-      if (this.projectTeamEmails.filter(function (teamMember) {
+      if (this.projectTeam.filter(function (teamMember) {
         return teamMember.type === "tech";
       }).length > 1) {
         this.errors.push('You cannot select more then one techie.');
       }
     },
-    addToProjectTeam: function addToProjectTeam(email, type) {
-      this.projectTeamEmails.push({
-        email: email,
-        type: type
-      });
-      console.log(this.projectTeamEmails);
+    toggleToProjectTeam: function toggleToProjectTeam(email, type) {
+      if (!this.projectTeam.some(function (teamMember) {
+        return teamMember.email === email;
+      })) {
+        this.projectTeam.push({
+          email: email,
+          type: type
+        });
+      } else {
+        delete this.projectTeam[this.projectTeam.indexOf({
+          email: email,
+          type: type
+        })];
+      }
+
+      console.log(this.projectTeam);
     },
     saveTeam: function saveTeam() {
       if (this.checkForm()) {
         var data = {
           projectTitle: this.projectTitle,
-          projectTeamEmails: this.projectTeamEmails
-        }; // Send a POST request
+          projectTeamEmails: this.projectTeam.map(function (teamMember) {
+            delete teamMember.type;
+            return teamMember;
+          })
+        };
+        console.log(data); // Send a POST request
 
         axios({
           method: "post",
@@ -56091,7 +56105,6 @@ var render = function() {
               staticClass: "hover:cursor-pointer",
               on: {
                 click: function($event) {
-                  $event.preventDefault()
                   _vm.$emit("clicked", item.email, item.type)
                 }
               }
@@ -56211,7 +56224,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("team-members", {
                   attrs: { listData: _vm.consultantsData },
-                  on: { clicked: _vm.addToProjectTeam }
+                  on: { clicked: _vm.toggleToProjectTeam }
                 })
               ],
               1
@@ -56225,7 +56238,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("team-members", {
                   attrs: { listData: _vm.designersData },
-                  on: { clicked: _vm.addToProjectTeam }
+                  on: { clicked: _vm.toggleToProjectTeam }
                 })
               ],
               1
@@ -56239,7 +56252,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("team-members", {
                   attrs: { listData: _vm.techData },
-                  on: { clicked: _vm.addToProjectTeam }
+                  on: { clicked: _vm.toggleToProjectTeam }
                 })
               ],
               1

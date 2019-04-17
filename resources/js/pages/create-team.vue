@@ -21,19 +21,19 @@
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
-                    <team-members :listData="consultantsData" @clicked="addToProjectTeam"></team-members>
+                    <team-members :listData="consultantsData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
                 <div class="form-group w-full flex flex-col">
                     <label class="control-label mr-auto">
                         Designers<span>*</span>
                     </label>
-                    <team-members :listData="designersData" @clicked="addToProjectTeam"></team-members>
+                    <team-members :listData="designersData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
                  <div class="form-group w-full flex flex-col">
                     <label class="control-label mr-auto">
                         Tech<span>*</span>
                     </label>
-                    <team-members :listData="techData" @clicked="addToProjectTeam"></team-members>
+                    <team-members :listData="techData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
             </div>
               <button @click="saveTeam" class="cta-button mt-5">SAVE TEAM</button>
@@ -55,7 +55,7 @@ export default {
     return {
       errors: [],
       projectTitle: null,
-      projectTeamEmails: [],
+      projectTeam: [],
       consultantsData: [],
       designersData: [],
       techData: [],
@@ -68,7 +68,7 @@ export default {
   methods: {
 
     checkForm: function () {
-      if (this.projectTitle &&  this.projectTeamEmails.length > 4) {
+      if (this.projectTitle &&  this.projectTeam.length > 2) {
         return true;
       }
       
@@ -77,48 +77,52 @@ export default {
       if (!this.projectTitle) {
         this.errors.push('Project team title required.');
       }
-      if (this.projectTitle.length < 5 ) {
+      if (this.projectTitle && this.projectTitle.length < 5 ) {
         this.errors.push('Project team must be at least five chaarcters.');
       }
-      if (!this.projectTitle.match( /^[0-9a-zA-Z]+$/) ) {
+      if (this.projectTitle && !this.projectTitle.match( /^[0-9a-zA-Z]+$/) ) {
         this.errors.push('Project team must contain only alphanumeric characters.');
       }
-      if (this.projectTeamEmails.filter(
+      if (this.projectTeam.filter(
         teamMember => teamMember.type === "consultant" ).length < 1 ) {
         this.errors.push('At least one consultant must be selected.');
       }
-      if (this.projectTeamEmails.filter(
+      if (this.projectTeam.filter(
         teamMember => teamMember.type === "consultant" ).length > 1 ) {
         this.errors.push('You cannot select more then one consultant.');
       }
-      if (this.projectTeamEmails.filter(
+      if (this.projectTeam.filter(
         teamMember => teamMember.type === "designer" ).length < 1 ) {
         this.errors.push('At least one designer must be selected.');
       }
-      if (this.projectTeamEmails.filter(
+      if (this.projectTeam.filter(
         teamMember => teamMember.type === "designer" ).length > 1 ) {
         this.errors.push('You cannot select more then one designer.');
       }
-      if (this.projectTeamEmails.filter(
+      if (this.projectTeam.filter(
         teamMember => teamMember.type === "tech" ).length < 1 ) {
         this.errors.push('At least one techie must be selected.');
       }
-      if (this.projectTeamEmails.filter(
+      if (this.projectTeam.filter(
         teamMember => teamMember.type === "tech" ).length > 1 ) {
         this.errors.push('You cannot select more then one techie.');
       }
     
     },
-    addToProjectTeam: function(email, type) {
-      this.projectTeamEmails.push({email, type});
-      console.log(this.projectTeamEmails);
+    toggleToProjectTeam: function(email, type) {
+      if(!this.projectTeam.some(teamMember => teamMember.email === email)) {
+      this.projectTeam.push({email, type});
+      } else { delete this.projectTeam[this.projectTeam.indexOf({email, type})];
+      }
+      console.log(this.projectTeam);
     },
     saveTeam: function() {
     if (this.checkForm()) {
       let data = {
         projectTitle: this.projectTitle,
-        projectTeamEmails: this.projectTeamEmails
+        projectTeamEmails: this.projectTeam.map(function(teamMember){ delete teamMember.type; return teamMember })
       };
+      console.log(data)
       // Send a POST request
       axios({
         method: "post",
