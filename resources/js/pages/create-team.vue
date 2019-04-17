@@ -77,6 +77,12 @@ export default {
       if (!this.projectTitle) {
         this.errors.push('Project team title required.');
       }
+      if (this.projectTitle.length < 5 ) {
+        this.errors.push('Project team must be at least five chaarcters.');
+      }
+      if (!this.projectTitle.match( /^[0-9a-zA-Z]+$/) ) {
+        this.errors.push('Project team must contain only alphanumeric characters.');
+      }
       if (this.projectTeamEmails.filter(
         teamMember => teamMember.type === "consultant" ).length < 1 ) {
         this.errors.push('At least one consultant must be selected.');
