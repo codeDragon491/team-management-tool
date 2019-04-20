@@ -13,17 +13,16 @@ class SinglePageController extends Controller
 {
     protected $teamMembers;
     protected $projectRequests;
-    protected $clients;
 
-    public function __construct(TeamMember $teamMembers, ProjectRequest $projectRequests, Client $clients) {
+    public function __construct(TeamMember $teamMembers, ProjectRequest $projectRequests) {
         $this->teamMembers = $teamMembers;
         $this->projectRequests = $projectRequests;
-        $this->clients = $clients;
     }
 
     public function index() {
         $teamMembers = TeamMember::get();
-        return view('app', compact('teamMembers'));
+        $clients = Client::get(['id', 'name']);
+        return view('app', compact('teamMembers', 'clients'));
     }
 
     /*public function viewProjectTeam($projectRequestId) { 

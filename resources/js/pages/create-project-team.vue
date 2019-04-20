@@ -1,9 +1,9 @@
 <template>
     <div class="w-full lg:min-w-50">
-       <bread-crumb first-link="project-teams" second-link="create-team" class="hidden md:flex"></bread-crumb>
+       <bread-crumb first-link="project-teams" second-link="create-project-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
             <div class="sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col">
-              <div class="form-group flex flex-col items-start">
+              <div class="flex flex-col items-start pb-5">
                 <p class="text-left text-red" v-if="errors.length">
                   <b>Please correct the following error(s):</b>
                   <ul class="p-0">
@@ -11,25 +11,34 @@
                   </ul>
                 </p>
                </div>
-                <div class="form-group flex flex-col items-start">
+                <div class="flex flex-col items-start pb-5">
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
 	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="form-control" maxlength="128">
                 </div>
-                <div class="form-group w-full flex flex-col">
+                 <div class="flex flex-col items-start pb-5">
+                    <label for="id_client" class="control-label">
+                      Select client<span title="required">*</span>
+                    </label>
+	                <!--<select v-model="projectClient" name="client" id="id_client" class="form-control pb-5">
+                     <option v-for="client in clientList" :key="client.id" :value="client">{{client.name}}</option>
+                  </select>-->
+                  <v-select class="w-1/2" v-model="projectClient" label="name" :options="clientList"></v-select>
+                </div>
+                <div class="w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
                     <team-members :projectTeam="projectTeam" :listData="consultantsData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
-                <div class="form-group w-full flex flex-col">
+                <div class="w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Designers<span>*</span>
                     </label>
                     <team-members :projectTeam="projectTeam" :listData="designersData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
-                 <div class="form-group w-full flex flex-col">
+                 <div class="w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Tech<span>*</span>
                     </label>
@@ -46,16 +55,19 @@ import TeamMembers from "../components/team-members.vue";
 import Router from "../routes";
 import { json } from "body-parser";
 export default {
-  name: "create-team",
+  name: "create-project-team",
   components: { BreadCrumb, TeamMembers },
   mounted() {
     this.filterTeamMembersData();
+    this.clientList = window.data.clients;
   },
   data() {
     return {
       errors: [],
       projectTitle: null,
+      projectClient: null,
       projectTeam: [],
+      clientList: [],
       consultantsData: [],
       designersData: [],
       techData: [],
@@ -67,7 +79,11 @@ export default {
   computed: {},
   methods: {
     checkForm: function() {
-      if (this.projectTitle && this.projectTeam.length > 2) {
+      if (
+        this.projectTitle &&
+        this.projectClient &&
+        this.projectTeam.length > 2
+      ) {
         return true;
       }
 
@@ -75,6 +91,9 @@ export default {
 
       if (!this.projectTitle) {
         this.errors.push("Project team title required.");
+      }
+      if (!this.projectClient) {
+        this.errors.push("A client must be selected.");
       }
       if (this.projectTitle && this.projectTitle.length < 5) {
         this.errors.push("Project team must be at least five chaarcters.");
@@ -134,6 +153,10 @@ export default {
     },
     saveTeam: function() {
       if (this.checkForm()) {
+        localStorage.setItem(
+          "projectClient",
+          JSON.stringify(this.projectClient)
+        );
         let data = {
           projectTitle: this.projectTitle,
           projectTeamEmails: this.projectTeam.map(function(teamMember) {
@@ -182,9 +205,6 @@ export default {
 };
 </script>
 <style lang="scss">
-.form-group {
-  padding-bottom: 1.125rem;
-}
 .form-control {
   display: block;
   width: 50%;
@@ -192,62 +212,18 @@ export default {
   padding: 8px 10px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
+  background-color: #f7f8f9;
   border: 1px solid #ccd1d9;
   border-radius: 4px;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-.control-label {
-  font-size: 16px;
-  font-weight: 700;
-}
-
 label {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
 }
-
-.paddles {
-  .paddle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 3em;
-  }
-  .left-paddle {
-    left: 0;
-  }
-  .right-paddle {
-    right: 0;
-  }
-  .hidden {
-    display: none;
-  }
-}
-
-.warp {
-  max-width: 70rem;
-  height: 250px;
-  overflow: hidden;
-  div:nth-of-type(3n) {
-    width: 220rem !important;
-  }
-}
-.warp ul {
-  padding: 0;
-  display: flex;
-}
-.warp ul li {
-  transition: transform 0.2s;
-  width: 10rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 15px;
-}
-.warp ul li:hover {
-  transform: scale(1.1);
+.control-label {
+  font-size: 16px;
+  font-weight: 700;
 }
 </style>

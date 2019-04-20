@@ -1,23 +1,13 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        @include('shared._header')
+@component('mail::message')
+Hello,
 
-        <title>Team management tool | Signifly</title>
+You have received a new request regarding your project.
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@component('mail::button', ['url' => env('APP_URL'). '/project-requests' , 'color' => 'signifly-red-light'])
+    See request
+@endcomponent
 
-        <!-- Ionicons -->
-        <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ mix('css/app.css')}}"/>
-
-    </head>
-    <body>
-        <div>
-        <h1>PROJECT REQUEST</h1>
-        <a href="/view-project-team/70"></a>
-        </div>
-    </body>
-</html>
+Best regards,<br>
+The Signifly team
+@endcomponent

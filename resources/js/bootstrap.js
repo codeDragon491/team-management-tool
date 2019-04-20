@@ -57,3 +57,7 @@ if (token) {
 import Vue from 'vue'
 import scroll from 'vue-seamless-scroll'
 Vue.use(scroll)
+
+import vSelect from 'vue-select'
+
+Vue.component('v-select', vSelect)

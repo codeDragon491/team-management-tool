@@ -7,7 +7,7 @@ Vue.use(VueRouter)
     // These can be imported from other files
 import ProjectRequests from './pages/project-requests.vue';
 import ProjectTeams from './pages/project-teams.vue';
-import CreateTeam from './pages/create-team.vue';
+import CreateProjectTeam from './pages/create-project-team.vue';
 import ViewProjectTeam from './pages/view-project-team.vue';
 
 // 2. Define some routes
@@ -18,7 +18,7 @@ import ViewProjectTeam from './pages/view-project-team.vue';
 const routes = [
         { path: '/project-requests', component: ProjectRequests },
         { path: '/project-teams', component: ProjectTeams },
-        { path: '/project-teams/create-team', component: CreateTeam },
+        { path: '/project-teams/create-project-team', component: CreateProjectTeam },
         { path: '/view-project-team/:id', component: ViewProjectTeam }
     ]
     // 3. Create the router instance and pass the `routes` option

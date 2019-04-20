@@ -850,6 +850,8 @@ module.exports = {
 
     svgFill: {
         'current': 'currentColor',
+        'white': colors['white'],
+        'black': colors['black'],
     },
 
 

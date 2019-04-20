@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 // Variables
 @import 'variables';
+// Vue select scss
+@import "vue-select/src/scss/vue-select.scss";
 body {
     line-height: 1.625rem;
     font-family: 'Source Sans Pro', sans-serif;
@@ -19,6 +21,7 @@ p {
 ul {
     list-style: none;
 }
+
 @tailwind components;
 .cta-button {
     background-color: $signifly-pink;
@@ -33,7 +36,7 @@ ul {
 }
 
 .hover\:.zoom {
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 @tailwind utilities;
