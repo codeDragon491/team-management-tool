@@ -17,7 +17,6 @@
 <script>
 export default {
   name: "view-project-team",
-  components: {},
   data() {
     return {
       headerBar: document.getElementsByClassName(".header-menu"),

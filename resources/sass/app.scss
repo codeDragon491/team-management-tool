@@ -1,13 +1,13 @@
 @tailwind preflight;
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 // Variables
-@import 'variables';
+@import "variables";
 // Vue select scss
 @import "vue-select/src/scss/vue-select.scss";
 body {
     line-height: 1.625rem;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 h1 {
@@ -23,10 +23,17 @@ ul {
 }
 
 @tailwind components;
-.cta-button {
+.button-pink {
     background-color: $signifly-pink;
     padding: 1rem;
-    border-radius: .125rem;
+    border-radius: 0.125rem;
+    color: white;
+}
+
+.button-green {
+    background-color: $signifly-light-green;
+    padding: 1rem;
+    border-radius: 0.125rem;
     color: white;
 }
 

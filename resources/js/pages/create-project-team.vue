@@ -45,7 +45,7 @@
                     <team-members :projectTeam="projectTeam" :listData="techData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
             </div>
-              <button @click="saveTeam" class="cta-button mt-5">SAVE TEAM</button>
+              <button @click="saveTeam" class="button-pink mt-5">SAVE TEAM</button>
        </div>
     </div>
 </template>

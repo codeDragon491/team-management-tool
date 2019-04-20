@@ -1,0 +1,103 @@
+<template id="modal-template">
+  <div class="modal" v-if="show && this.$route.path.includes('/view-project-team')">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <content select=".modal-header">
+          <div class="modal-header">
+            <h3>
+              Send team to client
+            </h3>
+          </div>
+        </content>
+        <div class="modal-body">
+         This operation is irreversable. Are you sure?
+        </div>
+        <div v-if="!sent" class="modal-footer flex justify-between">
+            <button @click="sendTeam" class="button-pink">Send link</button>
+            <button @click="show = false" class="button-green">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+</template>
+<script>
+export default {
+  name: "modal",
+  data() {
+    return {
+      sent: false
+    };
+  },
+  props: {
+    show: {
+      type: Boolean,
+      required: true,
+      twoWay: true
+    }
+  },
+  methods: {
+    sendTeam: function() {
+      let clientId = JSON.parse(localStorage.getItem("projectClient")).id;
+      axios({
+        method: "get",
+        url: "/send-project-team/" + clientId,
+        data: data
+      })
+        .then(function(response) {
+          $("h3").text("Wooo");
+          $(".modal-body").text("Team was sent succesfully to client");
+          this.sent = true;
+          setTimeout(function() {
+            this.show = false;
+          }, 3000);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
+  }
+};
+</script>
+<style lang="scss">
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: table;
+  transition: opacity 0.3s ease;
+
+  &-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &-container {
+    background: #fff;
+    width: 450px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    padding: 20px 30px;
+  }
+
+  &-footer {
+    margin-top: 15px;
+  }
+
+  &-enter,
+  &-leave {
+    opacity: 0;
+  }
+
+  &-enter &-container,
+  &-leave &-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+</style>
+

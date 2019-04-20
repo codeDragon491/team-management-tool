@@ -8,7 +8,7 @@
             </div>
             <p class="my-10 description">Create your own project team using... <br>You can compose your team of members with diffferent background.</p>
             <router-link to="project-teams/create-project-team">
-              <button class="cta-button">CREATE MY TEAM</button>
+              <button class="button-pink">CREATE MY TEAM</button>
             </router-link>
              <router-view></router-view>          
        </div>

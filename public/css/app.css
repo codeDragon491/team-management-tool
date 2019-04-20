@@ -912,8 +912,15 @@ ul {
   }
 }
 
-.cta-button {
+.button-pink {
   background-color: #ff91a6;
+  padding: 1rem;
+  border-radius: .125rem;
+  color: white;
+}
+
+.button-green {
+  background-color: #90e3b6;
   padding: 1rem;
   border-radius: .125rem;
   color: white;

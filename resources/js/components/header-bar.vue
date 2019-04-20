@@ -10,7 +10,7 @@
                         <span class="header-button-text">Recompose team</span>
                     </router-link>
                 </div>
-                <div @click="sendTeam" class="header-button" title="Send team">
+                <div @click="showModal" class="header-button" title="Send team">
                     <svg class="header-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"/></svg>
                     <span class="header-button-text">Send team</span>
                 </div>
@@ -51,17 +51,8 @@ export default {
         }, 10000);
       });
     },
-    sendTeam: function() {
-      let clientId = JSON.parse(localStorage.getItem("projectClient")).id;
-      axios({
-        method: "get",
-        url: "/send-project-team/" + clientId,
-        data: data
-      })
-        .then(function(response) {})
-        .catch(function(error) {
-          console.log(error);
-        });
+    showModal: function() {
+      this.$emit("showModal");
     }
   }
 };
