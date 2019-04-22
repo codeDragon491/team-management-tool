@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignKeyToTeamMembersTable extends Migration
+class ChangeColumnProjectDescriptionOnProjectRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddForeignKeyToTeamMembersTable extends Migration
      */
     public function up()
     {
-        Schema::table('team_members', function (Blueprint $table) {
-            $table->integer('project_request_id')->unsigned();
-            $table->foreign('project_request_id')->references('id')->on('project_requests')->onDelete('cascade');
+        Schema::table('project_requests', function (Blueprint $table) {
+            //
         });
     }
 
@@ -26,7 +25,7 @@ class AddForeignKeyToTeamMembersTable extends Migration
      */
     public function down()
     {
-        Schema::table('team_members', function (Blueprint $table) {
+        Schema::table('project_requests', function (Blueprint $table) {
             //
         });
     }
