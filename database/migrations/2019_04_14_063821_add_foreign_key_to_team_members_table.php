@@ -14,7 +14,7 @@ class AddForeignKeyToTeamMembersTable extends Migration
     public function up()
     {
         Schema::table('team_members', function (Blueprint $table) {
-            $table->integer('project_request_id')->unsigned();
+            $table->integer('project_request_id')->unsigned()->nullable();
             $table->foreign('project_request_id')->references('id')->on('project_requests')->onDelete('cascade');
         });
     }
