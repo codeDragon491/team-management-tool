@@ -162,7 +162,8 @@ export default {
           projectTeamEmails: this.projectTeam.map(function(teamMember) {
             delete teamMember.type;
             return teamMember;
-          })
+          }),
+          projectClientId: this.projectClient.id
         };
         console.log(data);
         // Send a POST request
@@ -182,6 +183,10 @@ export default {
             localStorage.setItem(
               "projectTeam",
               JSON.stringify(response.data.projectTeam)
+            );
+            localStorage.setItem(
+              "clientFullname",
+              JSON.stringify(response.data.clientFullName)
             );
           })
           .catch(function(error) {

@@ -1,7 +1,7 @@
 <template>
     <div v-on:mousemove="displayHeaderMenu == true" class="md:flex main__layout">
         <side-bar v-if="!this.$route.path.includes('/view-project-team')"></side-bar>
-        <header-bar @showModal="show = true" v-else :displayHeaderMenu="displayHeaderMenu"></header-bar>
+        <header-bar @showModal="showModal" v-else :displayHeaderMenu="displayHeaderMenu"></header-bar>
         <router-view></router-view>
         <modal :show="show"></modal>
     </div>
@@ -25,6 +25,11 @@ export default {
   mounted() {
     //console.log(this.$route.path);
     //console.log(this.teamMembers);
+  },
+  methods: {
+    showModal: function() {
+      this.show = true;
+    }
   }
 };
 </script>

@@ -11,14 +11,31 @@ class ProjectRequestMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
+        /**
+     * @var
+     */
+    public $projectClientId;
+
+    /**
+     * Create a new message instance.
+     *
+     * @param $projectClientId
+     */
+    public function __construct($projectClientId)
+    {
+        //
+        $this->project_client_id = $projectClientId;
+    }
+
     /**
      * Build the message.
      *
      * @return $this
      */
+
     public function build()
     {
-        $this->from('hello@signifly.com');
+        //$this->from('hello@signifly.com');
 
         $this->subject('New Project Request from Signifly');
 

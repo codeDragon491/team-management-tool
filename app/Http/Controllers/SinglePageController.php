@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\ProjectRequest;
 use App\Models\TeamMember;
 use App\Models\Client;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ProjectRequestMail;
+use Illuminate\Support\Facades\View;
 
 class SinglePageController extends Controller
 {
     protected $teamMembers;
     protected $projectRequests;
+    protected $projectClientId;
 
     public function __construct(TeamMember $teamMembers, ProjectRequest $projectRequests) {
         $this->teamMembers = $teamMembers;
@@ -25,13 +28,10 @@ class SinglePageController extends Controller
         return view('app', compact('teamMembers', 'clients'));
     }
 
-    /*public function viewProjectTeam($projectRequestId) { 
-        return view('view-project-team');
-    }*/
 
             public function createProjectTeam(Request $request){
                 try {
-                    $projectRequest = ProjectRequest::create(['project_title' => $request->projectTitle]);
+                    $projectRequest = ProjectRequest::create(['project_title' => $request->projectTitle, 'client_id' => $request->projectClientId]);
 
                     TeamMember::whereIn('email', $request->projectTeamEmails)
                     ->update([
@@ -39,11 +39,13 @@ class SinglePageController extends Controller
                     ]);
 
                     $projectTeam = TeamMember::where('project_request_id', $projectRequest->id)->get();
+                    $userFullName = User::where('id', $request->projectClientId)->value('name');
 
                 return response()->json( [
                     'success'=> true,
                     'projectRequest' => $projectRequest,
-                    'projectTeam' => $projectTeam
+                    'projectTeam' => $projectTeam,
+                    'clientFullName' => $userFullName
                 ]);
 
                 //return redirect()->route('view.project.team', ['project_request_id' => $projectRequest->id ]);
@@ -54,14 +56,13 @@ class SinglePageController extends Controller
 
             }
 
-            public function sendProjectTeam($clientId) {
+            public function sendProjectTeam($projectClientId) {
 
-                $clientEmail = Client::where('id', $clientId)->value('email');
+                $projectClientEmail = Client::where('id', $projectClientId)->value('email');
 
-                Mail::to($clientEmail)->send(new ProjectRequestMail());
+                Mail::to($projectClientEmail)->send(new ProjectRequestMail($projectClientId));
         
                 return ['success' => true, 'message' => 'Email was sent'];
-                //return redirect()->back();
             }
 
 }

@@ -1,5 +1,5 @@
 <template id="modal-template">
-  <div class="modal" v-if="show && this.$route.path.includes('/view-project-team')">
+  <div class="modal" v-if="show  && this.$route.path.includes('/view-project-team') ||  showData ">
     <div class="modal-wrapper">
       <div class="modal-container">
         <content select=".modal-header">
@@ -12,9 +12,9 @@
         <div class="modal-body">
          This operation is irreversable. Are you sure?
         </div>
-        <div v-if="!sent" class="modal-footer flex justify-between">
+        <div v-if="!sent || !showData" class="modal-footer flex justify-between">
             <button @click="sendTeam" class="button-pink">Send link</button>
-            <button @click="show = false" class="button-green">Cancel</button>
+            <button @click="closeModal" class="button-green">Cancel</button>
         </div>
       </div>
     </div>
@@ -25,18 +25,17 @@ export default {
   name: "modal",
   data() {
     return {
-      sent: false
+      sent: false,
+      showData: true
     };
   },
-  props: {
-    show: {
-      type: Boolean,
-      required: true,
-      twoWay: true
-    }
-  },
+  props: ["show"],
   methods: {
+    closeModal: function() {
+      this.showData = false;
+    },
     sendTeam: function() {
+      var self = this;
       let clientId = JSON.parse(localStorage.getItem("projectClient")).id;
       axios({
         method: "get",
@@ -46,9 +45,9 @@ export default {
         .then(function(response) {
           $("h3").text("Wooo");
           $(".modal-body").text("Team was sent succesfully to client");
-          this.sent = true;
+          self.sent = true;
           setTimeout(function() {
-            this.show = false;
+            self.closeModal();
           }, 3000);
         })
         .catch(function(error) {

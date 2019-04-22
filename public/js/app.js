@@ -2429,18 +2429,17 @@ __webpack_require__.r(__webpack_exports__);
   name: "modal",
   data: function data() {
     return {
-      sent: false
+      sent: false,
+      showData: true
     };
   },
-  props: {
-    show: {
-      type: Boolean,
-      required: true,
-      twoWay: true
-    }
-  },
+  props: ["show"],
   methods: {
+    closeModal: function closeModal() {
+      this.showData = false;
+    },
     sendTeam: function sendTeam() {
+      var self = this;
       var clientId = JSON.parse(localStorage.getItem("projectClient")).id;
       axios({
         method: "get",
@@ -2449,9 +2448,9 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         $("h3").text("Wooo");
         $(".modal-body").text("Team was sent succesfully to client");
-        this.sent = true;
+        self.sent = true;
         setTimeout(function () {
-          this.show = false;
+          self.closeModal();
         }, 3000);
       })["catch"](function (error) {
         console.log(error);
@@ -2731,7 +2730,8 @@ __webpack_require__.r(__webpack_exports__);
           projectTeamEmails: this.projectTeam.map(function (teamMember) {
             delete teamMember.type;
             return teamMember;
-          })
+          }),
+          projectClientId: this.projectClient.id
         };
         console.log(data); // Send a POST request
 
@@ -2747,6 +2747,7 @@ __webpack_require__.r(__webpack_exports__);
           });
           localStorage.setItem("projectRequest", JSON.stringify(response.data.projectRequest));
           localStorage.setItem("projectTeam", JSON.stringify(response.data.projectTeam));
+          localStorage.setItem("clientFullname", JSON.stringify(response.data.clientFullName));
         })["catch"](function (error) {
           console.log(error);
         });
@@ -2784,11 +2785,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "project-requests",
   components: {
     BreadCrumb: _components_bread_crumb_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    clientFullname: function clientFullname() {
+      return JSON.parse(localStorage.getItem("clientFullname"));
+    },
+    projectRequestId: function projectRequestId() {
+      return JSON.parse(localStorage.getItem("projectRequest").id);
+    }
   }
 });
 
@@ -2909,6 +2930,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {//console.log(this.$route.path);
     //console.log(this.teamMembers);
+  },
+  methods: {
+    showModal: function showModal() {
+      this.show = true;
+    }
   }
 });
 
@@ -56081,7 +56107,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.show && this.$route.path.includes("/view-project-team")
+  return (_vm.show && this.$route.path.includes("/view-project-team")) ||
+    _vm.showData
     ? _c("div", { staticClass: "modal" }, [
         _c("div", { staticClass: "modal-wrapper" }, [
           _c("div", { staticClass: "modal-container" }, [
@@ -56093,7 +56120,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            !_vm.sent
+            !_vm.sent || !_vm.showData
               ? _c(
                   "div",
                   { staticClass: "modal-footer flex justify-between" },
@@ -56111,11 +56138,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "button-green",
-                        on: {
-                          click: function($event) {
-                            _vm.show = false
-                          }
-                        }
+                        on: { click: _vm.closeModal }
                       },
                       [_vm._v("Cancel")]
                     )
@@ -56277,7 +56300,7 @@ var render = function() {
               "router-link",
               {
                 staticClass: "sidebar__nav-link",
-                attrs: { tag: "li", to: "project-teams" }
+                attrs: { tag: "li", to: "/project-teams" }
               },
               [
                 _c(
@@ -56760,7 +56783,47 @@ var render = function() {
       _c("bread-crumb", {
         staticClass: "hidden md:flex",
         attrs: { "first-link": "project-requests" }
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "main-content text-center" },
+        [
+          _c("h1", { staticClass: "my-10" }, [
+            _vm._v("New Project Request from Signifly")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "max-w-sm mx-auto bg-signifly-grey-lightest" },
+            [
+              _c("p", { staticClass: "my-10 p-5 description text-left" }, [
+                _vm._v("Hi,"),
+                _c("span", { staticClass: "font-semibold" }, [
+                  _vm._v(" " + _vm._s(_vm.clientFullname) + " ")
+                ]),
+                _c("br"),
+                _vm._v(
+                  "\n    Signifly has just composed your project team. Click the button below to view your team.\n    You can recompose your team if you would like that and you are welcome to contact us if  you have any questions."
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { attrs: { to: "/view-project-team/" + _vm.projectRequestId } },
+            [
+              _c("button", { staticClass: "button-pink" }, [
+                _vm._v("VIEW MY TEAM")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("router-view")
+        ],
+        1
+      )
     ],
     1
   )
@@ -57023,11 +57086,7 @@ var render = function() {
         ? _c("side-bar")
         : _c("header-bar", {
             attrs: { displayHeaderMenu: _vm.displayHeaderMenu },
-            on: {
-              showModal: function($event) {
-                _vm.show = true
-              }
-            }
+            on: { showModal: _vm.showModal }
           }),
       _vm._v(" "),
       _c("router-view"),
@@ -73901,7 +73960,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 // We'll talk about nested routes later.
 
 var routes = [{
-  path: '/project-requests',
+  path: '/project-requests/:id',
   component: _pages_project_requests_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/project-teams',

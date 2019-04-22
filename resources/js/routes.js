@@ -16,7 +16,7 @@ import ViewProjectTeam from './pages/view-project-team.vue';
 // `Vue.extend()`, or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-        { path: '/project-requests', component: ProjectRequests },
+        { path: '/project-requests/:id', component: ProjectRequests },
         { path: '/project-teams', component: ProjectTeams },
         { path: '/project-teams/create-project-team', component: CreateProjectTeam },
         { path: '/view-project-team/:id', component: ViewProjectTeam }
