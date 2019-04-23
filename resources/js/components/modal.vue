@@ -1,5 +1,5 @@
 <template id="modal-template">
-  <div class="modal" v-if="show  && this.$route.path.includes('/view-project-team') ||  showData ">
+  <div class="modal" v-if="show && this.$route.path.includes('/view-project-team') || mutableShow && this.$route.path.includes('/view-project-team')">
     <div class="modal-wrapper">
       <div class="modal-container">
         <content select=".modal-header">
@@ -12,7 +12,7 @@
         <div class="modal-body">
          This operation is irreversable. Are you sure?
         </div>
-        <div v-if="!sent || !showData" class="modal-footer flex justify-between">
+        <div v-if="!sent" class="modal-footer flex justify-between">
             <button @click="sendTeam" class="button-pink">Send link</button>
             <button @click="closeModal" class="button-green">Cancel</button>
         </div>
@@ -23,16 +23,16 @@
 <script>
 export default {
   name: "modal",
+  props: ["show"],
   data() {
     return {
       sent: false,
-      showData: true
+      mutableShow: this.show
     };
   },
-  props: ["show"],
   methods: {
     closeModal: function() {
-      this.showData = false;
+      this.mutableShow = false;
     },
     sendTeam: function() {
       var self = this;
@@ -43,10 +43,11 @@ export default {
         data: data
       })
         .then(function(response) {
+          self.sent = true;
           $("h3").text("Wooo");
           $(".modal-body").text("Team was sent succesfully to client");
-          self.sent = true;
           setTimeout(function() {
+            console.log(this.mutableShow);
             self.closeModal();
           }, 3000);
         })

@@ -2427,16 +2427,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "modal",
+  props: ["show"],
   data: function data() {
     return {
       sent: false,
-      showData: true
+      mutableShow: this.show
     };
   },
-  props: ["show"],
   methods: {
     closeModal: function closeModal() {
-      this.showData = false;
+      this.mutableShow = false;
     },
     sendTeam: function sendTeam() {
       var self = this;
@@ -2446,10 +2446,11 @@ __webpack_require__.r(__webpack_exports__);
         url: "/send-project-team/" + clientId,
         data: data
       }).then(function (response) {
+        self.sent = true;
         $("h3").text("Wooo");
         $(".modal-body").text("Team was sent succesfully to client");
-        self.sent = true;
         setTimeout(function () {
+          console.log(this.mutableShow);
           self.closeModal();
         }, 3000);
       })["catch"](function (error) {
@@ -2930,11 +2931,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {//console.log(this.$route.path);
     //console.log(this.teamMembers);
-  },
-  methods: {
-    showModal: function showModal() {
-      this.show = true;
-    }
   }
 });
 
@@ -56108,7 +56104,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return (_vm.show && this.$route.path.includes("/view-project-team")) ||
-    _vm.showData
+    (_vm.mutableShow && this.$route.path.includes("/view-project-team"))
     ? _c("div", { staticClass: "modal" }, [
         _c("div", { staticClass: "modal-wrapper" }, [
           _c("div", { staticClass: "modal-container" }, [
@@ -56120,7 +56116,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            !_vm.sent || !_vm.showData
+            !_vm.sent
               ? _c(
                   "div",
                   { staticClass: "modal-footer flex justify-between" },
@@ -57086,7 +57082,11 @@ var render = function() {
         ? _c("side-bar")
         : _c("header-bar", {
             attrs: { displayHeaderMenu: _vm.displayHeaderMenu },
-            on: { showModal: _vm.showModal }
+            on: {
+              showModal: function($event) {
+                _vm.show = true
+              }
+            }
           }),
       _vm._v(" "),
       _c("router-view"),
