@@ -24,9 +24,9 @@ class ProjectRequestMail extends Mailable implements ShouldQueue
     public function __construct($projectClientId)
     {
         //
-        $this->project_client_id = $projectClientId;
+        $this->projectClientId = $projectClientId;
     }
-
+    
     /**
      * Build the message.
      *
@@ -34,9 +34,8 @@ class ProjectRequestMail extends Mailable implements ShouldQueue
      */
 
     public function build()
-    {
+    {   
         //$this->from('hello@signifly.com');
-
         $this->subject('New Project Request from Signifly');
 
         return $this->markdown('mails.projectRequest');
