@@ -20,7 +20,7 @@ class CreateTeamMembersTable extends Migration
             $table->string('picture');
             $table->string('email')->unique();
             $table->string('phone_number');
-            $table->text('background_information');
+            $table->text('background_information')->nullable();
             $table->timestamps();
         });
 
