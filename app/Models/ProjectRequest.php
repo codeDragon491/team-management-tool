@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectRequest extends Model
 {
     protected $table = 'project_requests';
-    protected $fillable = ['project_title', 'project_description', 'client_id'];
+    protected $fillable = ['project_title', 'client_id'];
 
      // Relations
      public function TeamMember() {

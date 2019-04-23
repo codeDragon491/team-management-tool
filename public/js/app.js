@@ -2808,7 +2808,7 @@ __webpack_require__.r(__webpack_exports__);
       return JSON.parse(localStorage.getItem("clientFullname"));
     },
     projectRequestId: function projectRequestId() {
-      return JSON.parse(localStorage.getItem("projectRequest").id);
+      return JSON.parse(localStorage.getItem("projectRequest")).id;
     }
   }
 });

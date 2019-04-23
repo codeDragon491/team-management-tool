@@ -25,7 +25,7 @@ export default {
       return JSON.parse(localStorage.getItem("clientFullname"));
     },
     projectRequestId: function() {
-      return JSON.parse(localStorage.getItem("projectRequest").id);
+      return JSON.parse(localStorage.getItem("projectRequest")).id;
     }
   }
 };
