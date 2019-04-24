@@ -1,5 +1,5 @@
 <template id="modal-template">
-  <div class="modal" v-if="show && this.$route.path.includes('/view-project-team') || mutableShow && this.$route.path.includes('/view-project-team')">
+  <div class="modal" v-if="show && this.$route.path.includes('/view-project-team')">
     <div class="modal-wrapper">
       <div class="modal-container">
         <content select=".modal-header">
@@ -26,13 +26,15 @@ export default {
   props: ["show"],
   data() {
     return {
-      sent: false,
-      mutableShow: this.show
+      sent: false
+      //mutableShow: this.show
     };
   },
   methods: {
     closeModal: function() {
-      this.mutableShow = false;
+      //console.log(this.mutableShow);
+      //this.mutableShow = false;
+      this.$emit("closeModal");
     },
     sendTeam: function() {
       var self = this;
@@ -47,8 +49,8 @@ export default {
           $("h3").text("Wooo");
           $(".modal-body").text("Team was sent succesfully to client");
           setTimeout(function() {
-            console.log(this.mutableShow);
             self.closeModal();
+            console.log(self.mutableShow);
           }, 3000);
         })
         .catch(function(error) {

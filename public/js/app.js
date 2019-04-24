@@ -2430,13 +2430,15 @@ __webpack_require__.r(__webpack_exports__);
   props: ["show"],
   data: function data() {
     return {
-      sent: false,
-      mutableShow: this.show
+      sent: false //mutableShow: this.show
+
     };
   },
   methods: {
     closeModal: function closeModal() {
-      this.mutableShow = false;
+      //console.log(this.mutableShow);
+      //this.mutableShow = false;
+      this.$emit("closeModal");
     },
     sendTeam: function sendTeam() {
       var self = this;
@@ -2450,8 +2452,8 @@ __webpack_require__.r(__webpack_exports__);
         $("h3").text("Wooo");
         $(".modal-body").text("Team was sent succesfully to client");
         setTimeout(function () {
-          console.log(this.mutableShow);
           self.closeModal();
+          console.log(self.mutableShow);
         }, 3000);
       })["catch"](function (error) {
         console.log(error);
@@ -2926,7 +2928,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       displayHeaderMenu: false,
-      show: false
+      showModal: false
     };
   },
   mounted: function mounted() {//console.log(this.$route.path);
@@ -56103,8 +56105,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return (_vm.show && this.$route.path.includes("/view-project-team")) ||
-    (_vm.mutableShow && this.$route.path.includes("/view-project-team"))
+  return _vm.show && this.$route.path.includes("/view-project-team")
     ? _c("div", { staticClass: "modal" }, [
         _c("div", { staticClass: "modal-wrapper" }, [
           _c("div", { staticClass: "modal-container" }, [
@@ -57004,7 +57005,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "w-full bg-white view-container" }, [
-    _c("div", { staticClass: "mx-5 inner" }, [
+    _c("div", { staticClass: "inner" }, [
       _c(
         "ul",
         { staticClass: "w-full flex flex-wrap justify-center p-0" },
@@ -57015,7 +57016,10 @@ var render = function() {
             [
               _c(
                 "div",
-                { staticClass: "w-full px-2 py-10 teammember_big text-left" },
+                {
+                  staticClass:
+                    "w-full px-10 md:px-2 py-10 teammember_big text-left"
+                },
                 [
                   _c("img", {
                     staticClass: "w-full",
@@ -57084,14 +57088,21 @@ var render = function() {
             attrs: { displayHeaderMenu: _vm.displayHeaderMenu },
             on: {
               showModal: function($event) {
-                _vm.show = true
+                _vm.showModal = true
               }
             }
           }),
       _vm._v(" "),
       _c("router-view"),
       _vm._v(" "),
-      _c("modal", { attrs: { show: _vm.show } })
+      _c("modal", {
+        attrs: { show: _vm.showModal },
+        on: {
+          closeModal: function($event) {
+            _vm.showModal = false
+          }
+        }
+      })
     ],
     1
   )
