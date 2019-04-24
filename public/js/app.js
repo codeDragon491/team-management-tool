@@ -55922,6 +55922,7 @@ var render = function() {
                 _c(
                   "router-link",
                   {
+                    staticClass: "header-button",
                     attrs: {
                       tag: "li",
                       to: "/project-teams/create-project-team"
