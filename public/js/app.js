@@ -8216,7 +8216,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  width: 450px;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  margin: 0 auto;\n  padding: 20px 30px;\n}\n.modal-footer {\n  margin-top: 15px;\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter .modal-container,\n.modal-leave .modal-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  max-width: 450px;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  margin: 0 2rem;\n  padding: 20px 30px;\n}\n.modal-footer {\n  margin-top: 15px;\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter .modal-container,\n.modal-leave .modal-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -56122,7 +56122,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.show && this.$route.path.includes("/view-project-team")
-    ? _c("div", { staticClass: "modal w-4/5 md:w-full" }, [
+    ? _c("div", { staticClass: "modal w-full flex justify-center" }, [
         _c("div", { staticClass: "modal-wrapper" }, [
           _c("div", { staticClass: "modal-container" }, [
             _vm._m(0),

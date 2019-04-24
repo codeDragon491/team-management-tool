@@ -1,5 +1,5 @@
 <template>
-  <div class="modal w-4/5 md:w-full" v-if="show && this.$route.path.includes('/view-project-team')">
+  <div class="modal w-full flex justify-center" v-if="show && this.$route.path.includes('/view-project-team')">
     <div class="modal-wrapper">
       <div class="modal-container">
         <content select=".modal-header">
@@ -15,10 +15,10 @@
         <div v-if="!sent" class="modal-footer flex justify-between">
             <button @click="sendTeam" class="button-pink">Send request</button>
             <button @click="closeModal" class="button-green">Cancel</button>
+          </div>
         </div>
       </div>
-    </div>
-  </div> 
+    </div> 
 </template>
 <script>
 export default {
@@ -82,11 +82,11 @@ export default {
 
   &-container {
     background: #fff;
-    width: 450px;
+    max-width: 450px;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
-    margin: 0 auto;
+    margin: 0 2rem;
     padding: 20px 30px;
   }
 
