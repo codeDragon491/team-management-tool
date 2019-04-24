@@ -1,5 +1,5 @@
-<template id="modal-template">
-  <div class="modal" v-if="show && this.$route.path.includes('/view-project-team')">
+<template>
+  <div class="modal w-4/5 md:w-full" v-if="show && this.$route.path.includes('/view-project-team')">
     <div class="modal-wrapper">
       <div class="modal-container">
         <content select=".modal-header">
@@ -70,7 +70,6 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: table;

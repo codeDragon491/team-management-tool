@@ -2361,10 +2361,22 @@ __webpack_require__.r(__webpack_exports__);
     displayHeaderMenu: function displayHeaderMenu() {
       $("body").mousemove(function (event) {
         $(".header-menu").css("top", "0");
+
+        if ($(window).width() < 768) {
+          $(".header-title").css("display", "none");
+          $(".dashboard-header").css("height", "70px");
+          $(".header").css("height", "70px");
+          $(".view-container").css("top", "70px");
+        }
       });
       $("body").mousestop(function (event) {
         Object(timers__WEBPACK_IMPORTED_MODULE_2__["setTimeout"])(function () {
+          $(".header-title").css("display", "block");
           $(".header-menu").css("top", "-80px");
+
+          if ($(window).width() < 768) {
+            $(".view-container").css("top", "140px");
+          }
         }, 10000);
       });
     },
@@ -8204,7 +8216,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  width: 450px;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  margin: 0 auto;\n  padding: 20px 30px;\n}\n.modal-footer {\n  margin-top: 15px;\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter .modal-container,\n.modal-leave .modal-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  width: 450px;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  margin: 0 auto;\n  padding: 20px 30px;\n}\n.modal-footer {\n  margin-top: 15px;\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter .modal-container,\n.modal-leave .modal-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -8261,7 +8273,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".teammember_big .name {\n  font-size: 21px;\n  font-weight: 500;\n  margin-top: 24px;\n}\n.teammember_big .title {\n  font-size: 18px;\n  margin-top: 8px;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 32px;\n}\n.view-container {\n  position: absolute;\n  top: 70px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n", ""]);
+exports.push([module.i, ".teammember_big .name {\n  font-size: 21px;\n  font-weight: 500;\n  margin-top: 24px;\n}\n.teammember_big .title {\n  font-size: 18px;\n  margin-top: 8px;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 32px;\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n", ""]);
 
 // exports
 
@@ -8299,7 +8311,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".dashboard-header {\n  z-index: 30;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 70px;\n}\n.header {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 70px;\n  z-index: 2;\n}\n.header-customer-name {\n  display: block;\n  position: relative;\n  z-index: 1;\n  float: right;\n  margin: 13px 40px 0 5px;\n  font-size: 20px;\n  line-height: 40px;\n  font-weight: 300;\n}\n.header-menu {\n  position: absolute;\n  z-index: 2;\n  top: -80px;\n  left: 0;\n  width: 100%;\n  height: 70px;\n  color: #fff;\n  transition: top .5s;\n  text-align: right;\n}\n.header-menu-logo {\n  z-index: 200;\n}\n.header-logo,\n.header-menu-logo {\n  display: block;\n  float: left;\n  padding: 13px 40px 17px;\n  position: relative;\n}\n.header-button {\n  display: inline;\n  vertical-align: middle;\n  overflow: hidden;\n  position: relative;\n  min-width: 80px;\n  height: 70px;\n  margin: 0;\n  padding: 5px 20px 10px;\n  text-align: center;\n  cursor: pointer;\n  font-size: 16px;\n  line-height: 55px;\n}\n.header-button:nth-child(3) {\n  padding-right: 40px;\n}\n.header-menu:hover .header-button {\n  opacity: .7;\n}\n.header-menu:hover .header-button:hover {\n  opacity: 1;\n}\n.header-button-icon {\n  max-width: 2rem;\n  vertical-align: middle;\n  margin: 0 0 0;\n}\n.header-button-text {\n  margin-left: 10px;\n  vertical-align: middle;\n  font-size: 16px;\n  color: white;\n  display: none;\n}\n@media (min-width: 768px) {\n.header-button-text {\n    display: inline-block;\n}\n}\n.header-title {\n  text-align: center;\n  margin: 0;\n  padding: 13px 200px 0;\n  font-size: 28px;\n  line-height: 40px;\n  font-weight: 300;\n  position: relative;\n  z-index: 1;\n}\n", ""]);
+exports.push([module.i, ".dashboard-header {\n  z-index: 30;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 140px;\n}\n.header {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 140px;\n  z-index: 2;\n}\n.header-customer-name {\n  display: block;\n  position: relative;\n  z-index: 1;\n  float: right;\n  margin: 13px 40px 0 5px;\n  font-size: 20px;\n  line-height: 40px;\n  font-weight: 300;\n}\n.header-menu {\n  position: absolute;\n  z-index: 2;\n  top: -80px;\n  left: 0;\n  width: 100%;\n  height: 70px;\n  color: #fff;\n  transition: top .5s;\n  text-align: right;\n}\n.header-menu-logo {\n  z-index: 200;\n}\n.header-logo,\n.header-menu-logo {\n  display: block;\n  float: left;\n  padding: 13px 40px 17px;\n  position: relative;\n}\n.header-button {\n  display: inline;\n  vertical-align: middle;\n  overflow: hidden;\n  position: relative;\n  min-width: 80px;\n  height: 70px;\n  margin: 0;\n  padding: 5px 20px 10px;\n  text-align: center;\n  cursor: pointer;\n  font-size: 16px;\n  line-height: 55px;\n}\n.header-button:nth-child(3) {\n  padding-right: 40px;\n}\n.header-menu:hover .header-button {\n  opacity: .7;\n}\n.header-menu:hover .header-button:hover {\n  opacity: 1;\n}\n.header-button-icon {\n  max-width: 2rem;\n  vertical-align: middle;\n  margin: 0 0 0;\n}\n.header-button-text {\n  margin-left: 10px;\n  vertical-align: middle;\n  font-size: 16px;\n  color: white;\n  display: none;\n}\n.header-title {\n  text-align: center;\n  margin: 0;\n  padding: 83px 160px 0;\n  font-size: 28px;\n  line-height: 40px;\n  font-weight: 300;\n  position: relative;\n  z-index: 1;\n}\n@media (min-width: 768px) {\n.header-button-text {\n    display: inline-block;\n}\n.header-title {\n    padding: 13px 200px 0;\n}\n.dashboard-header {\n    height: 70px;\n}\n.header {\n    height: 70px;\n}\n}\n", ""]);
 
 // exports
 
@@ -56110,7 +56122,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.show && this.$route.path.includes("/view-project-team")
-    ? _c("div", { staticClass: "modal" }, [
+    ? _c("div", { staticClass: "modal w-4/5 md:w-full" }, [
         _c("div", { staticClass: "modal-wrapper" }, [
           _c("div", { staticClass: "modal-container" }, [
             _vm._m(0),

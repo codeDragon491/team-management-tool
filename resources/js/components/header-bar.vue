@@ -44,10 +44,20 @@ export default {
     displayHeaderMenu: function() {
       $("body").mousemove(function(event) {
         $(".header-menu").css("top", "0");
+        if ($(window).width() < 768) {
+          $(".header-title").css("display", "none");
+          $(".dashboard-header").css("height", "70px");
+          $(".header").css("height", "70px");
+          $(".view-container").css("top", "70px");
+        }
       });
       $("body").mousestop(function(event) {
         setTimeout(function() {
+          $(".header-title").css("display", "block");
           $(".header-menu").css("top", "-80px");
+          if ($(window).width() < 768) {
+            $(".view-container").css("top", "140px");
+          }
         }, 10000);
       });
     },
@@ -65,15 +75,16 @@ export default {
   left: 0;
   right: 0;
   width: 100%;
-  height: 70px;
+  height: 140px;
 }
 .header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+
   width: 100%;
-  height: 70px;
+  height: 140px;
   z-index: 2;
 }
 .header-customer-name {
@@ -143,20 +154,29 @@ export default {
   color: white;
   display: none;
 }
-@media (min-width: 768px) {
-  .header-button-text {
-    display: inline-block;
-  }
-}
 .header-title {
   text-align: center;
   margin: 0;
-  padding: 13px 200px 0;
+  padding: 83px 160px 0;
   font-size: 28px;
   line-height: 40px;
   font-weight: 300;
   position: relative;
   z-index: 1;
+}
+@media (min-width: 768px) {
+  .header-button-text {
+    display: inline-block;
+  }
+  .header-title {
+    padding: 13px 200px 0;
+  }
+  .dashboard-header {
+    height: 70px;
+  }
+  .header {
+    height: 70px;
+  }
 }
 </style>
 

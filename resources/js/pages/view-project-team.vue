@@ -46,11 +46,12 @@ export default {
 }
 .view-container {
   position: absolute;
-  top: 70px;
+  top: 140px;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
+  transition: top 0.5s;
   .inner {
     position: absolute;
     top: 0;
@@ -59,6 +60,11 @@ export default {
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
+  }
+}
+@media (min-width: 768px) {
+  .view-container {
+    top: 70px;
   }
 }
 </style>
