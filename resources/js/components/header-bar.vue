@@ -148,6 +148,7 @@ export default {
   margin: 0 0 0;
 }
 .header-button-text {
+  font-family: National-Book;
   margin-left: 10px;
   vertical-align: middle;
   font-size: 16px;
@@ -165,9 +166,11 @@ export default {
   z-index: 1;
 }
 @media (min-width: 768px) {
+  .header-button {
+    padding: 5px 20px 10px;
+  }
   .header-button-text {
     display: inline-block;
-    padding: 5px 20px 10px;
   }
   .header-title {
     padding: 13px 200px 0;

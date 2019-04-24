@@ -1,6 +1,4 @@
 @tailwind preflight;
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
 // Variables
 @import "variables";
 // Vue select scss
@@ -8,6 +6,21 @@
 body {
     line-height: 1.625rem;
     font-family: "Source Sans Pro", sans-serif;
+}
+
+button,
+input {
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+@font-face {
+    font-family: Curse Casual JVE;
+    src: url(css/CurseCasualJVE.ttf);
+}
+
+@font-face {
+    font-family: National-Book;
+    src: url(css/National-Book.otf);
 }
 
 h1 {

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -870,6 +870,21 @@ table {
 body {
   line-height: 1.625rem;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+button,
+input {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+@font-face {
+  font-family: Curse Casual JVE;
+  src: url(css/CurseCasualJVE.ttf);
+}
+
+@font-face {
+  font-family: National-Book;
+  src: url(css/National-Book.otf);
 }
 
 h1 {
