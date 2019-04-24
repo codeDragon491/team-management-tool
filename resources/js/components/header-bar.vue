@@ -116,7 +116,7 @@ export default {
 .header-menu-logo {
   display: block;
   float: left;
-  padding: 13px 40px 17px;
+  padding: 13px 0px 0px 40px;
   position: relative;
 }
 .header-button {
@@ -127,7 +127,7 @@ export default {
   min-width: 80px;
   height: 70px;
   margin: 0;
-  padding: 5px 20px 10px;
+  padding: 5px 10px 5px;
   text-align: center;
   cursor: pointer;
   font-size: 16px;
@@ -167,6 +167,7 @@ export default {
 @media (min-width: 768px) {
   .header-button-text {
     display: inline-block;
+    padding: 5px 20px 10px;
   }
   .header-title {
     padding: 13px 200px 0;
