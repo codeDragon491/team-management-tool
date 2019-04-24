@@ -5,7 +5,7 @@
      <div class="burger">
       <span class="w-full p-1"></span>
       <span class="w-full p-1"></span>
-      <span class="w-full p-1"></span>
+      <span class="w-full px-1"></span>
      </div>
      <logo class="md:hidden center fill-white"></logo> 
   </div> 
@@ -82,7 +82,7 @@ a {
   justify-self: flex-start;
   margin-left: 1rem;
   width: 2rem;
-  height: 2rem;
+  height: 1.5rem;
 }
 .sidebar__trigger > .burger > span {
   display: block;
