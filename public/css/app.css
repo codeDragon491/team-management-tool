@@ -879,12 +879,12 @@ input {
 
 @font-face {
   font-family: Curse Casual JVE;
-  src: url(css/CurseCasualJVE.ttf);
+  src: url(../../css/CurseCasualJVE.ttf);
 }
 
 @font-face {
   font-family: National-Book;
-  src: url(css/National-Book.otf);
+  src: url(../../css/National-Book.otf);
 }
 
 h1 {
