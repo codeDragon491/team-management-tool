@@ -2427,11 +2427,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "modal",
-  props: ["show"],
+  props: ["show", "sent"],
   data: function data() {
-    return {
-      sent: false //mutableShow: this.show
-
+    return {//sent: false
+      //mutableShow: this.show
     };
   },
   methods: {
@@ -2453,10 +2452,15 @@ __webpack_require__.r(__webpack_exports__);
         $(".modal-body").text("Team was sent succesfully to client");
         setTimeout(function () {
           self.closeModal();
-          console.log(self.mutableShow);
         }, 3000);
       })["catch"](function (error) {
         console.log(error);
+        self.sent = true;
+        $("h3").text("An error occurred");
+        $(".modal-body").text("Please try again later");
+        setTimeout(function () {
+          self.closeModal();
+        }, 3000);
       });
     }
   }
@@ -56128,7 +56132,7 @@ var render = function() {
                         staticClass: "button-pink",
                         on: { click: _vm.sendTeam }
                       },
-                      [_vm._v("Send link")]
+                      [_vm._v("Send request")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -56154,7 +56158,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("content", { attrs: { select: ".modal-header" } }, [
       _c("div", { staticClass: "modal-header" }, [
-        _c("h3", [_vm._v("\n            Send team to client\n          ")])
+        _c("h3", [
+          _vm._v(
+            "\n            Send project team request to client\n          "
+          )
+        ])
       ])
     ])
   }
@@ -57096,7 +57104,7 @@ var render = function() {
       _c("router-view"),
       _vm._v(" "),
       _c("modal", {
-        attrs: { show: _vm.showModal },
+        attrs: { show: _vm.showModal, sent: false },
         on: {
           closeModal: function($event) {
             _vm.showModal = false

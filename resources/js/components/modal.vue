@@ -5,7 +5,7 @@
         <content select=".modal-header">
           <div class="modal-header">
             <h3>
-              Send team to client
+              Send project team request to client
             </h3>
           </div>
         </content>
@@ -13,7 +13,7 @@
          This operation is irreversable. Are you sure?
         </div>
         <div v-if="!sent" class="modal-footer flex justify-between">
-            <button @click="sendTeam" class="button-pink">Send link</button>
+            <button @click="sendTeam" class="button-pink">Send request</button>
             <button @click="closeModal" class="button-green">Cancel</button>
         </div>
       </div>
@@ -23,10 +23,10 @@
 <script>
 export default {
   name: "modal",
-  props: ["show"],
+  props: ["show", "sent"],
   data() {
     return {
-      sent: false
+      //sent: false
       //mutableShow: this.show
     };
   },
@@ -50,11 +50,16 @@ export default {
           $(".modal-body").text("Team was sent succesfully to client");
           setTimeout(function() {
             self.closeModal();
-            console.log(self.mutableShow);
           }, 3000);
         })
         .catch(function(error) {
           console.log(error);
+          self.sent = true;
+          $("h3").text("An error occurred");
+          $(".modal-body").text("Please try again later");
+          setTimeout(function() {
+            self.closeModal();
+          }, 3000);
         });
     }
   }

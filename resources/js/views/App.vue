@@ -3,7 +3,7 @@
         <side-bar v-if="!this.$route.path.includes('/view-project-team')"></side-bar>
         <header-bar @showModal="showModal = true" v-else :displayHeaderMenu="displayHeaderMenu"></header-bar>
         <router-view></router-view>
-        <modal @closeModal="showModal = false" :show="showModal"></modal>
+        <modal @closeModal="showModal = false" :show="showModal" :sent="false"></modal>
     </div>
 </template>
 
