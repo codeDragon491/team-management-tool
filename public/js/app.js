@@ -8223,7 +8223,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".warp {\n  max-width: 70rem;\n  height: 350px;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  transition: -webkit-transform .2s;\n  transition: transform .2s;\n  transition: transform .2s, -webkit-transform .2s;\n  width: 12rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.warp ul li:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n.teammember_small .name {\n  font-size: 18px;\n  font-weight: 500;\n  margin-top: 10px;\n}\n.teammember_small .title {\n  font-size: 16px;\n  margin-top: 4px;\n}\n.teammember_small .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 12px;\n}\n", ""]);
+exports.push([module.i, ".warp {\n  max-width: 70rem;\n  height: 350px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  transition: -webkit-transform .2s;\n  transition: transform .2s;\n  transition: transform .2s, -webkit-transform .2s;\n  width: 12rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.warp ul li:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n.teammember_small .name {\n  font-size: 18px;\n  font-weight: 500;\n  margin-top: 10px;\n}\n.teammember_small .title {\n  font-size: 16px;\n  margin-top: 4px;\n}\n.teammember_small .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 12px;\n}\n", ""]);
 
 // exports
 

@@ -38,8 +38,7 @@ export default {
 .warp {
   max-width: 70rem;
   height: 350px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   div:nth-of-type(3n) {
     width: 220rem !important;
   }
