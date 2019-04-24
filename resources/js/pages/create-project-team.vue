@@ -15,7 +15,7 @@
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
-	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="form-control" maxlength="128">
+	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full md:w-1/2 form-control" maxlength="128">
                 </div>
                  <div class="flex flex-col items-start pb-5">
                     <label for="id_client" class="control-label">
@@ -24,7 +24,7 @@
 	                <!--<select v-model="projectClient" name="client" id="id_client" class="form-control pb-5">
                      <option v-for="client in clientList" :key="client.id" :value="client">{{client.name}}</option>
                   </select>-->
-                  <v-select class="w-1/2" v-model="projectClient" label="name" :options="clientList"></v-select>
+                  <v-select class="w-full md:w-1/2" v-model="projectClient" label="name" :options="clientList"></v-select>
                 </div>
                 <div class="w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
@@ -212,7 +212,6 @@ export default {
 <style lang="scss">
 .form-control {
   display: block;
-  width: 50%;
   height: 38px;
   padding: 8px 10px;
   font-size: 14px;

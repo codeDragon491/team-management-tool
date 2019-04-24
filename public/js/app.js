@@ -8242,7 +8242,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-control {\n  display: block;\n  width: 50%;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n", ""]);
+exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n", ""]);
 
 // exports
 
@@ -55962,7 +55962,7 @@ var render = function() {
               "div",
               {
                 staticClass: "header-button",
-                attrs: { title: "Send team" },
+                attrs: { title: "Send request" },
                 on: { click: _vm.showModal }
               },
               [
@@ -55986,7 +55986,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("span", { staticClass: "header-button-text" }, [
-                  _vm._v("Send team")
+                  _vm._v("Send request")
                 ])
               ]
             ),
@@ -56601,7 +56601,7 @@ var render = function() {
                     expression: "projectTitle"
                   }
                 ],
-                staticClass: "form-control",
+                staticClass: "w-full md:w-1/2 form-control",
                 attrs: {
                   type: "text",
                   name: "title",
@@ -56628,7 +56628,7 @@ var render = function() {
                 _vm._m(1),
                 _vm._v(" "),
                 _c("v-select", {
-                  staticClass: "w-1/2",
+                  staticClass: "w-full md:w-1/2",
                   attrs: { label: "name", options: _vm.clientList },
                   model: {
                     value: _vm.projectClient,
@@ -56794,9 +56794,7 @@ var render = function() {
         "div",
         { staticClass: "main-content text-center" },
         [
-          _c("h1", { staticClass: "my-10" }, [
-            _vm._v("New Project Request from Signifly")
-          ]),
+          _c("h1", { staticClass: "my-10" }, [_vm._v("NEW PROJECT REQUEST")]),
           _vm._v(" "),
           _c(
             "div",

@@ -2,7 +2,7 @@
     <div class="w-full">
        <bread-crumb first-link="project-requests" class="hidden md:flex"></bread-crumb>
           <div class="main-content text-center">
-           <h1 class="my-10">New Project Request from Signifly</h1>
+           <h1 class="my-10">NEW PROJECT REQUEST</h1>
            <div class="max-w-sm mx-auto bg-signifly-grey-lightest">
               <p class="my-10 p-5 description text-left">Hi,<span class="font-semibold"> {{clientFullname}} </span><br>
         Signifly has just composed your project team. Click the button below to view your team.

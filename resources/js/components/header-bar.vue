@@ -10,9 +10,9 @@
                         <span class="header-button-text">Recompose team</span>
                     </router-link>
                 </div>
-                <div @click="showModal" class="header-button" title="Send team">
+                <div @click="showModal" class="header-button" title="Send request">
                     <svg class="header-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M48 448l416-192L48 64v149.333L346 256 48 298.667z"/></svg>
-                    <span class="header-button-text">Send team</span>
+                    <span class="header-button-text">Send request</span>
                 </div>
                 <router-view></router-view>
             </div>
