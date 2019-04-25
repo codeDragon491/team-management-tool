@@ -45,7 +45,8 @@
                     <team-members :projectTeam="projectTeam" :listData="techData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
             </div>
-              <button @click="saveTeam" class="button-pink mt-5">SAVE TEAM</button>
+              <button v-if="!loading" @click="saveTeam" class="button-pink mt-5">SAVE TEAM</button>
+              <load-button v-else></load-button>
        </div>
     </div>
 </template>
@@ -53,10 +54,10 @@
 import BreadCrumb from "../components/bread-crumb.vue";
 import TeamMembers from "../components/team-members.vue";
 import Router from "../routes";
-import { json } from "body-parser";
+import LoadButton from "../components/load-button.vue";
 export default {
   name: "create-project-team",
-  components: { BreadCrumb, TeamMembers },
+  components: { BreadCrumb, TeamMembers, LoadButton },
   mounted() {
     this.filterTeamMembersData();
     this.clientList = window.data.clients;
@@ -71,6 +72,7 @@ export default {
       consultantsData: [],
       designersData: [],
       techData: [],
+      loading: false,
       styleObject: {
         "background-image": "url(item.imageLink)"
       }
@@ -153,6 +155,7 @@ export default {
     },
     saveTeam: function() {
       if (this.checkForm()) {
+        this.loading = true;
         localStorage.setItem(
           "projectClient",
           JSON.stringify(this.projectClient)

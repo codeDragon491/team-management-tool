@@ -13,7 +13,8 @@
          This operation is irreversable. Are you sure?
         </div>
         <div v-if="!sent" class="modal-footer flex justify-between">
-            <button @click="sendTeam" class="button-pink">Send request</button>
+            <button v-if="!loading" @click="sendTeam" class="button-pink">Send request</button>
+            <load-button v-else></load-button>
             <button @click="closeModal" class="button-green">Cancel</button>
           </div>
         </div>
@@ -21,13 +22,16 @@
     </div> 
 </template>
 <script>
+import LoadButton from "./load-button.vue";
 export default {
   name: "modal",
+  components: { LoadButton },
   props: ["show", "sent"],
   data() {
     return {
       //sent: false
       //mutableShow: this.show
+      loading: false
     };
   },
   methods: {
@@ -37,6 +41,7 @@ export default {
       this.$emit("closeModal");
     },
     sendTeam: function() {
+      this.loading = true;
       var self = this;
       let clientId = JSON.parse(localStorage.getItem("projectClient")).id;
       axios({
@@ -45,6 +50,7 @@ export default {
         data: data
       })
         .then(function(response) {
+          self.loading = false;
           self.sent = true;
           $("h3").text("Wooo");
           $(".modal-body").text("Team was sent succesfully to client");
@@ -54,6 +60,7 @@ export default {
         })
         .catch(function(error) {
           console.log(error);
+          self.loading = true;
           self.sent = true;
           $("h3").text("An error occurred");
           $(".modal-body").text("Please try again later");
@@ -82,16 +89,25 @@ export default {
 
   &-container {
     background: #fff;
+    min-width: 250px;
     max-width: 450px;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
-    margin: 0 2rem;
     padding: 20px 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &-footer {
     margin-top: 15px;
+    @media (max-width: 540px) {
+      button {
+        padding: 0.75rem !important;
+      }
+    }
   }
 
   &-enter,

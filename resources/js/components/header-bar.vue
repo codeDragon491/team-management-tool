@@ -158,7 +158,7 @@ export default {
 .header-title {
   text-align: center;
   margin: 0;
-  padding: 83px 160px 0;
+  padding: 83px;
   font-size: 28px;
   line-height: 40px;
   font-weight: 300;

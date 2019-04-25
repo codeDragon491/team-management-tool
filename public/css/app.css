@@ -884,7 +884,7 @@ input {
 
 @font-face {
   font-family: National-Book;
-  src: url(../../css/National-Book.otf);
+  src: url(../css/National-Book.otf);
 }
 
 h1 {
@@ -897,6 +897,18 @@ p {
 
 ul {
   list-style: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button.button-pink:focus {
+  background-color: #ffabbb;
+}
+
+button.button-green:focus {
+  background-color: #a4e8c3;
 }
 
 .container {
@@ -939,6 +951,10 @@ ul {
   padding: 1rem;
   border-radius: .125rem;
   color: white;
+}
+
+.button-green :focus {
+  outline: none;
 }
 
 .description {
@@ -4154,6 +4170,10 @@ ul {
 
 .max-w-65 {
   max-width: 65rem;
+}
+
+.max-w-xxs {
+  max-width: 10rem;
 }
 
 .max-w-xs {
@@ -9933,6 +9953,10 @@ ul {
     max-width: 65rem;
   }
 
+  .sm\:max-w-xxs {
+    max-width: 10rem;
+  }
+
   .sm\:max-w-xs {
     max-width: 20rem;
   }
@@ -15685,6 +15709,10 @@ ul {
 
   .md\:max-w-65 {
     max-width: 65rem;
+  }
+
+  .md\:max-w-xxs {
+    max-width: 10rem;
   }
 
   .md\:max-w-xs {
@@ -21441,6 +21469,10 @@ ul {
     max-width: 65rem;
   }
 
+  .lg\:max-w-xxs {
+    max-width: 10rem;
+  }
+
   .lg\:max-w-xs {
     max-width: 20rem;
   }
@@ -27193,6 +27225,10 @@ ul {
 
   .xl\:max-w-65 {
     max-width: 65rem;
+  }
+
+  .xl\:max-w-xxs {
+    max-width: 10rem;
   }
 
   .xl\:max-w-xs {
