@@ -193,6 +193,8 @@ export default {
             );
           })
           .catch(function(error) {
+            // TODO
+            // create an error page
             console.log(error);
           });
       }
@@ -232,5 +234,14 @@ label {
 .control-label {
   font-size: 16px;
   font-weight: 700;
+}
+.vs__dropdown-toggle {
+  border: 1px solid #ccd1d9 !important;
+}
+.vs__clear {
+  fill: #a0aab8 !important;
+}
+.vs__open-indicator {
+  fill: #a0aab8 !important;
 }
 </style>

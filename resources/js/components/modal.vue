@@ -46,8 +46,7 @@ export default {
       let clientId = JSON.parse(localStorage.getItem("projectClient")).id;
       axios({
         method: "get",
-        url: "/send-project-team/" + clientId,
-        data: data
+        url: "/send-project-team/" + clientId
       })
         .then(function(response) {
           self.loading = false;
