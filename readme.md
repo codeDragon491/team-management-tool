@@ -1,4 +1,4 @@
-#Trying this sample project#
+# Trying this sample project #
 
 * clone the repo to your local machine
 * cd into the directory
