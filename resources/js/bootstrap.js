@@ -9,10 +9,7 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-
-    //require('bootstrap');
 } catch (e) {}
-
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -61,3 +58,6 @@ Vue.use(scroll)
 import vSelect from 'vue-select'
 
 Vue.component('v-select', vSelect)
+
+import { ClientTable, Event } from 'vue-tables-2';
+Vue.use(ClientTable);

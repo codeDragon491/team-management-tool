@@ -10,7 +10,7 @@
 
         <!-- Ionicons -->
         <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
-
+    
         <link rel="stylesheet" href="{{ mix('css/app.css')}}"/>
 
     </head>

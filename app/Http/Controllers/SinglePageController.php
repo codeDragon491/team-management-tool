@@ -69,7 +69,7 @@ class SinglePageController extends Controller
             public function getProjectRequests($clientId) {
                 try {
                     
-                    $projectRequests = ProjectRequest::where('client_id', $clientId)->get();
+                    $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->get();
                     return response()->json( [
                         'success'=> true,
                         'projectRequests' => $projectRequests
