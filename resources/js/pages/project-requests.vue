@@ -24,7 +24,7 @@ export default {
       columns: [
         "id",
         "project_title",
-        "project_deccription",
+        "project_description",
         "created_at",
         "updated_at",
         "url"
@@ -33,7 +33,7 @@ export default {
         headings: {
           id: "Id",
           project_title: "Project Title",
-          project_description: "Proejct Description",
+          project_description: "Project Description",
           creaated_at: "Created",
           updated_at: "Updated"
         },
@@ -79,16 +79,23 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
 .VuePagination {
   text-align: center;
+  nav {
+    margin: auto;
+  }
 }
-
-.vue-title {
-  text-align: center;
-  margin-bottom: 10px;
+.page-item.active .page-link {
+  background-color: #ffabbb;
+  border-color: #ffabbb;
 }
-
+.page-link {
+  color: #ffabbb;
+}
+.page-link:hover {
+  color: #ffabbb;
+}
 .vue-pagination-ad {
   text-align: center;
 }
@@ -103,21 +110,17 @@ th:nth-child(3) {
   text-align: center;
 }
 
-.VueTables__child-row-toggler {
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
-  display: block;
-  margin: auto;
-  text-align: center;
+.VueTables__search {
+  float: left;
 }
 
-.VueTables__child-row-toggler--closed::before {
-  content: "+";
+.VueTables__limit {
+  float: right;
 }
 
-.VueTables__child-row-toggler--open::before {
-  content: "-";
+#VueTables__limit_tNIWi {
+  padding: 8px 15px !important;
+  color: #a0aab8 !important;
 }
 </style>
 
