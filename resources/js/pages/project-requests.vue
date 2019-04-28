@@ -4,7 +4,7 @@
       <div class="main-content m-5 text-center">
         <h1 class="my-10">PROJECT REQUESTS</h1>
         <div v-if="data.length > 0" class="mx-auto p-5 bg-signifly-grey-lightest">
-          <v-client-table class="bootstrap-scope" :columns="columns" :data="data" :options="options">
+          <v-client-table :columns="columns" :data="data" :options="options">
             <router-link slot="url" slot-scope="props" :to="props.row.url"><svg class="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ff91a6" d="M256 105c-101.8 0-188.4 62.4-224 151 35.6 88.6 122.2 151 224 151s188.4-62.4 224-151c-35.6-88.6-122.2-151-224-151zm0 251.7c-56 0-101.8-45.3-101.8-100.7S200 155.3 256 155.3 357.8 200.6 357.8 256 312 356.7 256 356.7zm0-161.1c-33.6 0-61.1 27.2-61.1 60.4s27.5 60.4 61.1 60.4 61.1-27.2 61.1-60.4-27.5-60.4-61.1-60.4z"/></svg></router-link>
             <router-view></router-view>
             <!--<a slot="url" slot-scope="props" : href="props.row.url" target="_blank" class="glyphicon glyphicon-eye-open"></a>-->
@@ -22,6 +22,7 @@ export default {
   components: { BreadCrumb, Loader },
   data() {
     return {
+      selector: "",
       initialData: [],
       columns: [
         "id",
@@ -44,10 +45,27 @@ export default {
       }
     };
   },
+  watch: {
+    // whenever question changes, this function will run
+    selector: function(newSelection) {
+      console.log(newSelection);
+      $(".page-item a").each(function() {
+        if ($(this).text() == ">") $(this).text(" ");
+        else if ($(this).text() == ">>") $(this).text(" ");
+        else if ($(this).text() == "<") $(this).text(" ");
+        else if ($(this).text() == "<<") $(this).text(" ");
+      });
+    }
+  },
   computed: {
     data: function() {
       return this.initialData;
     }
+    /*selector: function() {
+      setTimeout(function() {
+        return document.getElementById("VueTables__limit_HZiY9").value;
+      }, 500);
+    }*/
   },
   methods: {
     getProjectRequests: function() {
@@ -67,17 +85,39 @@ export default {
             newProjectRequest.url = "/view-project-team/" + projectRequest.id;
             return newProjectRequest;
           });
-          console.log("data here", self.initialData);
+          //console.log("data here", self.initialData);
           //fill list with data
         })
         .catch(function(error) {
           console.log(error);
           // TODO error handling
         });
+    },
+    removeDefaultArrows: function() {
+      $(".page-item a").each(function() {
+        //console.log($(this));
+        if ($(this).text() == ">") $(this).text(" ");
+        else if ($(this).text() == ">>") $(this).text(" ");
+        else if ($(this).text() == "<") $(this).text(" ");
+        else if ($(this).text() == "<<") $(this).text(" ");
+      });
     }
   },
   created() {
     this.getProjectRequests();
+    self = this;
+    setTimeout(function() {
+      self.removeDefaultArrows();
+    }, 100);
+  },
+  mounted() {
+    setTimeout(function() {
+      document
+        .getElementsByTagName("select")[0]
+        .setAttribute("id", "VueTables__limit");
+      this.selector = document.getElementById("VueTables__limit").value;
+      console.log(this.selector);
+    }, 2000);
   }
 };
 </script>
@@ -94,14 +134,36 @@ export default {
 .table-responsive {
   margin-bottom: 1rem;
 }
-.page-item.disabled .page-link {
+.page-item:first-child a:after {
   font-family: "Ionicons";
   font-weight: bold;
-  content: "\F3D1";
+  content: "\f3cf\f3cf";
+}
+.page-item:nth-child(2) a:after {
+  font-family: "Ionicons";
+  font-weight: bold;
+  content: "\f3cf";
+}
+.page-item:last-child a:after {
+  font-family: "Ionicons";
+  font-weight: bold;
+  content: "\f3d1\f3d1";
+}
+.page-item:nth-last-child(2) a:after {
+  font-family: "Ionicons";
+  font-weight: bold;
+  content: "\f3d1";
 }
 .page-item.active .page-link {
   background-color: #ffabbb !important;
   border-color: #ffabbb !important;
+}
+select {
+  width: 4rem;
+  appearance: none;
+  background-image: url(/img/arrow-dropdown.svg);
+  background-repeat: no-repeat;
+  background-position: 2rem center;
 }
 .page-link {
   color: #ffabbb;

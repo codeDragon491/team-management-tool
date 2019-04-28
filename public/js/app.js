@@ -2750,6 +2750,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      selector: "",
       initialData: [],
       columns: ["id", "project_title", "project_description", "created_at", "updated_at", "url"],
       options: {
@@ -2765,10 +2766,25 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  watch: {
+    // whenever question changes, this function will run
+    selector: function selector(newSelection) {
+      console.log(newSelection);
+      $(".page-item a").each(function () {
+        if ($(this).text() == ">") $(this).text(" ");else if ($(this).text() == ">>") $(this).text(" ");else if ($(this).text() == "<") $(this).text(" ");else if ($(this).text() == "<<") $(this).text(" ");
+      });
+    }
+  },
   computed: {
     data: function data() {
       return this.initialData;
     }
+    /*selector: function() {
+      setTimeout(function() {
+        return document.getElementById("VueTables__limit_HZiY9").value;
+      }, 500);
+    }*/
+
   },
   methods: {
     getProjectRequests: function getProjectRequests() {
@@ -2782,15 +2798,32 @@ __webpack_require__.r(__webpack_exports__);
           var newProjectRequest = Object.assign({}, projectRequest);
           newProjectRequest.url = "/view-project-team/" + projectRequest.id;
           return newProjectRequest;
-        });
-        console.log("data here", self.initialData); //fill list with data
+        }); //console.log("data here", self.initialData);
+        //fill list with data
       })["catch"](function (error) {
         console.log(error); // TODO error handling
+      });
+    },
+    removeDefaultArrows: function removeDefaultArrows() {
+      $(".page-item a").each(function () {
+        //console.log($(this));
+        if ($(this).text() == ">") $(this).text(" ");else if ($(this).text() == ">>") $(this).text(" ");else if ($(this).text() == "<") $(this).text(" ");else if ($(this).text() == "<<") $(this).text(" ");
       });
     }
   },
   created: function created() {
     this.getProjectRequests();
+    self = this;
+    setTimeout(function () {
+      self.removeDefaultArrows();
+    }, 100);
+  },
+  mounted: function mounted() {
+    setTimeout(function () {
+      document.getElementsByTagName("select")[0].setAttribute("id", "VueTables__limit");
+      this.selector = document.getElementById("VueTables__limit").value;
+      console.log(this.selector);
+    }, 2000);
   }
 });
 
@@ -5238,7 +5271,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination__pagination {\n  margin: 1.5rem;\n}\n.table-responsive {\n  margin-bottom: 1rem;\n}\n.page-item.disabled .page-link {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3D1\";\n}\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\nth:nth-child(3) {\n  text-align: center;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\n#VueTables__limit_tNIWi {\n  padding: 8px 15px !important;\n  color: #a0aab8 !important;\n}\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination__pagination {\n  margin: 1.5rem;\n}\n.table-responsive {\n  margin-bottom: 1rem;\n}\n.page-item:first-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3CF\\F3CF\";\n}\n.page-item:nth-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3CF\";\n}\n.page-item:last-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3D1\\F3D1\";\n}\n.page-item:nth-last-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3D1\";\n}\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\nselect {\n  width: 4rem;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(/img/arrow-dropdown.svg);\n  background-repeat: no-repeat;\n  background-position: 2rem center;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\nth:nth-child(3) {\n  text-align: center;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\n#VueTables__limit_tNIWi {\n  padding: 8px 15px !important;\n  color: #a0aab8 !important;\n}\n", ""]);
 
 // exports
 
@@ -43455,7 +43488,6 @@ var render = function() {
                   _c(
                     "v-client-table",
                     {
-                      staticClass: "bootstrap-scope",
                       attrs: {
                         columns: _vm.columns,
                         data: _vm.data,
