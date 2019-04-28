@@ -21,9 +21,6 @@
                     <label for="id_client" class="control-label">
                       Select client<span title="required">*</span>
                     </label>
-	                <!--<select v-model="projectClient" name="client" id="id_client" class="form-control pb-5">
-                     <option v-for="client in clientList" :key="client.id" :value="client">{{client.name}}</option>
-                  </select>-->
                   <v-select class="w-full md:w-1/2" v-model="projectClient" label="name" :options="clientList"></v-select>
                 </div>
                 <div class="w-full flex flex-col pb-5">

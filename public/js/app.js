@@ -2530,9 +2530,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -2733,8 +2730,8 @@ __webpack_require__.r(__webpack_exports__);
           creaated_at: "Created",
           updated_at: "Updated"
         },
-        sortable: ["name", "code"],
-        filterable: ["name", "code"]
+        sortable: ["id", "project_title", "created_at", "updated_at"],
+        filterable: ["id", "project_title", "created_at", "updated_at"]
       }
     };
   },
@@ -5211,7 +5208,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.page-item.active .page-link {\n  background-color: #ffabbb;\n  border-color: #ffabbb;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\nth:nth-child(3) {\n  text-align: center;\n}\n.VueTables__search {\n  float: left;\n}\n.VueTables__limit {\n  float: right;\n}\n#VueTables__limit_tNIWi {\n  padding: 8px 15px !important;\n  color: #a0aab8 !important;\n}\n", ""]);
+exports.push([module.i, ".VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.page-item.active .page-link {\n  background-color: #ffabbb;\n  border-color: #ffabbb;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\nth:nth-child(3) {\n  text-align: center;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n.VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\n#VueTables__limit_tNIWi {\n  padding: 8px 15px !important;\n  color: #a0aab8 !important;\n}\n", ""]);
 
 // exports
 

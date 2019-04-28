@@ -37,8 +37,8 @@ export default {
           creaated_at: "Created",
           updated_at: "Updated"
         },
-        sortable: ["name", "code"],
-        filterable: ["name", "code"]
+        sortable: ["id", "project_title", "created_at", "updated_at"],
+        filterable: ["id", "project_title", "created_at", "updated_at"]
       }
     };
   },
@@ -109,15 +109,28 @@ export default {
 th:nth-child(3) {
   text-align: center;
 }
-
 .VueTables__search {
   float: left;
+  margin-bottom: 1.25rem;
+}
+.VueTables__search-field {
+  display: flex;
+  align-items: center;
 }
 
 .VueTables__limit {
   float: right;
+  margin-bottom: 1.25rem;
 }
-
+.VueTables__limit-field {
+  display: flex;
+  align-items: center;
+}
+label {
+  font-size: 16px;
+  font-weight: 700;
+  padding-right: 0.5rem;
+}
 #VueTables__limit_tNIWi {
   padding: 8px 15px !important;
   color: #a0aab8 !important;
