@@ -86,9 +86,20 @@ export default {
     margin: auto;
   }
 }
+.VuePagination__pagination {
+  margin: 1.5rem;
+}
+.table-responsive {
+  margin-bottom: 1rem;
+}
+.page-item.disabled .page-link {
+  font-family: "Ionicons";
+  font-weight: bold;
+  content: "\F3D1";
+}
 .page-item.active .page-link {
-  background-color: #ffabbb;
-  border-color: #ffabbb;
+  background-color: #ffabbb !important;
+  border-color: #ffabbb !important;
 }
 .page-link {
   color: #ffabbb;
