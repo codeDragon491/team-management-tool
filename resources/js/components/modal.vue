@@ -59,7 +59,7 @@ export default {
         })
         .catch(function(error) {
           console.log(error);
-          self.loading = true;
+          self.loading = false;
           self.sent = true;
           $("h3").text("An error occurred");
           $(".modal-body").text("Please try again later");

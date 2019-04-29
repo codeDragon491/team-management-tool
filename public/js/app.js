@@ -2388,7 +2388,7 @@ __webpack_require__.r(__webpack_exports__);
         }, 3000);
       })["catch"](function (error) {
         console.log(error);
-        self.loading = true;
+        self.loading = false;
         self.sent = true;
         $("h3").text("An error occurred");
         $(".modal-body").text("Please try again later");
@@ -2750,7 +2750,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      selector: "",
+      //selector: "",
       initialData: [],
       columns: ["id", "project_title", "project_description", "created_at", "updated_at", "url"],
       options: {
@@ -2766,15 +2766,21 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  watch: {
-    // whenever question changes, this function will run
-    selector: function selector(newSelection) {
-      console.log(newSelection);
-      $(".page-item a").each(function () {
-        if ($(this).text() == ">") $(this).text(" ");else if ($(this).text() == ">>") $(this).text(" ");else if ($(this).text() == "<") $(this).text(" ");else if ($(this).text() == "<<") $(this).text(" ");
+
+  /*watch: {
+    // whenever selector changes, this function will run
+    selector: function(newSelection, oldSelection) {
+      console.log("in watcher", newSelection);
+      if (newSelection == "25") console.log("in watcher", newSelection);
+      $(".page-item a").each(function() {
+        //console.log($(this));
+        if ($(this).text() == ">") $(this).text(" ");
+        else if ($(this).text() == ">>") $(this).text(" ");
+        else if ($(this).text() == "<") $(this).text(" ");
+        else if ($(this).text() == "<<") $(this).text(" ");
       });
     }
-  },
+  },*/
   computed: {
     data: function data() {
       return this.initialData;
@@ -2817,14 +2823,18 @@ __webpack_require__.r(__webpack_exports__);
     setTimeout(function () {
       self.removeDefaultArrows();
     }, 100);
-  },
-  mounted: function mounted() {
-    setTimeout(function () {
-      document.getElementsByTagName("select")[0].setAttribute("id", "VueTables__limit");
-      this.selector = document.getElementById("VueTables__limit").value;
-      console.log(this.selector);
-    }, 2000);
   }
+  /*mounted() {
+    self = this;
+    setTimeout(function() {
+      document
+        .getElementsByTagName("select")[0]
+        .setAttribute("id", "VueTables__limit");
+      self.selector = document.getElementById("VueTables__limit").value;
+      console.log("in mounted", self.selector);
+    }, 2000);
+  }*/
+
 });
 
 /***/ }),
