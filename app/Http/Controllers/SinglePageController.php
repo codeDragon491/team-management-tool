@@ -35,9 +35,8 @@ class SinglePageController extends Controller
                 return response()->json( [
                     'success'=> true,
                     'projectRequest' => $projectRequest,
-                    'projectTeam' => $projectTeam
+                    'projectTeam' => $projectTeam,
                 ]);
-
 
                 } catch(\Exception $e){
                     return ['success' => false, 'message' => 'project team creation failed'];
@@ -57,11 +56,10 @@ class SinglePageController extends Controller
             public function getProjectRequests($clientId) {
                 try {
                     
-                    $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->with('teamMember')->get();
+                    $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->get();
                     return response()->json( [
                         'success'=> true,
-                        'projectRequests' => $projectRequests,
-                        //'projectTeams' =>  $projectTeams
+                        'projectRequests' => $projectRequests
                     ]);
                 } catch(\Exception $e){
                     return ['success' => false, 'message' => 'getting project requests failed'];
