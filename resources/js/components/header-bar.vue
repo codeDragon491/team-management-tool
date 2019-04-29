@@ -28,9 +28,16 @@ import { setTimeout } from "timers";
 export default {
   name: "header-bar",
   components: { Logo },
+  data() {
+    return {
+      projectRequests: []
+    };
+  },
+  created() {
+    this.projectRequests = JSON.parse(localStorage.getItem("projectRequests"));
+  },
   mounted() {
     this.displayHeaderMenu();
-    //console.log(JSON.parse(localStorage.getItem('projectRequest')).project_title)
   },
   computed: {
     projectTitle: function() {

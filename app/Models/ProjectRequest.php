@@ -10,7 +10,7 @@ class ProjectRequest extends Model
     protected $fillable = ['project_title', 'client_id'];
 
      // Relations
-     public function TeamMember() {
+     public function teamMember() {
         return $this->hasMany('\App\Models\TeamMember', 'project_request_id', 'id');
     }
 }

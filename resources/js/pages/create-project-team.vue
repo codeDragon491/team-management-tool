@@ -184,10 +184,6 @@ export default {
               "projectTeam",
               JSON.stringify(response.data.projectTeam)
             );
-            localStorage.setItem(
-              "clientFullname",
-              JSON.stringify(response.data.clientFullName)
-            );
           })
           .catch(function(error) {
             // TODO

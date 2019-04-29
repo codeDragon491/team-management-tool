@@ -13,15 +13,6 @@ use Illuminate\Support\Facades\View;
 
 class SinglePageController extends Controller
 {
-    protected $teamMembers;
-    //protected $projectRequests;
-    protected $projectClientId;
-
-    public function __construct(TeamMember $teamMembers) {
-        //ProjectRequest $projectRequests
-        $this->teamMembers = $teamMembers;
-        //$this->projectRequests = $projectRequests;
-    }
 
     public function index() {
         $teamMembers = TeamMember::get();
@@ -40,16 +31,13 @@ class SinglePageController extends Controller
                     ]);
 
                     $projectTeam = TeamMember::where('project_request_id', $projectRequest->id)->get();
-                    //$userFullName = User::where('id', $request->projectClientId)->value('name');
 
                 return response()->json( [
                     'success'=> true,
                     'projectRequest' => $projectRequest,
-                    'projectTeam' => $projectTeam,
-                    //'clientFullName' => $userFullName
+                    'projectTeam' => $projectTeam
                 ]);
 
-                //return redirect()->route('view.project.team', ['project_request_id' => $projectRequest->id ]);
 
                 } catch(\Exception $e){
                     return ['success' => false, 'message' => 'project team creation failed'];
@@ -69,10 +57,11 @@ class SinglePageController extends Controller
             public function getProjectRequests($clientId) {
                 try {
                     
-                    $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->get();
+                    $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->with('teamMember')->get();
                     return response()->json( [
                         'success'=> true,
-                        'projectRequests' => $projectRequests
+                        'projectRequests' => $projectRequests,
+                        //'projectTeams' =>  $projectTeams
                     ]);
                 } catch(\Exception $e){
                     return ['success' => false, 'message' => 'getting project requests failed'];

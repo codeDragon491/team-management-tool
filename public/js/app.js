@@ -2204,8 +2204,16 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Logo: _components_logo_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  data: function data() {
+    return {
+      projectRequests: []
+    };
+  },
+  created: function created() {
+    this.projectRequests = JSON.parse(localStorage.getItem("projectRequests"));
+  },
   mounted: function mounted() {
-    this.displayHeaderMenu(); //console.log(JSON.parse(localStorage.getItem('projectRequest')).project_title)
+    this.displayHeaderMenu();
   },
   computed: {
     projectTitle: function projectTitle() {
@@ -2688,7 +2696,6 @@ __webpack_require__.r(__webpack_exports__);
           });
           localStorage.setItem("projectRequest", JSON.stringify(response.data.projectRequest));
           localStorage.setItem("projectTeam", JSON.stringify(response.data.projectTeam));
-          localStorage.setItem("clientFullname", JSON.stringify(response.data.clientFullName));
         })["catch"](function (error) {
           // TODO
           // create an error page
@@ -2724,7 +2731,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_bread_crumb_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/bread-crumb.vue */ "./resources/js/components/bread-crumb.vue");
 /* harmony import */ var _components_loader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/loader.vue */ "./resources/js/components/loader.vue");
-//
 //
 //
 //
@@ -2804,7 +2810,8 @@ __webpack_require__.r(__webpack_exports__);
           var newProjectRequest = Object.assign({}, projectRequest);
           newProjectRequest.url = "/view-project-team/" + projectRequest.id;
           return newProjectRequest;
-        }); //console.log("data here", self.initialData);
+        });
+        localStorage.setItem("projectRequests", JSON.stringify(self.initialData)); //console.log("data here", self.initialData);
         //fill list with data
       })["catch"](function (error) {
         console.log(error); // TODO error handling
@@ -2904,12 +2911,14 @@ __webpack_require__.r(__webpack_exports__);
   name: "view-project-team",
   data: function data() {
     return {
-      headerBar: document.getElementsByClassName(".header-menu"),
-      projectTeamData: JSON.parse(localStorage.getItem("projectTeam"))
+      headerBar: document.getElementsByClassName(".header-menu")
     };
   },
-  mounted: function mounted() {},
-  computed: {}
+  computed: {
+    projectTeamData: function projectTeamData() {
+      return JSON.parse(localStorage.getItem("projectTeam"));
+    }
+  }
 });
 
 /***/ }),
@@ -5281,7 +5290,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination__pagination {\n  margin: 1.5rem;\n}\n.table-responsive {\n  margin-bottom: 1rem;\n}\n.page-item:first-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3CF\\F3CF\";\n}\n.page-item:nth-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3CF\";\n}\n.page-item:last-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3D1\\F3D1\";\n}\n.page-item:nth-last-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\F3D1\";\n}\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\nselect {\n  width: 4rem;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(/img/arrow-dropdown.svg);\n  background-repeat: no-repeat;\n  background-position: 2rem center;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\nth:nth-child(3) {\n  text-align: center;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\n#VueTables__limit_tNIWi {\n  padding: 8px 15px !important;\n  color: #a0aab8 !important;\n}\n", ""]);
+exports.push([module.i, ".VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination__pagination {\n  margin: 1.5rem;\n}\n.table-responsive {\n  margin-bottom: 1rem;\n}\n\n/*.page-item:first-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\\f3cf\";\n}\n.page-item:nth-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\";\n}\n.page-item:last-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\\f3d1\";\n}\n.page-item:nth-last-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\";\n}*/\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\nselect {\n  width: 4rem;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(/img/arrow-dropdown.svg);\n  background-repeat: no-repeat;\n  background-position: 2rem center;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\nth:nth-child(3) {\n  text-align: center;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\n#VueTables__limit_tNIWi {\n  padding: 8px 15px !important;\n  color: #a0aab8 !important;\n}\n", ""]);
 
 // exports
 

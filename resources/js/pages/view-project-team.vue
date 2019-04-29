@@ -19,12 +19,14 @@ export default {
   name: "view-project-team",
   data() {
     return {
-      headerBar: document.getElementsByClassName(".header-menu"),
-      projectTeamData: JSON.parse(localStorage.getItem("projectTeam"))
+      headerBar: document.getElementsByClassName(".header-menu")
     };
   },
-  mounted() {},
-  computed: {}
+  computed: {
+    projectTeamData: function() {
+      return JSON.parse(localStorage.getItem("projectTeam"));
+    }
+  }
 };
 </script>
 <style <style lang="scss">
