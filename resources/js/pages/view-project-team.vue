@@ -2,7 +2,7 @@
   <div class="w-full bg-white view-container">
     <div class="inner">
       <ul class="w-full flex flex-wrap justify-center p-0">
-        <li class="hover:cursor-pointer" v-for="teammember in projectTeamData" :key="teammember.id" >
+        <li class="hover:cursor-pointer" v-for="teammember in projectTeamData || projectTeamDataClientView" :key="teammember.id" >
           <div class="w-full px-10 md:px-2 py-10 teammember_big text-left">
             <img class="w-full" :src="teammember.picture">
             <p class="text-black name" v-text="teammember.name"></p>
@@ -19,8 +19,19 @@ export default {
   name: "view-project-team",
   data() {
     return {
-      headerBar: document.getElementsByClassName(".header-menu")
+      headerBar: document.getElementsByClassName(".header-menu"),
+      projectTeamDataClientView: []
     };
+  },
+  created() {
+    let projectRequestId = this.$route.path.substring(
+      this.$route.path.lastIndexOf("/") + 1
+    );
+    this.projectTeamDataClientView = JSON.parse(
+      localStorage.getItem("projectRequests")
+    ).find(
+      projectRequest => projectRequest.id == projectRequestId
+    ).team_member_log;
   },
   computed: {
     projectTeamData: function() {

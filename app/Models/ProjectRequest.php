@@ -13,6 +13,9 @@ class ProjectRequest extends Model
      public function teamMember() {
         return $this->hasMany('\App\Models\TeamMember', 'project_request_id', 'id');
     }
+    public function teamMemberLog() {
+        return $this->hasMany('\App\Models\TeamMemberLog', 'project_request_id', 'id');
+    }
 }
 
 

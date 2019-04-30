@@ -2911,8 +2911,15 @@ __webpack_require__.r(__webpack_exports__);
   name: "view-project-team",
   data: function data() {
     return {
-      headerBar: document.getElementsByClassName(".header-menu")
+      headerBar: document.getElementsByClassName(".header-menu"),
+      projectTeamDataClientView: []
     };
+  },
+  created: function created() {
+    var projectRequestId = this.$route.path.substring(this.$route.path.lastIndexOf("/") + 1);
+    this.projectTeamDataClientView = JSON.parse(localStorage.getItem("projectRequests")).find(function (projectRequest) {
+      return projectRequest.id == projectRequestId;
+    }).team_member_log;
   },
   computed: {
     projectTeamData: function projectTeamData() {
@@ -43743,7 +43750,9 @@ var render = function() {
       _c(
         "ul",
         { staticClass: "w-full flex flex-wrap justify-center p-0" },
-        _vm._l(_vm.projectTeamData, function(teammember) {
+        _vm._l(_vm.projectTeamData || _vm.projectTeamDataClientView, function(
+          teammember
+        ) {
           return _c(
             "li",
             { key: teammember.id, staticClass: "hover:cursor-pointer" },

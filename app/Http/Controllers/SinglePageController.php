@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\View;
 class SinglePageController extends Controller
 {
 
-    public function index() {
-        $teamMembers = TeamMember::get();
-        $clients = Client::get(['id', 'name']);
-        return view('app', compact('teamMembers', 'clients'));
-    }
+            public function index() {
+                $teamMembers = TeamMember::get();
+                $clients = Client::get(['id', 'name']);
+                return view('app', compact('teamMembers', 'clients'));
+            }
 
 
             public function createProjectTeam(Request $request){
@@ -56,7 +56,7 @@ class SinglePageController extends Controller
             public function getProjectRequests($clientId) {
                 try {
                     
-                    $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->get();
+                    $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->with('teamMemberLog')->get();
                     return response()->json( [
                         'success'=> true,
                         'projectRequests' => $projectRequests
