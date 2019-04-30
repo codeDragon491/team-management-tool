@@ -17,7 +17,7 @@
                 <router-view></router-view>
             </div>
             <logo class="header-logo fill-black"></logo>
-            <h1 class="header-title">{{projectTitle}}</h1>
+            <h1 class="header-title">{{projectTitle}} {{projectTitleClientView}}</h1>
         </div>
     </div>
 </template>
@@ -30,21 +30,30 @@ export default {
   components: { Logo },
   data() {
     return {
-      projectRequests: []
+      projectTitleClientView: ""
     };
   },
   created() {
-    this.projectRequests = JSON.parse(localStorage.getItem("projectRequests"));
+    let projectRequestId = this.$route.path.substring(
+      this.$route.path.lastIndexOf("/") + 1
+    );
+    this.projectTitleClientView = JSON.parse(
+      localStorage.getItem("projectRequests")
+    ).find(
+      projectRequest => projectRequest.id == projectRequestId
+    ).project_title;
+    //console.log(this.projectTitleClientView);
   },
   mounted() {
     this.displayHeaderMenu();
   },
   computed: {
     projectTitle: function() {
-      return JSON.parse(localStorage.getItem("projectRequest")).project_title;
+      if (localStorage.projectRequest)
+        return JSON.parse(localStorage.getItem("projectRequest")).project_title;
     },
     clientName: function() {
-      return JSON.parse(localStorage.getItem("projectClient")).name;
+      return JSON.parse(localStorage.getItem("projectClient"));
     }
   },
   methods: {

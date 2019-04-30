@@ -2206,21 +2206,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      projectRequests: []
+      projectTitleClientView: ""
     };
   },
   created: function created() {
-    this.projectRequests = JSON.parse(localStorage.getItem("projectRequests"));
+    var projectRequestId = this.$route.path.substring(this.$route.path.lastIndexOf("/") + 1);
+    this.projectTitleClientView = JSON.parse(localStorage.getItem("projectRequests")).find(function (projectRequest) {
+      return projectRequest.id == projectRequestId;
+    }).project_title; //console.log(this.projectTitleClientView);
   },
   mounted: function mounted() {
     this.displayHeaderMenu();
   },
   computed: {
     projectTitle: function projectTitle() {
-      return JSON.parse(localStorage.getItem("projectRequest")).project_title;
+      if (localStorage.projectRequest) return JSON.parse(localStorage.getItem("projectRequest")).project_title;
     },
     clientName: function clientName() {
-      return JSON.parse(localStorage.getItem("projectClient")).name;
+      return JSON.parse(localStorage.getItem("projectClient"));
     }
   },
   methods: {
@@ -2811,7 +2814,8 @@ __webpack_require__.r(__webpack_exports__);
           newProjectRequest.url = "/view-project-team/" + projectRequest.id;
           return newProjectRequest;
         });
-        localStorage.setItem("projectRequests", JSON.stringify(self.initialData)); //console.log("data here", self.initialData);
+        localStorage.setItem("projectRequests", JSON.stringify(self.initialData));
+        localStorage.setItem("projectClient", JSON.stringify(response.data.projectClient)); //console.log("data here", self.initialData);
         //fill list with data
       })["catch"](function (error) {
         console.log(error); // TODO error handling
@@ -42436,7 +42440,9 @@ var render = function() {
         _c("logo", { staticClass: "header-logo fill-black" }),
         _vm._v(" "),
         _c("h1", { staticClass: "header-title" }, [
-          _vm._v(_vm._s(_vm.projectTitle))
+          _vm._v(
+            _vm._s(_vm.projectTitle) + " " + _vm._s(_vm.projectTitleClientView)
+          )
         ])
       ],
       1

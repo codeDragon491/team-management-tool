@@ -90,6 +90,10 @@ export default {
             "projectRequests",
             JSON.stringify(self.initialData)
           );
+          localStorage.setItem(
+            "projectClient",
+            JSON.stringify(response.data.projectClient)
+          );
           //console.log("data here", self.initialData);
           //fill list with data
         })

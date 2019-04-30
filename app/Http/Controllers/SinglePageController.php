@@ -57,10 +57,13 @@ class SinglePageController extends Controller
                 try {
                     
                     $projectRequests = ProjectRequest::where('client_id', $clientId)->orderBy('created_at', 'DESC')->with('teamMemberLog')->get();
+                    //$projectClient = Client::where('id', $clientId)->with('projectRequest')->orderBy('created_at', 'DESC')->with('teamMemberLog')->get();
+                    $projectClient = Client::where('id', $clientId)->value('name');
                     return response()->json( [
                         'success'=> true,
-                        'projectRequests' => $projectRequests
-                    ]);
+                        'projectRequests' => $projectRequests,
+                        'projectClient' => $projectClient
+                     ]);
                 } catch(\Exception $e){
                     return ['success' => false, 'message' => 'getting project requests failed'];
                 }
