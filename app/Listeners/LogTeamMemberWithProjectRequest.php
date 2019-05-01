@@ -29,7 +29,7 @@ class LogTeamMemberWithProjectRequest
 
     {   
         //TeamMemberLog::create(['name' => $event->teamMember->name, 'title'=> $event->teamMember->title, 'picture' => $event->teamMember->picture, 'email' => $event->teamMember->email, 'phone_number' => $event->teamMember->phonenumber, 'background-information' => $event->teamMemmber->background_information, 'project_request_id' =>$event->teamMemmber->project_request_id,'type' => $event->teamMember->type ]);
-        TeamMemberLog::insert($event->teamMember);
-        //dd($event->teamMember);
+        TeamMemberLog::insert($event->teamMembers);
+        //dd($event->teamMembers);
     }
 }

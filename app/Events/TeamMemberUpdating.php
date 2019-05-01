@@ -9,20 +9,21 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+//use Illuminate\Database\Eloquent\Collection;
 use App\Models\TeamMember;
 
 class TeamMemberUpdating
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $teamMember;
+    public $teamMembers;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(TeamMember $teamMember)
+    public function __construct($teamMembers)
     {
-        $this->teamMember = $teamMember;
+        $this->teamMembers = $teamMembers;
     }
 
     /**

@@ -18,7 +18,7 @@ class CreateTeamMembersLogTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('picture');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('phone_number');
             $table->text('background_information')->nullable();
             $table->timestamps();

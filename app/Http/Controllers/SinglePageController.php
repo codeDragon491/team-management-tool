@@ -25,14 +25,12 @@ class SinglePageController extends Controller
             public function createProjectTeam(Request $request){
                 try {
                     $projectRequest = ProjectRequest::create(['project_title' => $request->projectTitle, 'client_id' => $request->projectClientId]);
-                    $teamMembers = TeamMember::whereIn('email', $request->projectTeamEmails)->get();
-                    event(new TeamMemberUpdating($teamMembers));
                     TeamMember::whereIn('email', $request->projectTeamEmails)
                     ->update([
                         'project_request_id' => $projectRequest->id 
                     ]);
-
                     $projectTeam = TeamMember::where('project_request_id', $projectRequest->id)->get();
+                    event(new TeamMemberUpdating($projectTeam->toArray()));
 
                 return response()->json( [
                     'success'=> true,
