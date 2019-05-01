@@ -37,7 +37,7 @@ export default {
 <style lang="scss">
 .warp {
   max-width: 70rem;
-  height: 350px;
+  height: 365px;
   overflow: hidden;
   div:nth-of-type(3n) {
     width: 220rem !important;

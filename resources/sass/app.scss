@@ -15,6 +15,11 @@ input {
     font-family: "Source Sans Pro", sans-serif;
 }
 
+input:focus {
+    border-color: #081228;
+    outline: none;
+}
+
 @font-face {
     font-family: Curse Casual JVE;
     src: url(../css/CurseCasualJVE.ttf);
