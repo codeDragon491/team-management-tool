@@ -17,7 +17,7 @@
                 <router-view></router-view>
             </div>
             <logo class="header-logo fill-black"></logo>
-            <h1 class="header-title">{{projectTitle}} {{projectTitleClientView}}</h1>
+            <h1 class="header-title">{{projectTitle}}</h1>
         </div>
     </div>
 </template>
@@ -30,30 +30,50 @@ export default {
   components: { Logo },
   data() {
     return {
-      projectTitleClientView: ""
+      projectTitle: "",
+      route: this.$route.path
     };
+  },
+  watch: {
+    route: function(to, from) {
+      if (to !== from) {
+        localStorage.clear();
+        console.log(this.$route);
+      }
+    }
   },
   created() {
     let projectRequestId = this.$route.path.substring(
       this.$route.path.lastIndexOf("/") + 1
     );
-    this.projectTitleClientView = JSON.parse(
-      localStorage.getItem("projectRequests")
-    ).find(
-      projectRequest => projectRequest.id == projectRequestId
-    ).project_title;
-    //console.log(this.projectTitleClientView);
+    if (localStorage.projectRequests)
+      this.projectTitle = JSON.parse(
+        localStorage.getItem("projectRequests")
+      ).find(
+        projectRequest => projectRequest.id == projectRequestId
+      ).project_title;
+    else if (localStorage.projectRequest)
+      this.projectTitle = JSON.parse(
+        localStorage.getItem("projectRequest")
+      ).project_title;
   },
   mounted() {
     this.displayHeaderMenu();
+    console.log(this.$route);
+  },
+  destroyed() {
+    //localStorage.clear();
   },
   computed: {
-    projectTitle: function() {
+    /*projectTitle: function() {
       if (localStorage.projectRequest)
         return JSON.parse(localStorage.getItem("projectRequest")).project_title;
-    },
+    },*/
     clientName: function() {
-      return JSON.parse(localStorage.getItem("projectClient"));
+      if (localStorage.projectClient)
+        return JSON.parse(localStorage.getItem("projectClient")).name;
+      else if (localStorage.projectClientName)
+        return JSON.parse(localStorage.getItem("projectClientName"));
     }
   },
   methods: {

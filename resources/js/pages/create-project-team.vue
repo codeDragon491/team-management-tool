@@ -153,6 +153,7 @@ export default {
     saveTeam: function() {
       if (this.checkForm()) {
         this.loading = true;
+        localStorage.clear();
         localStorage.setItem(
           "projectClient",
           JSON.stringify(this.projectClient)

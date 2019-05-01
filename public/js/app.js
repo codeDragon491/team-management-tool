@@ -2206,24 +2206,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      projectTitleClientView: ""
+      projectTitle: "",
+      route: this.$route.path
     };
+  },
+  watch: {
+    route: function route(to, from) {
+      if (to !== from) {
+        localStorage.clear();
+        console.log(this.$route);
+      }
+    }
   },
   created: function created() {
     var projectRequestId = this.$route.path.substring(this.$route.path.lastIndexOf("/") + 1);
-    this.projectTitleClientView = JSON.parse(localStorage.getItem("projectRequests")).find(function (projectRequest) {
+    if (localStorage.projectRequests) this.projectTitle = JSON.parse(localStorage.getItem("projectRequests")).find(function (projectRequest) {
       return projectRequest.id == projectRequestId;
-    }).project_title; //console.log(this.projectTitleClientView);
+    }).project_title;else if (localStorage.projectRequest) this.projectTitle = JSON.parse(localStorage.getItem("projectRequest")).project_title;
   },
   mounted: function mounted() {
     this.displayHeaderMenu();
+    console.log(this.$route);
+  },
+  destroyed: function destroyed() {//localStorage.clear();
   },
   computed: {
-    projectTitle: function projectTitle() {
-      if (localStorage.projectRequest) return JSON.parse(localStorage.getItem("projectRequest")).project_title;
-    },
+    /*projectTitle: function() {
+      if (localStorage.projectRequest)
+        return JSON.parse(localStorage.getItem("projectRequest")).project_title;
+    },*/
     clientName: function clientName() {
-      return JSON.parse(localStorage.getItem("projectClient"));
+      if (localStorage.projectClient) return JSON.parse(localStorage.getItem("projectClient")).name;else if (localStorage.projectClientName) return JSON.parse(localStorage.getItem("projectClientName"));
     }
   },
   methods: {
@@ -2676,6 +2689,7 @@ __webpack_require__.r(__webpack_exports__);
     saveTeam: function saveTeam() {
       if (this.checkForm()) {
         this.loading = true;
+        localStorage.clear();
         localStorage.setItem("projectClient", JSON.stringify(this.projectClient));
         var data = {
           projectTitle: this.projectTitle,
@@ -2794,12 +2808,6 @@ __webpack_require__.r(__webpack_exports__);
     data: function data() {
       return this.initialData;
     }
-    /*selector: function() {
-      setTimeout(function() {
-        return document.getElementById("VueTables__limit_HZiY9").value;
-      }, 500);
-    }*/
-
   },
   methods: {
     getProjectRequests: function getProjectRequests() {
@@ -2815,7 +2823,7 @@ __webpack_require__.r(__webpack_exports__);
           return newProjectRequest;
         });
         localStorage.setItem("projectRequests", JSON.stringify(self.initialData));
-        localStorage.setItem("projectClient", JSON.stringify(response.data.projectClient)); //console.log("data here", self.initialData);
+        localStorage.setItem("projectClientName", JSON.stringify(response.data.projectClientName)); //console.log("data here", self.initialData);
         //fill list with data
       })["catch"](function (error) {
         console.log(error); // TODO error handling
@@ -2829,6 +2837,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    localStorage.clear();
     this.getProjectRequests();
     self = this;
     setTimeout(function () {
@@ -2921,7 +2930,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var projectRequestId = this.$route.path.substring(this.$route.path.lastIndexOf("/") + 1);
-    this.projectTeamDataClientView = JSON.parse(localStorage.getItem("projectRequests")).find(function (projectRequest) {
+    if (localStorage.projectRequests) this.projectTeamDataClientView = JSON.parse(localStorage.getItem("projectRequests")).find(function (projectRequest) {
       return projectRequest.id == projectRequestId;
     }).team_member_log;
   },
@@ -42440,9 +42449,7 @@ var render = function() {
         _c("logo", { staticClass: "header-logo fill-black" }),
         _vm._v(" "),
         _c("h1", { staticClass: "header-title" }, [
-          _vm._v(
-            _vm._s(_vm.projectTitle) + " " + _vm._s(_vm.projectTitleClientView)
-          )
+          _vm._v(_vm._s(_vm.projectTitle))
         ])
       ],
       1

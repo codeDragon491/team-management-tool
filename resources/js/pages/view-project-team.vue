@@ -27,11 +27,12 @@ export default {
     let projectRequestId = this.$route.path.substring(
       this.$route.path.lastIndexOf("/") + 1
     );
-    this.projectTeamDataClientView = JSON.parse(
-      localStorage.getItem("projectRequests")
-    ).find(
-      projectRequest => projectRequest.id == projectRequestId
-    ).team_member_log;
+    if (localStorage.projectRequests)
+      this.projectTeamDataClientView = JSON.parse(
+        localStorage.getItem("projectRequests")
+      ).find(
+        projectRequest => projectRequest.id == projectRequestId
+      ).team_member_log;
   },
   computed: {
     projectTeamData: function() {

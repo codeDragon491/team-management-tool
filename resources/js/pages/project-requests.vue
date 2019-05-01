@@ -62,11 +62,6 @@ export default {
     data: function() {
       return this.initialData;
     }
-    /*selector: function() {
-      setTimeout(function() {
-        return document.getElementById("VueTables__limit_HZiY9").value;
-      }, 500);
-    }*/
   },
   methods: {
     getProjectRequests: function() {
@@ -91,8 +86,8 @@ export default {
             JSON.stringify(self.initialData)
           );
           localStorage.setItem(
-            "projectClient",
-            JSON.stringify(response.data.projectClient)
+            "projectClientName",
+            JSON.stringify(response.data.projectClientName)
           );
           //console.log("data here", self.initialData);
           //fill list with data
@@ -113,6 +108,7 @@ export default {
     }
   },
   created() {
+    localStorage.clear();
     this.getProjectRequests();
     self = this;
     setTimeout(function() {

@@ -11,7 +11,7 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\Models\TeamMember;
 
-class TeamMemberUpdating extends Event
+class TeamMemberUpdating
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $teamMember;
