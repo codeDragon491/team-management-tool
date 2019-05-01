@@ -39,7 +39,7 @@ class SinglePageController extends Controller
                 ]);
 
                 } catch(\Exception $e){
-                    return ['success' => false, 'message' => 'project team creation failed'];
+                    return ['success' => false, 'message' => $e];
                 }
 
             }

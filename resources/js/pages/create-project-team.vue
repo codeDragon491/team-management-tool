@@ -43,7 +43,7 @@
                 </div>
             </div>
               <button v-if="!loading" @click="saveTeam" class="button-pink mt-5">SAVE TEAM</button>
-              <load-button class="mt-5" v-else></load-button>
+              <load-button v-else class="mt-5"></load-button>
        </div>
     </div>
 </template>
