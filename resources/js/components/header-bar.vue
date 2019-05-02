@@ -30,17 +30,8 @@ export default {
   components: { Logo },
   data() {
     return {
-      projectTitle: "",
-      route: this.$route.path
+      projectTitle: ""
     };
-  },
-  watch: {
-    route: function(to, from) {
-      if (to !== from) {
-        localStorage.clear();
-        console.log(this.$route);
-      }
-    }
   },
   created() {
     let projectRequestId = this.$route.path.substring(
@@ -59,7 +50,7 @@ export default {
   },
   mounted() {
     this.displayHeaderMenu();
-    console.log(this.$route);
+    //console.log(this.$route);
   },
   destroyed() {
     //localStorage.clear();
@@ -103,7 +94,7 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
 .dashboard-header {
   z-index: 30;
   position: absolute;
@@ -112,40 +103,40 @@ export default {
   right: 0;
   width: 100%;
   height: 140px;
-}
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 
-  width: 100%;
-  height: 140px;
-  z-index: 2;
-}
-.header-customer-name {
-  display: block;
-  position: relative;
-  z-index: 1;
-  float: right;
-  margin: 13px 40px 0 5px;
-  font-size: 20px;
-  line-height: 40px;
-  font-weight: 300;
-}
-.header-menu {
-  position: absolute;
-  z-index: 2;
-  top: -80px;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  color: #fff;
-  transition: top 0.5s;
-  text-align: right;
-}
-.header-menu-logo {
-  z-index: 200;
+    width: 100%;
+    height: 140px;
+    z-index: 2;
+    &-menu {
+      position: absolute;
+      z-index: 2;
+      top: -80px;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      color: #fff;
+      transition: top 0.5s;
+      text-align: right;
+      &-logo {
+        z-index: 200;
+      }
+    }
+  }
+  .header-customer-name {
+    display: block;
+    position: relative;
+    z-index: 1;
+    float: right;
+    margin: 13px 40px 0 5px;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 300;
+  }
 }
 
 .header-logo,
@@ -202,20 +193,20 @@ export default {
   z-index: 1;
 }
 @media (min-width: 768px) {
+  .dashboard-header {
+    height: 70px;
+    .header {
+      height: 70px;
+    }
+  }
   .header-button {
     padding: 5px 20px 10px;
-  }
-  .header-button-text {
-    display: inline-block;
+    &-text {
+      display: inline-block;
+    }
   }
   .header-title {
     padding: 13px 200px 0;
-  }
-  .dashboard-header {
-    height: 70px;
-  }
-  .header {
-    height: 70px;
   }
 }
 </style>

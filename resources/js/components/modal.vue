@@ -58,7 +58,7 @@ export default {
           }, 3000);
         })
         .catch(function(error) {
-          console.log(error);
+          //console.log(error);
           self.loading = false;
           self.sent = true;
           $("h3").text("An error occurred");

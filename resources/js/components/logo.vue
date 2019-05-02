@@ -6,7 +6,7 @@ export default {
   name: "logo"
 };
 </script>
-<style>
+<style lang="scss">
 #logo svg {
   max-width: 5rem;
   width: 100%;

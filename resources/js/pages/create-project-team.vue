@@ -166,7 +166,7 @@ export default {
           }),
           projectClientId: this.projectClient.id
         };
-        console.log(data);
+        //console.log(data);
         // Send a POST request
         axios({
           method: "post",
@@ -189,7 +189,7 @@ export default {
           .catch(function(error) {
             // TODO
             // create an error page
-            console.log(error);
+            //console.log(error);
           });
       }
     },
