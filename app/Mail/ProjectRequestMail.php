@@ -35,7 +35,7 @@ class ProjectRequestMail extends Mailable implements ShouldQueue
 
     public function build()
     {   
-        //$this->from('hello@signifly.com');
+        $this->from('hello@signifly.com');
         $this->subject('New Project Request from Signifly');
 
         return $this->markdown('mails.projectRequest');
