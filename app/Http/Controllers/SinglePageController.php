@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\View;
 
 class SinglePageController extends Controller
 {
-    public function __construct()
-    {
-        //
-    }
             public function index() {
                 $teamMembers = TeamMember::get();
                 $clients = Client::get(['id', 'name']);

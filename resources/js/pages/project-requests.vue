@@ -93,7 +93,7 @@ export default {
           //fill list with data
         })
         .catch(function(error) {
-          console.log(error);
+          //console.log(error);
           // TODO error handling
         });
     },
@@ -111,9 +111,9 @@ export default {
     localStorage.clear();
     this.getProjectRequests();
     self = this;
-    setTimeout(function() {
+    /*setTimeout(function() {
       self.removeDefaultArrows();
-    }, 100);
+    }, 100);*/
   }
   /*mounted() {
     self = this;
@@ -128,18 +128,39 @@ export default {
 };
 </script>
 <style lang="scss">
+.table-responsive {
+  margin-bottom: 1rem;
+}
+label {
+  font-size: 16px;
+  font-weight: 700;
+  padding-right: 0.5rem;
+}
+select {
+  width: 4rem;
+  appearance: none;
+  background-image: url(/img/arrow-dropdown.svg);
+  background-repeat: no-repeat;
+  background-position: 2rem center;
+}
+.glyphicon.glyphicon-eye-open {
+  width: 16px;
+  display: block;
+  margin: 0 auto;
+}
 .VuePagination {
   text-align: center;
   nav {
     margin: auto;
+    .VuePagination__pagination {
+      margin: 1.5rem;
+    }
   }
 }
-.VuePagination__pagination {
-  margin: 1.5rem;
+.vue-pagination-ad {
+  text-align: center;
 }
-.table-responsive {
-  margin-bottom: 1rem;
-}
+
 /*.page-item:first-child a:after {
   font-family: "Ionicons";
   font-weight: bold;
@@ -164,60 +185,33 @@ export default {
   background-color: #ffabbb !important;
   border-color: #ffabbb !important;
 }
-select {
-  width: 4rem;
-  appearance: none;
-  background-image: url(/img/arrow-dropdown.svg);
-  background-repeat: no-repeat;
-  background-position: 2rem center;
-}
 .page-link {
   color: #ffabbb;
 }
 .page-link:hover {
   color: #ffabbb;
 }
-.vue-pagination-ad {
-  text-align: center;
-}
-
-.glyphicon.glyphicon-eye-open {
-  width: 16px;
-  display: block;
-  margin: 0 auto;
-}
-
-th:nth-child(3) {
-  text-align: center;
-}
 .VueTables__search {
   float: left;
   margin-bottom: 1.25rem;
+  .VueTables__search-field {
+    display: flex;
+    align-items: center;
+  }
 }
-.VueTables__search-field {
-  display: flex;
-  align-items: center;
+.VueTables__sortable {
+  cursor: pointer;
 }
-
 .VueTables__limit {
   @media (max-width: 389px) {
     float: left;
   }
   float: right;
   margin-bottom: 1.25rem;
-}
-.VueTables__limit-field {
-  display: flex;
-  align-items: center;
-}
-label {
-  font-size: 16px;
-  font-weight: 700;
-  padding-right: 0.5rem;
-}
-#VueTables__limit_tNIWi {
-  padding: 8px 15px !important;
-  color: #a0aab8 !important;
+  .VueTables__limit-field {
+    display: flex;
+    align-items: center;
+  }
 }
 </style>
 

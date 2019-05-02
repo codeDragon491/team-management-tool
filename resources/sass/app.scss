@@ -20,6 +20,10 @@ input:focus {
     outline: none;
 }
 
+select:focus {
+    outline: none;
+}
+
 @font-face {
     font-family: Curse Casual JVE;
     src: url(../css/CurseCasualJVE.ttf);

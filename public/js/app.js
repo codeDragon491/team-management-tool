@@ -2814,8 +2814,8 @@ __webpack_require__.r(__webpack_exports__);
         localStorage.setItem("projectRequests", JSON.stringify(self.initialData));
         localStorage.setItem("projectClientName", JSON.stringify(response.data.projectClientName)); //console.log("data here", self.initialData);
         //fill list with data
-      })["catch"](function (error) {
-        console.log(error); // TODO error handling
+      })["catch"](function (error) {//console.log(error);
+        // TODO error handling
       });
     },
     removeDefaultArrows: function removeDefaultArrows() {
@@ -2829,9 +2829,9 @@ __webpack_require__.r(__webpack_exports__);
     localStorage.clear();
     this.getProjectRequests();
     self = this;
-    setTimeout(function () {
+    /*setTimeout(function() {
       self.removeDefaultArrows();
-    }, 100);
+    }, 100);*/
   }
   /*mounted() {
     self = this;
@@ -5356,7 +5356,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination__pagination {\n  margin: 1.5rem;\n}\n.table-responsive {\n  margin-bottom: 1rem;\n}\n\n/*.page-item:first-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\\f3cf\";\n}\n.page-item:nth-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\";\n}\n.page-item:last-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\\f3d1\";\n}\n.page-item:nth-last-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\";\n}*/\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\nselect {\n  width: 4rem;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(/img/arrow-dropdown.svg);\n  background-repeat: no-repeat;\n  background-position: 2rem center;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\nth:nth-child(3) {\n  text-align: center;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\n#VueTables__limit_tNIWi {\n  padding: 8px 15px !important;\n  color: #a0aab8 !important;\n}\n", ""]);
+exports.push([module.i, ".table-responsive {\n  margin-bottom: 1rem;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\nselect {\n  width: 4rem;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(/img/arrow-dropdown.svg);\n  background-repeat: no-repeat;\n  background-position: 2rem center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\n.VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination nav .VuePagination__pagination {\n  margin: 1.5rem;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n\n/*.page-item:first-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\\f3cf\";\n}\n.page-item:nth-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\";\n}\n.page-item:last-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\\f3d1\";\n}\n.page-item:nth-last-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\";\n}*/\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search .VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__sortable {\n  cursor: pointer;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit .VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\n", ""]);
 
 // exports
 
