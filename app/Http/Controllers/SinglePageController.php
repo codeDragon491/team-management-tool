@@ -29,7 +29,7 @@ class SinglePageController extends Controller
                     ->update([
                         'project_request_id' => $projectRequest->id 
                     ]);
-                    $projectTeam = TeamMember::where('project_request_id', $projectRequest->id)->get();
+                    $projectTeam = TeamMember::where('project_request_id', $projectRequest->id)->select('name', 'title', 'picture', 'email', 'phone_number', 'background_information', 'project_request_id', 'type')->get();
                     event(new TeamMemberUpdating($projectTeam->toArray()));
 
                 return response()->json( [
