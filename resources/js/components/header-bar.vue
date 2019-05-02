@@ -195,9 +195,9 @@ export default {
 @media (min-width: 768px) {
   .dashboard-header {
     height: 70px;
-    .header {
-      height: 70px;
-    }
+  }
+  .header {
+    height: 70px;
   }
   .header-button {
     padding: 5px 20px 10px;
