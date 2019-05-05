@@ -11,43 +11,55 @@
                   </ul>
                 </p>
                </div>
-                <div class="flex flex-col items-start pb-5">
+                <div id="fist_load_group" class="flex flex-col items-start pb-5">
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
 	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full md:w-1/2 form-control" maxlength="128">
                 </div>
-                 <div class="flex flex-col items-start pb-5">
+                 <div id="second_load_group" class="flex flex-col items-start pb-5">
                     <label for="id_client" class="control-label">
                       Select client<span title="required">*</span>
                     </label>
                   <v-select class="w-full md:w-1/2" v-model="projectClient" label="name" :options="clientList"></v-select>
                 </div>
-                <div class="w-full flex flex-col pb-5">
+                <div id="third_load_group" class="w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
                     <team-members :projectTeam="projectTeam" :listData="consultantsData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
-                <div class="w-full flex flex-col pb-5">
+                <div id="forth_load_group" class="w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Designers<span>*</span>
                     </label>
                     <team-members :projectTeam="projectTeam" :listData="designersData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
-                 <div class="w-full flex flex-col pb-5">
+                 <div id="fifth_load_group" class="w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Tech<span>*</span>
                     </label>
                     <team-members :projectTeam="projectTeam" :listData="techData" @clicked="toggleToProjectTeam"></team-members>
                 </div>
             </div>
-              <button v-if="!loading" @click="saveTeam" class="button-pink mt-5">SAVE TEAM</button>
-              <load-button v-else class="mt-5"></load-button>
+            <button v-if="!loading" @click="saveTeam" class="button-pink mt-5">SAVE TEAM</button>
+            <load-button v-else class="mt-5"></load-button>
        </div>
     </div>
 </template>
 <script>
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 210) {
+    console.log("scrolling");
+    console.log($(this).scrollTop());
+    let tl = new TimelineLite();
+    tl.from("#fifth_load_group", 3, {
+      marginTop: "50px",
+      ease: Power4.easeOut,
+      opacity: 0
+    });
+  }
+});
 import BreadCrumb from "../components/bread-crumb.vue";
 import TeamMembers from "../components/team-members.vue";
 import Router from "../routes";
@@ -56,6 +68,41 @@ export default {
   name: "create-project-team",
   components: { BreadCrumb, TeamMembers, LoadButton },
   mounted() {
+    var options = {
+      debug: true,
+      autoTrigger: false
+    };
+    console.log($(document).height());
+    console.log($(window).height());
+    console.log($(window).scrollTop());
+    if ($(window).scrollTop() === 0) {
+      console.log("initial load");
+      // create an animation sequence instance
+      let tl = new TimelineLite();
+      tl.from("#fist_load_group", 3, {
+        marginTop: "50px",
+        ease: Power4.easeOut,
+        opacity: 0
+      })
+        .from(
+          "#second_load_group",
+          3,
+          { marginTop: "50px", ease: Power4.easeOut, opacity: 0 },
+          0.2
+        )
+        .from(
+          "#third_load_group",
+          3,
+          { marginTop: "50px", ease: Power4.easeOut, opacity: 0 },
+          0.4
+        )
+        .from(
+          "#forth_load_group",
+          3,
+          { marginTop: "50px", ease: Power4.easeOut, opacity: 0 },
+          0.6
+        );
+    }
     this.filterTeamMembersData();
     this.clientList = window.data.clients;
   },

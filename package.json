@@ -27,6 +27,7 @@
     "dependencies": {
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.0",
+        "jscroll": "^2.4.1",
         "lodash.orderby": "^4.6.0",
         "v-datatable-light": "^0.5.0",
         "vue-router": "^3.0.2",

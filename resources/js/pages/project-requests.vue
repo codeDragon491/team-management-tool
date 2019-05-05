@@ -139,7 +139,7 @@ label {
 select {
   width: 4rem;
   appearance: none;
-  background-image: url(/img/arrow-dropdown.svg);
+  background-image: url(/img/icons/arrow-dropdown.svg);
   background-repeat: no-repeat;
   background-position: 2rem center;
 }
