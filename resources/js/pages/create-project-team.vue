@@ -48,12 +48,16 @@
     </div>
 </template>
 <script>
+var fired = false;
 $(window).scroll(function() {
-  if ($(this).scrollTop() > 210) {
+  if (!fired) {
     console.log("scrolling");
     console.log($(this).scrollTop());
-    let tl = new TimelineLite();
-    tl.from("#fifth_load_group", 3, {
+  }
+  if ($(this).scrollTop() > 210 && !fired) {
+    fired = true;
+    let tlSecond = new TimelineLite();
+    tlSecond.from("#fifth_load_group", 3, {
       marginTop: "50px",
       ease: Power4.easeOut,
       opacity: 0
@@ -103,6 +107,7 @@ export default {
           0.6
         );
     }
+    //this.loadElements();
     this.filterTeamMembersData();
     this.clientList = window.data.clients;
   },
@@ -124,6 +129,20 @@ export default {
   },
   computed: {},
   methods: {
+    loadElements: function() {
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 210) {
+          console.log("scrolling");
+          console.log($(this).scrollTop());
+          let tlSecond = new TimelineLite();
+          tlSecond.from("#fifth_load_group", 3, {
+            marginTop: "50px",
+            ease: Power4.easeOut,
+            opacity: 0
+          });
+        }
+      });
+    },
     checkForm: function() {
       if (
         this.projectTitle &&

@@ -2570,12 +2570,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+var fired = false;
 $(window).scroll(function () {
-  if ($(this).scrollTop() > 210) {
+  if (!fired) {
     console.log("scrolling");
     console.log($(this).scrollTop());
-    var tl = new TimelineLite();
-    tl.from("#fifth_load_group", 3, {
+  }
+
+  if ($(this).scrollTop() > 210 && !fired) {
+    fired = true;
+    var tlSecond = new TimelineLite();
+    tlSecond.from("#fifth_load_group", 3, {
       marginTop: "50px",
       ease: Power4.easeOut,
       opacity: 0
@@ -2623,7 +2628,8 @@ $(window).scroll(function () {
         ease: Power4.easeOut,
         opacity: 0
       }, 0.6);
-    }
+    } //this.loadElements();
+
 
     this.filterTeamMembersData();
     this.clientList = window.data.clients;
@@ -2646,6 +2652,20 @@ $(window).scroll(function () {
   },
   computed: {},
   methods: {
+    loadElements: function loadElements() {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 210) {
+          console.log("scrolling");
+          console.log($(this).scrollTop());
+          var tlSecond = new TimelineLite();
+          tlSecond.from("#fifth_load_group", 3, {
+            marginTop: "50px",
+            ease: Power4.easeOut,
+            opacity: 0
+          });
+        }
+      });
+    },
     checkForm: function checkForm() {
       if (this.projectTitle && this.projectClient && this.projectTeam.length > 2) {
         return true;
