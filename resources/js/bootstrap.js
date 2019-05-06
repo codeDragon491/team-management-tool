@@ -15,7 +15,7 @@ try {
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-window.jscroll = require("jscroll");
+window.$.visible = require("jquery-visible");
 
 window.axios = require("axios");
 

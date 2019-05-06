@@ -2570,23 +2570,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var fired = false;
-$(window).scroll(function () {
-  if (!fired) {
-    console.log("scrolling");
-    console.log($(this).scrollTop());
-  }
-
-  if ($(this).scrollTop() > 210 && !fired) {
-    fired = true;
-    var tlSecond = new TimelineLite();
-    tlSecond.from("#fifth_load_group", 3, {
-      marginTop: "50px",
-      ease: Power4.easeOut,
-      opacity: 0
-    });
-  }
-});
 
 
 
@@ -2599,38 +2582,7 @@ $(window).scroll(function () {
     LoadButton: _components_load_button_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   mounted: function mounted() {
-    var options = {
-      debug: true,
-      autoTrigger: false
-    };
-    console.log($(document).height());
-    console.log($(window).height());
-    console.log($(window).scrollTop());
-
-    if ($(window).scrollTop() === 0) {
-      console.log("initial load"); // create an animation sequence instance
-
-      var tl = new TimelineLite();
-      tl.from("#fist_load_group", 3, {
-        marginTop: "50px",
-        ease: Power4.easeOut,
-        opacity: 0
-      }).from("#second_load_group", 3, {
-        marginTop: "50px",
-        ease: Power4.easeOut,
-        opacity: 0
-      }, 0.2).from("#third_load_group", 3, {
-        marginTop: "50px",
-        ease: Power4.easeOut,
-        opacity: 0
-      }, 0.4).from("#forth_load_group", 3, {
-        marginTop: "50px",
-        ease: Power4.easeOut,
-        opacity: 0
-      }, 0.6);
-    } //this.loadElements();
-
-
+    this.slideInAsScroll();
     this.filterTeamMembersData();
     this.clientList = window.data.clients;
   },
@@ -2652,18 +2604,26 @@ $(window).scroll(function () {
   },
   computed: {},
   methods: {
-    loadElements: function loadElements() {
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 210) {
-          console.log("scrolling");
-          console.log($(this).scrollTop());
-          var tlSecond = new TimelineLite();
-          tlSecond.from("#fifth_load_group", 3, {
-            marginTop: "50px",
-            ease: Power4.easeOut,
-            opacity: 0
-          });
+    slideInAsScroll: function slideInAsScroll() {
+      var win = $(window);
+      var allMods = $(".load-group"); // Already visible modules in the viewport
+
+      allMods.each(function (i, el) {
+        var el = $(el);
+
+        if (el.visible(true)) {
+          el.addClass("come-in");
         }
+      }); // Not visible modules in the viewport
+
+      win.scroll(function (event) {
+        allMods.each(function (i, el) {
+          var el = $(el);
+
+          if (el.visible(true)) {
+            el.addClass("come-in");
+          }
+        });
       });
     },
     checkForm: function checkForm() {
@@ -5400,7 +5360,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n", ""]);
+exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n.come-in {\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  opacity: 0;\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n\n/*.come-in:nth-child(odd) {\n  animation-duration: 0.6s; /* So they look staggered */\n@-webkit-keyframes come-in {\nto {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1;\n}\n}\n@keyframes come-in {\nto {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1;\n}\n}\n", ""]);
 
 // exports
 
@@ -9304,6 +9264,95 @@ var toString = {}.toString;
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/jquery-visible/jquery.visible.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/jquery-visible/jquery.visible.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function($){
+
+    /**
+     * Copyright 2012, Digital Fusion
+     * Licensed under the MIT license.
+     * http://teamdf.com/jquery-plugins/license/
+     *
+     * @author Sam Sehnert
+     * @desc A small plugin that checks whether elements are within
+     *       the user visible viewport of a web browser.
+     *       only accounts for vertical position, not horizontal.
+     */
+    $.fn.visible = function(partial,hidden,direction,container){
+
+        if (this.length < 1)
+            return;
+
+        var $t          = this.length > 1 ? this.eq(0) : this,
+						isContained = typeof container !== 'undefined' && container !== null,
+						$w				  = isContained ? $(container) : $(window),
+						wPosition        = isContained ? $w.position() : 0,
+            t           = $t.get(0),
+            vpWidth     = $w.outerWidth(),
+            vpHeight    = $w.outerHeight(),
+            direction   = (direction) ? direction : 'both',
+            clientSize  = hidden === true ? t.offsetWidth * t.offsetHeight : true;
+
+        if (typeof t.getBoundingClientRect === 'function'){
+
+            // Use this native browser method, if available.
+            var rec = t.getBoundingClientRect(),
+                tViz = isContained ?
+												rec.top - wPosition.top >= 0 && rec.top < vpHeight + wPosition.top :
+												rec.top >= 0 && rec.top < vpHeight,
+                bViz = isContained ?
+												rec.bottom - wPosition.top > 0 && rec.bottom <= vpHeight + wPosition.top :
+												rec.bottom > 0 && rec.bottom <= vpHeight,
+                lViz = isContained ?
+												rec.left - wPosition.left >= 0 && rec.left < vpWidth + wPosition.left :
+												rec.left >= 0 && rec.left <  vpWidth,
+                rViz = isContained ?
+												rec.right - wPosition.left > 0  && rec.right < vpWidth + wPosition.left  :
+												rec.right > 0 && rec.right <= vpWidth,
+                vVisible   = partial ? tViz || bViz : tViz && bViz,
+                hVisible   = partial ? lViz || rViz : lViz && rViz;
+
+            if(direction === 'both')
+                return clientSize && vVisible && hVisible;
+            else if(direction === 'vertical')
+                return clientSize && vVisible;
+            else if(direction === 'horizontal')
+                return clientSize && hVisible;
+        } else {
+
+            var viewTop 				= isContained ? 0 : wPosition,
+                viewBottom      = viewTop + vpHeight,
+                viewLeft        = $w.scrollLeft(),
+                viewRight       = viewLeft + vpWidth,
+                position          = $t.position(),
+                _top            = position.top,
+                _bottom         = _top + $t.height(),
+                _left           = position.left,
+                _right          = _left + $t.width(),
+                compareTop      = partial === true ? _bottom : _top,
+                compareBottom   = partial === true ? _top : _bottom,
+                compareLeft     = partial === true ? _right : _left,
+                compareRight    = partial === true ? _left : _right;
+
+            if(direction === 'both')
+                return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop)) && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+            else if(direction === 'vertical')
+                return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+            else if(direction === 'horizontal')
+                return !!clientSize && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+        }
+    };
+
+})(jQuery);
 
 
 /***/ }),
@@ -19905,242 +19954,6 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-
-/***/ }),
-
-/***/ "./node_modules/jscroll/jquery.jscroll.js":
-/*!************************************************!*\
-  !*** ./node_modules/jscroll/jquery.jscroll.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*!
- * jScroll - jQuery Plugin for Infinite Scrolling / Auto-Paging
- * @see @link{https://jscroll.com}
- *
- * @copyright Philip Klauzinski
- * @license Dual licensed under the MIT and GPL Version 2 licenses
- * @author Philip Klauzinski (https://webtopian.com)
- * @version 2.4.1
- * @requires jQuery v1.8.0+
- * @preserve
- */
-(function($) {
-
-    'use strict';
-
-    // Define the jscroll namespace and default settings
-    $.jscroll = {
-        defaults: {
-            debug: false,
-            autoTrigger: true,
-            autoTriggerUntil: false,
-            loadingHtml: '<small>Loading...</small>',
-            loadingFunction: false,
-            padding: 0,
-            nextSelector: 'a:last',
-            contentSelector: '',
-            pagingSelector: '',
-            callback: false
-        }
-    };
-
-    // Constructor
-    var jScroll = function($e, options) {
-
-        // Private vars and methods
-        var _data = $e.data('jscroll'),
-            _userOptions = (typeof options === 'function') ? { callback: options } : options,
-            _options = $.extend({}, $.jscroll.defaults, _userOptions, _data || {}),
-            _isWindow = ($e.css('overflow-y') === 'visible'),
-            _$next = $e.find(_options.nextSelector).first(),
-            _$window = $(window),
-            _$body = $('body'),
-            _$scroll = _isWindow ? _$window : $e,
-            _nextHref = $.trim(_$next.prop('href') + ' ' + _options.contentSelector),
-
-            // Check if a loading image is defined and preload
-            _preloadImage = function() {
-                var src = $(_options.loadingHtml).filter('img').attr('src');
-                if (src) {
-                    var image = new Image();
-                    image.src = src;
-                }
-            },
-
-            // Wrap inner content, if it isn't already
-            _wrapInnerContent = function() {
-                if (!$e.find('.jscroll-inner').length) {
-                    $e.contents().wrapAll('<div class="jscroll-inner" />');
-                }
-            },
-
-            // Find the next link's parent, or add one, and hide it
-            _nextWrap = function($next) {
-                var $parent;
-                if (_options.pagingSelector) {
-                    $next.closest(_options.pagingSelector).hide();
-                } else {
-                    $parent = $next.parent().not('.jscroll-inner,.jscroll-added').addClass('jscroll-next-parent').hide();
-                    if (!$parent.length) {
-                        $next.wrap('<div class="jscroll-next-parent" />').parent().hide();
-                    }
-                }
-            },
-
-            // Remove the jscroll behavior and data from an element
-            _destroy = function() {
-                return _$scroll.unbind('.jscroll')
-                    .removeData('jscroll')
-                    .find('.jscroll-inner').children().unwrap()
-                    .filter('.jscroll-added').children().unwrap();
-            },
-
-            // Observe the scroll event for when to trigger the next load
-            _observe = function() {
-                if ($e.is(':visible')) {
-                    _wrapInnerContent();
-                    var $inner = $e.find('div.jscroll-inner').first(),
-                        data = $e.data('jscroll'),
-                        borderTopWidth = parseInt($e.css('borderTopWidth'), 10),
-                        borderTopWidthInt = isNaN(borderTopWidth) ? 0 : borderTopWidth,
-                        iContainerTop = parseInt($e.css('paddingTop'), 10) + borderTopWidthInt,
-                        iTopHeight = _isWindow ? _$scroll.scrollTop() : $e.offset().top,
-                        innerTop = $inner.length ? $inner.offset().top : 0,
-                        iTotalHeight = Math.ceil(iTopHeight - innerTop + _$scroll.height() + iContainerTop);
-
-                    if (!data.waiting && iTotalHeight + _options.padding >= $inner.outerHeight()) {
-                        _debug('info', 'jScroll:', $inner.outerHeight() - iTotalHeight, 'from bottom. Loading next request...');
-                        return _load();
-                    }
-                }
-            },
-
-            // Check if the href for the next set of content has been set
-            _checkNextHref = function(data) {
-                data = data || $e.data('jscroll');
-                if (!data || !data.nextHref) {
-                    _debug('warn', 'jScroll: nextSelector not found - destroying');
-                    _destroy();
-                    return false;
-                } else {
-                    _setBindings();
-                    return true;
-                }
-            },
-
-            _setBindings = function() {
-                var $next = $e.find(_options.nextSelector).first();
-                if (!$next.length) {
-                    return;
-                }
-                if (_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil > 0)) {
-                    _nextWrap($next);
-                    var scrollingBodyHeight = _$body.height() - $e.offset().top,
-                        scrollingHeight = ($e.height() < scrollingBodyHeight) ? $e.height() : scrollingBodyHeight,
-                        windowHeight = ($e.offset().top - _$window.scrollTop() > 0) ? _$window.height() - ($e.offset().top - $(window).scrollTop()) : _$window.height();
-                    if (scrollingHeight <= windowHeight) {
-                        _observe();
-                    }
-                    _$scroll.unbind('.jscroll').bind('scroll.jscroll', function() {
-                        return _observe();
-                    });
-                    if (_options.autoTriggerUntil > 0) {
-                        _options.autoTriggerUntil--;
-                    }
-                } else {
-                    _$scroll.unbind('.jscroll');
-                    $next.bind('click.jscroll', function() {
-                        _nextWrap($next);
-                        _load();
-                        return false;
-                    });
-                }
-            },
-
-            // Load the next set of content, if available
-            _load = function() {
-                var $inner = $e.find('div.jscroll-inner').first(),
-                    data = $e.data('jscroll');
-
-                data.waiting = true;
-                $inner.append('<div class="jscroll-added" />')
-                    .children('.jscroll-added').last()
-                    .html('<div class="jscroll-loading" id="jscroll-loading">' + _options.loadingHtml + '</div>')
-                    .promise()
-                    .done(function() {
-                        if (_options.loadingFunction) {
-                            _options.loadingFunction();
-                        }
-                    });
-
-                return $e.animate({scrollTop: $inner.outerHeight()}, 0, function() {
-                    var nextHref = data.nextHref;
-                    $inner.find('div.jscroll-added').last().load(nextHref, function(r, status) {
-                        if (status === 'error') {
-                            return _destroy();
-                        }
-                        var $next = $(this).find(_options.nextSelector).first();
-                        data.waiting = false;
-                        data.nextHref = $next.prop('href') ? $.trim($next.prop('href') + ' ' + _options.contentSelector) : false;
-                        $('.jscroll-next-parent', $e).remove(); // Remove the previous next link now that we have a new one
-                        _checkNextHref();
-                        if (_options.callback) {
-                            _options.callback.call(this, nextHref);
-                        }
-                        _debug('dir', data);
-                    });
-                });
-            },
-
-            // Safe console debug - http://klauzinski.com/javascript/safe-firebug-console-in-javascript
-            _debug = function(m) {
-                if (_options.debug && typeof console === 'object' && (typeof m === 'object' || typeof console[m] === 'function')) {
-                    if (typeof m === 'object') {
-                        var args = [];
-                        for (var sMethod in m) {
-                            if (typeof console[sMethod] === 'function') {
-                                args = (m[sMethod].length) ? m[sMethod] : [m[sMethod]];
-                                console[sMethod].apply(console, args);
-                            } else {
-                                console.log.apply(console, args);
-                            }
-                        }
-                    } else {
-                        console[m].apply(console, Array.prototype.slice.call(arguments, 1));
-                    }
-                }
-            };
-
-        // Initialization
-        $e.data('jscroll', $.extend({}, _data, {initialized: true, waiting: false, nextHref: _nextHref}));
-        _wrapInnerContent();
-        _preloadImage();
-        _setBindings();
-
-        // Expose API methods via the jQuery.jscroll namespace, e.g. $('sel').jscroll.method()
-        $.extend($e.jscroll, {
-            destroy: _destroy
-        });
-        return $e;
-    };
-
-    // Define the jscroll plugin method and loop
-    $.fn.jscroll = function(m) {
-        return this.each(function() {
-            var $this = $(this),
-                data = $this.data('jscroll');
-
-            // Instantiate jScroll on this element if it hasn't been already
-            if (data && data.initialized) {
-                return;
-            }
-            jScroll($this, m);
-        });
-    };
-
-})(jQuery);
 
 /***/ }),
 
@@ -43603,10 +43416,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  staticClass: "flex flex-col items-start pb-5",
-                  attrs: { id: "fist_load_group" }
-                },
+                { staticClass: "load-group flex flex-col items-start pb-5" },
                 [
                   _vm._m(0),
                   _vm._v(" "),
@@ -43642,10 +43452,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  staticClass: "flex flex-col items-start pb-5",
-                  attrs: { id: "second_load_group" }
-                },
+                { staticClass: "load-group flex flex-col items-start pb-5" },
                 [
                   _vm._m(1),
                   _vm._v(" "),
@@ -43666,10 +43473,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  staticClass: "w-full flex flex-col pb-5",
-                  attrs: { id: "third_load_group" }
-                },
+                { staticClass: "load-group w-full flex flex-col pb-5" },
                 [
                   _vm._m(2),
                   _vm._v(" "),
@@ -43686,10 +43490,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  staticClass: "w-full flex flex-col pb-5",
-                  attrs: { id: "forth_load_group" }
-                },
+                { staticClass: "load-group w-full flex flex-col pb-5" },
                 [
                   _vm._m(3),
                   _vm._v(" "),
@@ -43706,10 +43507,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  staticClass: "w-full flex flex-col pb-5",
-                  attrs: { id: "fifth_load_group" }
-                },
+                { staticClass: "load-group w-full flex flex-col pb-5" },
                 [
                   _vm._m(4),
                   _vm._v(" "),
@@ -64722,7 +64520,7 @@ try {
  */
 
 
-window.jscroll = __webpack_require__(/*! jscroll */ "./node_modules/jscroll/jquery.jscroll.js");
+window.$.visible = __webpack_require__(/*! jquery-visible */ "./node_modules/jquery-visible/jquery.visible.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 /**
