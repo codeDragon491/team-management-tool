@@ -86,6 +86,10 @@ export default {
         var el = $(el);
         if (el.visible(true)) {
           el.addClass("come-in");
+          $(".come-in:nth-child(3)").css("animation-delay", ".5s");
+          $(".come-in:nth-child(4)").css("animation-delay", "1s");
+          $(".come-in:nth-child(5)").css("animation-delay", "1.5s");
+          $(".come-in:nth-child(6)").css("animation-delay", "2s");
         }
       });
       // Not visible modules in the viewport
