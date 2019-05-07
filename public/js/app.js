@@ -2491,6 +2491,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "team-members",
   props: ["listData", "projectTeam"],
@@ -2616,7 +2617,7 @@ __webpack_require__.r(__webpack_exports__);
           $(".come-in:nth-child(3)").css("animation-delay", ".5s");
           $(".come-in:nth-child(4)").css("animation-delay", "1s");
           $(".come-in:nth-child(5)").css("animation-delay", "1.5s");
-          $(".come-in:nth-child(6)").css("animation-delay", "2s");
+          $(".come-in:nth-child(6)").css("animation-delay", "s");
         }
       }); // Not visible modules in the viewport
 
@@ -2688,6 +2689,16 @@ __webpack_require__.r(__webpack_exports__);
       }).length > 1) {
         this.errors.push("You cannot select more then one techie.");
       }
+    },
+    hover: function hover(id) {
+      this.projectTeam.push({
+        id: id
+      }); //console.log(this.projectTeam);
+    },
+    unHover: function unHover(id) {
+      this.projectTeam = this.projectTeam.filter(function (teamMember) {
+        return teamMember.id !== id;
+      }); //console.log(this.projectTeam);
     },
     toggleToProjectTeam: function toggleToProjectTeam(email, type) {
       if (!this.projectTeam.some(function (teamMember) {
@@ -5345,7 +5356,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".warp {\n  max-width: 70rem;\n  height: 350px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  overflow: hidden;\n  width: 13rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.teammember_small .img-hover-zoom {\n  height: 13rem;\n  overflow: hidden;\n  /* [1.2] Hide the overflowing of child elements */\n}\n.teammember_small .img-hover-zoom div {\n  background-position: 50% 0%;\n  background-repeat: no-repeat;\n  background-size: cover;\n  position: relative;\n  -webkit-transform-origin: 50% 0%;\n          transform-origin: 50% 0%;\n  transition: -webkit-transform .3s ease;\n  transition: transform .3s ease;\n  transition: transform .3s ease, -webkit-transform .3s ease;\n}\n.teammember_small .img-hover-zoom:hover div {\n  -webkit-transform: scale(1.5);\n          transform: scale(1.5);\n}\n.teammember_small .name {\n  font-size: 18px;\n  font-weight: 500;\n  margin-top: 10px;\n}\n.teammember_small .title {\n  font-size: 16px;\n  margin-top: 4px;\n}\n.teammember_small .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 12px;\n}\n", ""]);
+exports.push([module.i, ".warp {\n  max-width: 70rem;\n  height: 350px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  overflow: hidden;\n  width: 13rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.teammember_small .img-hover-zoom {\n  height: 13rem;\n  overflow: hidden;\n  /* [1.2] Hide the overflowing of child elements */\n}\n.teammember_small .img-hover-zoom div {\n  background-position: 50% 0%;\n  background-repeat: no-repeat;\n  background-size: cover;\n  position: relative;\n  -webkit-transform-origin: 50% 0%;\n          transform-origin: 50% 0%;\n  transition: -webkit-transform .3s ease;\n  transition: transform .3s ease;\n  transition: transform .3s ease, -webkit-transform .3s ease;\n}\n.teammember_small .img-hover-zoom:hover div {\n  -webkit-transform: scale(1.3);\n          transform: scale(1.3);\n}\n.teammember_small .name {\n  font-size: 18px;\n  font-weight: 500;\n  margin-top: 10px;\n}\n.teammember_small .title {\n  font-size: 16px;\n  margin-top: 4px;\n}\n.teammember_small .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 12px;\n}\n", ""]);
 
 // exports
 
@@ -5364,7 +5375,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n.come-in {\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  opacity: 0;\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n\n/*.come-in:nth-child(odd) {\n  animation-duration: 0.6s; /* So they look staggered */\n@-webkit-keyframes come-in {\nto {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1;\n}\n}\n@keyframes come-in {\nto {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1;\n}\n}\n", ""]);
+exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.vs__dropdown-toggle:focus {\n  border-color: #081228;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n\n/*.come-in:nth-child(odd) {\n  animation-duration: 0.6s; /* So they look staggered */\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -43266,15 +43277,7 @@ var render = function() {
         _vm._l(_vm.listData, function(item) {
           return _c(
             "li",
-            {
-              key: item.id,
-              staticClass: "hover:cursor-pointer",
-              on: {
-                click: function($event) {
-                  _vm.$emit("clicked", item.email, item.type)
-                }
-              }
-            },
+            { key: item.id, staticClass: "hover:cursor-pointer" },
             [
               _c(
                 "div",
@@ -43283,7 +43286,19 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "w-full relative rounded-full img-hover-zoom"
+                      staticClass:
+                        "w-full relative rounded-full img-hover-zoom",
+                      on: {
+                        mouseleave: function($event) {
+                          _vm.$emit("unhovered", item.id)
+                        },
+                        mouseover: function($event) {
+                          _vm.$emit("hovered", item.id)
+                        },
+                        click: function($event) {
+                          _vm.$emit("clicked", item.email, item.type)
+                        }
+                      }
                     },
                     [
                       _c("div", {
@@ -43316,6 +43331,32 @@ var render = function() {
                               _c("path", {
                                 attrs: {
                                   fill: "#90e3b6",
+                                  d:
+                                    "M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"
+                                }
+                              })
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.projectTeam.some(function(teamMember) {
+                        return teamMember.id === item.id
+                      })
+                        ? _c(
+                            "svg",
+                            {
+                              staticClass: "absolute pin w-",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 512 512"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  stroke: "#90e3b6",
+                                  "stroke-width": "5",
+                                  fill: "none",
                                   d:
                                     "M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"
                                 }
@@ -43396,7 +43437,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col"
+                "sub-content relative bg-signifly-grey-lightest w-full p-5 flex flex-col"
             },
             [
               _c("div", { staticClass: "flex flex-col items-start pb-5" }, [
@@ -43456,7 +43497,9 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "load-group flex flex-col items-start pb-5" },
+                {
+                  staticClass: "z-10 load-group flex flex-col items-start pb-5"
+                },
                 [
                   _vm._m(1),
                   _vm._v(" "),
@@ -43486,7 +43529,11 @@ var render = function() {
                       projectTeam: _vm.projectTeam,
                       listData: _vm.consultantsData
                     },
-                    on: { clicked: _vm.toggleToProjectTeam }
+                    on: {
+                      unhovered: _vm.unHover,
+                      hovered: _vm.hover,
+                      clicked: _vm.toggleToProjectTeam
+                    }
                   })
                 ],
                 1
@@ -43503,7 +43550,11 @@ var render = function() {
                       projectTeam: _vm.projectTeam,
                       listData: _vm.designersData
                     },
-                    on: { clicked: _vm.toggleToProjectTeam }
+                    on: {
+                      unhovered: _vm.unHover,
+                      hovered: _vm.hover,
+                      clicked: _vm.toggleToProjectTeam
+                    }
                   })
                 ],
                 1
@@ -43520,7 +43571,11 @@ var render = function() {
                       projectTeam: _vm.projectTeam,
                       listData: _vm.techData
                     },
-                    on: { clicked: _vm.toggleToProjectTeam }
+                    on: {
+                      unhovered: _vm.unHover,
+                      hovered: _vm.hover,
+                      clicked: _vm.toggleToProjectTeam
+                    }
                   })
                 ],
                 1

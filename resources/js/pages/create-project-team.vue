@@ -2,7 +2,7 @@
     <div class="w-full lg:min-w-50">
        <bread-crumb first-link="project-teams" second-link="create-project-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
-            <div class="sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col">
+            <div class="sub-content relative bg-signifly-grey-lightest w-full p-5 flex flex-col">
               <div class="flex flex-col items-start pb-5">
                 <p class="text-left text-red" v-if="errors.length">
                   <b>Please correct the following error(s):</b>
@@ -17,7 +17,7 @@
                     </label>
 	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full md:w-1/2 form-control" maxlength="128">
                 </div>
-                 <div class="load-group flex flex-col items-start pb-5">
+                 <div class="z-10 load-group flex flex-col items-start pb-5">
                     <label for="id_client" class="control-label">
                       Select client<span title="required">*</span>
                     </label>
@@ -27,19 +27,19 @@
                     <label class="control-label mr-auto">
                         Consultants<span>*</span>
                     </label>
-                    <team-members :projectTeam="projectTeam" :listData="consultantsData" @clicked="toggleToProjectTeam"></team-members>
+                    <team-members :projectTeam="projectTeam" :listData="consultantsData" @unhovered="unHover" @hovered="hover" @clicked="toggleToProjectTeam"></team-members>
                 </div>
                 <div class="load-group w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Designers<span>*</span>
                     </label>
-                    <team-members :projectTeam="projectTeam" :listData="designersData" @clicked="toggleToProjectTeam"></team-members>
+                    <team-members :projectTeam="projectTeam" :listData="designersData" @unhovered="unHover" @hovered="hover" @clicked="toggleToProjectTeam"></team-members>
                 </div>
                  <div class="load-group w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
                         Tech<span>*</span>
                     </label>
-                    <team-members :projectTeam="projectTeam" :listData="techData" @clicked="toggleToProjectTeam"></team-members>
+                    <team-members :projectTeam="projectTeam" :listData="techData" @unhovered="unHover" @hovered="hover" @clicked="toggleToProjectTeam"></team-members>
                 </div>
             </div>
             <button v-if="!loading" @click="saveTeam" class="button-pink mt-5">SAVE TEAM</button>
@@ -89,7 +89,7 @@ export default {
           $(".come-in:nth-child(3)").css("animation-delay", ".5s");
           $(".come-in:nth-child(4)").css("animation-delay", "1s");
           $(".come-in:nth-child(5)").css("animation-delay", "1.5s");
-          $(".come-in:nth-child(6)").css("animation-delay", "2s");
+          $(".come-in:nth-child(6)").css("animation-delay", "s");
         }
       });
       // Not visible modules in the viewport
@@ -163,6 +163,16 @@ export default {
       ) {
         this.errors.push("You cannot select more then one techie.");
       }
+    },
+    hover: function(id) {
+      this.projectTeam.push({ id });
+      //console.log(this.projectTeam);
+    },
+    unHover: function(id) {
+      this.projectTeam = this.projectTeam.filter(
+        teamMember => teamMember.id !== id
+      );
+      //console.log(this.projectTeam);
     },
     toggleToProjectTeam: function(email, type) {
       if (!this.projectTeam.some(teamMember => teamMember.email === email)) {
@@ -257,6 +267,11 @@ label {
 .vs__dropdown-toggle {
   border: 1px solid #ccd1d9 !important;
 }
+.vs__dropdown-toggle:focus {
+  border-color: #081228;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+}
 .vs__clear {
   fill: #a0aab8 !important;
 }
@@ -264,8 +279,8 @@ label {
   fill: #a0aab8 !important;
 }
 .come-in {
-  transform: translateY(150px);
   opacity: 0;
+  transform: translateY(150px);
   animation: come-in 0.8s ease forwards;
 }
 /*.come-in:nth-child(odd) {
@@ -274,8 +289,8 @@ label {
 
 @keyframes come-in {
   to {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
