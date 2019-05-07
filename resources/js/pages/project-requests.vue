@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:min-w-50">
+  <div class="w-full md:min-w-40">
     <bread-crumb first-link="project-requests" class="hidden md:flex"></bread-crumb>
       <div class="main-content m-5 text-center">
         <h1 class="my-10">PROJECT REQUESTS</h1>

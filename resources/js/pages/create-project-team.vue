@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full lg:min-w-50">
+    <div class="w-full md:min-w-40">
        <bread-crumb first-link="project-teams" second-link="create-project-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
             <div class="sub-content relative bg-signifly-grey-lightest w-full p-5 flex flex-col">

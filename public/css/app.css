@@ -6312,8 +6312,8 @@ button.button-green:focus {
   min-width: 0;
 }
 
-.min-w-50 {
-  min-width: 50rem;
+.min-w-40 {
+  min-width: 40rem;
 }
 
 .min-w-full {
@@ -12093,8 +12093,8 @@ button.button-green:focus {
     min-width: 0;
   }
 
-  .sm\:min-w-50 {
-    min-width: 50rem;
+  .sm\:min-w-40 {
+    min-width: 40rem;
   }
 
   .sm\:min-w-full {
@@ -17851,8 +17851,8 @@ button.button-green:focus {
     min-width: 0;
   }
 
-  .md\:min-w-50 {
-    min-width: 50rem;
+  .md\:min-w-40 {
+    min-width: 40rem;
   }
 
   .md\:min-w-full {
@@ -23609,8 +23609,8 @@ button.button-green:focus {
     min-width: 0;
   }
 
-  .lg\:min-w-50 {
-    min-width: 50rem;
+  .lg\:min-w-40 {
+    min-width: 40rem;
   }
 
   .lg\:min-w-full {
@@ -29367,8 +29367,8 @@ button.button-green:focus {
     min-width: 0;
   }
 
-  .xl\:min-w-50 {
-    min-width: 50rem;
+  .xl\:min-w-40 {
+    min-width: 40rem;
   }
 
   .xl\:min-w-full {

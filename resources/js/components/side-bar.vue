@@ -70,7 +70,7 @@ a {
 
 /* Sidebar */
 .sidebar__trigger {
-  z-index: 2;
+  z-index: 30;
   display: flex;
   align-items: center;
   width: 100%;
@@ -90,7 +90,7 @@ a {
 }
 .sidebar__nav {
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   top: 0;
   left: -15rem;
   overflow: hidden;
@@ -154,7 +154,7 @@ a {
 }
 
 /* Mobile First */
-@media (min-width: 42rem) {
+@media (min-width: 48rem) {
   .sidebar__layout {
     max-width: 15rem;
     width: auto;
