@@ -272,11 +272,40 @@ label {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(102, 175, 233, 0.6);
 }
+.vs__selected,
+.vs__search {
+  height: 38px;
+  font-size: 14px;
+  padding: 8px 10px;
+  margin: 0;
+  line-height: 1.42857143;
+  background-color: #f7f8f9;
+  border: none;
+  border-radius: 4px;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.vs__search:focus {
+  margin: 0;
+  padding: 0 8px;
+  border: none;
+}
+.vs__actions {
+  padding-top: 2px;
+}
+.vs__dropdown-toggle,
+.vs__selected-options {
+  padding: 0;
+}
 .vs__clear {
   fill: #a0aab8 !important;
 }
 .vs__open-indicator {
   fill: #a0aab8 !important;
+}
+.vs__dropdown-menu {
+  .vs__dropdown-option {
+    font-size: 14px;
+  }
 }
 .come-in {
   opacity: 0;
