@@ -48,10 +48,12 @@ button:focus {
     outline: none;
 }
 
+button.button-pink:hover,
 button.button-pink:focus {
-    background-color: #ffabbb;
+    background-color: #f799ab;
 }
 
+button.button-green:hover,
 button.button-green:focus {
     background-color: #a4e8c3;
 }
@@ -68,9 +70,6 @@ button.button-green:focus {
     background-color: $signifly-light-green;
     padding: 1rem;
     border-radius: 0.125rem;
-     :focus {
-        outline: none;
-    }
     color: white;
 }
 

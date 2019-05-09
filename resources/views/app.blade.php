@@ -18,7 +18,6 @@
         <div id="app">
         </div>
     </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script>window.data = @json(compact('teamMembers', 'clients'))</script>
     <script type="text/javascript" src="{{ mix('js/app.js')}}"></script>
 </html>

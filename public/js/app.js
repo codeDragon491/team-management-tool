@@ -2365,6 +2365,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "modal",
@@ -5337,7 +5346,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  padding: 20px 30px;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.modal-footer {\n  margin-top: 15px;\n}\n@media (max-width: 540px) {\n.modal-footer button {\n    padding: .75rem !important;\n}\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter .modal-container,\n.modal-leave .modal-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".float-in {\n  opacity: 0;\n  -webkit-animation: float-in .3s ease forwards;\n          animation: float-in .3s ease forwards;\n}\n@-webkit-keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n@keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n.modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  border-radius: .125rem;\n  padding: 3rem 2.5rem 1.5rem 2.5rem;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n}\n.modal-footer {\n  margin-top: 3.5rem;\n}\n@media (max-width: 540px) {\n.modal-footer button {\n    padding: .75rem !important;\n}\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter-enter .modal-enter-container,\n.modal-enter-leave .modal-enter-container,\n.modal-enter-enter .modal-leave-container,\n.modal-enter-leave .modal-leave-container,\n.modal-leave-enter .modal-enter-container,\n.modal-leave-leave .modal-enter-container,\n.modal-leave-enter .modal-leave-container,\n.modal-leave-leave .modal-leave-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -5356,7 +5365,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".warp {\n  max-width: 70rem;\n  height: 350px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  overflow: hidden;\n  width: 13rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.teammember_small .img-hover-zoom {\n  height: 13rem;\n  overflow: hidden;\n  /* [1.2] Hide the overflowing of child elements */\n}\n.teammember_small .img-hover-zoom div {\n  background-position: 50% 0%;\n  background-repeat: no-repeat;\n  background-size: cover;\n  position: relative;\n  -webkit-transform-origin: 50% 0%;\n          transform-origin: 50% 0%;\n  transition: -webkit-transform .3s ease;\n  transition: transform .3s ease;\n  transition: transform .3s ease, -webkit-transform .3s ease;\n}\n.teammember_small .img-hover-zoom:hover div {\n  -webkit-transform: scale(1.3);\n          transform: scale(1.3);\n}\n.teammember_small .name {\n  font-size: 18px;\n  font-weight: 500;\n  margin-top: 10px;\n}\n.teammember_small .title {\n  font-size: 16px;\n  margin-top: 4px;\n}\n.teammember_small .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 12px;\n}\n", ""]);
+exports.push([module.i, ".warp {\n  max-width: 70rem;\n  height: 350px;\n  overflow: hidden;\n}\n.warp div:nth-of-type(3n) {\n  width: 220rem !important;\n}\n.warp ul {\n  padding: 0;\n  display: flex;\n}\n.warp ul li {\n  overflow: hidden;\n  width: 13rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 15px;\n}\n.teammember_small .img-hover-zoom {\n  height: 13rem;\n  overflow: hidden;\n  /* [1.2] Hide the overflowing of child elements */\n}\n.teammember_small .img-hover-zoom div {\n  background-position: 50% 0%;\n  background-repeat: no-repeat;\n  background-size: cover;\n  position: relative;\n  -webkit-transform-origin: 50% 0%;\n          transform-origin: 50% 0%;\n  transition: -webkit-transform .3s ease;\n  transition: transform .3s ease;\n  transition: transform .3s ease, -webkit-transform .3s ease;\n}\n.teammember_small .img-hover-zoom:hover div {\n  -webkit-transform: scale(1.3);\n          transform: scale(1.3);\n}\n.teammember_small .name {\n  font-size: 18px;\n  font-weight: 500;\n  margin-top: 10px;\n}\n.teammember_small .title {\n  font-size: 16px;\n  margin-top: 4px;\n}\n.teammember_small .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 12px;\n}\n.slide-in {\n  opacity: 0;\n  -webkit-transform: translateX(100px);\n          transform: translateX(100px);\n  -webkit-animation: slide-in .3s ease forwards;\n          animation: slide-in .3s ease forwards;\n}\n@-webkit-keyframes slide-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n@keyframes slide-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -42936,10 +42945,84 @@ var render = function() {
   return _vm.show && this.$route.path.includes("/view-project-team")
     ? _c("div", { staticClass: "modal w-full flex justify-center" }, [
         _c("div", { staticClass: "modal-wrapper" }, [
-          _c("div", { staticClass: "modal-container" }, [
-            _vm._m(0),
+          _c("div", { staticClass: "modal-container float-in" }, [
+            _c("content", { attrs: { select: ".modal-header" } }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "block mx-auto mb-8",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "data-name": "Layer 1",
+                      width: "63",
+                      height: "53"
+                    }
+                  },
+                  [
+                    _c("rect", {
+                      attrs: {
+                        id: "backgroundrect",
+                        width: "100%",
+                        height: "100%",
+                        x: "0",
+                        y: "0",
+                        fill: "none",
+                        stroke: "none"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("title", [_vm._v("prototype")]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "currentLayer" }, [
+                      _c("title", [_vm._v("Layer 1")]),
+                      _c("g", { attrs: { id: "svg_1" } }, [
+                        _c("path", {
+                          staticStyle: { fill: "#000" },
+                          attrs: {
+                            d:
+                              "M37.964945681095124,11.710000228881835 H26.394945681095123 a2.16,2.16 0 0 0 -2.16,2.16 v20 A2.16,2.16 0 0 0 26.394945681095123,36.010000228881836 H37.964945681095124 a2.16,2.16 0 0 0 2.16,-2.16 v-20 A2.16,2.16 0 0 0 37.964945681095124,11.710000228881835 zm0.8,22.14 a0.8,0.8 0 0 1 -0.8,0.8 H26.394945681095123 a0.8,0.8 0 0 1 -0.8,-0.8 v-20 a0.8,0.8 0 0 1 0.8,-0.8 H37.964945681095124 a0.8,0.8 0 0 1 0.8,0.8 z",
+                            id: "svg_2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("circle", {
+                          staticStyle: { fill: "#000" },
+                          attrs: {
+                            cx: "32.18494659662247",
+                            cy: "39.78000068664551",
+                            r: "1.8700000047683716",
+                            id: "svg_3"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#000" },
+                          attrs: {
+                            d:
+                              "M63.244945681095125,7.010000228881836 a7.3100000000000005,7.3100000000000005 0 0 0 -4.18,-6.58 l-0.9,-0.43000000000000005 l-0.41000000000000003,6.33 H54.18494568109512 L53.774945681095126,0.010000228881835938 l-0.9,0.43000000000000005 a7.27,7.27 0 0 0 -0.27,13 a7.2,7.2 0 0 1 -1.9300000000000002,4 A14,14 0 0 1 44.494945681095125,21.010000228881836 V13.170000228881836 a5.93,5.93 0 0 0 -5.92,-5.92 H25.794945681095122 a5.93,5.93 0 0 0 -5.92,5.92 v11 a30.56,30.56 0 0 0 -3.6100000000000003,1.27 a22.48,22.48 0 0 0 -9,6.71 A19.36,19.36 0 0 0 3.6449456810951233,39.39000022888184 a7.27,7.27 0 0 0 0.53,12.88 l0.9,0.43000000000000005 l0.41000000000000003,-6.33 H9.114945681095124 l0.41000000000000003,6.33 l0.9,-0.43000000000000005 a7.27,7.27 0 0 0 0.6600000000000001,-12.81 a12.5,12.5 0 0 1 1.73,-3 a16,16 0 0 1 7.05,-4.9 V39.010000228881836 A5.93,5.93 0 0 0 25.794945681095122,45.010000228881836 H38.57494568109512 A5.93,5.93 0 0 0 44.494945681095125,39.010000228881836 V28.360000228881837 c5,-1.23 8.9,-3.35 11.55,-6.33 a13.84,13.84 0 0 0 3.6500000000000004,-8.77 A7.28,7.28 0 0 0 63.244945681095125,7.010000228881836 zm-50,38.67 a6,6 0 0 1 -2.5,4.83 L10.384945681095124,45.010000228881836 H4.264945681095123 L3.914945681095123,50.510000228881836 a5.92,5.92 0 1 1 9.33,-4.83 zm-1.49,-10 a13.85,13.85 0 0 0 -1.8900000000000001,3.2 a7.26,7.26 0 0 0 -4.57,-0.17 a18.12,18.12 0 0 1 3,-5.72 a20.07,20.07 0 0 1 5.62,-4.86 l1.86,4 A15.52,15.52 0 0 0 11.754945681095123,35.67000022888183 zm4.73,-4 L14.644945681095123,27.740000228881833 q1,-0.5700000000000001 2.17,-1.06 a28.89,28.89 0 0 1 3.08,-1.11 v4.58 A21.76,21.76 0 0 0 16.484945681095123,31.690000228881836 zM43.134945681095125,39.010000228881836 a4.57,4.57 0 0 1 -4.5600000000000005,4.5600000000000005 H25.794945681095122 A4.57,4.57 0 0 1 21.234945681095123,39.010000228881836 V13.170000228881836 a4.57,4.57 0 0 1 4.5600000000000005,-4.5600000000000005 H38.57494568109512 a4.57,4.57 0 0 1 4.5600000000000005,4.5600000000000005 zm1.36,-16.61 a19,19 0 0 0 4.9,-2.18 L51.64494568109512,23.96000022888184 a24.35,24.35 0 0 1 -7.2,3 zm10.53,-1.32 a15.81,15.81 0 0 1 -2.7,2.39 l-2.3,-3.7 A11.38,11.38 0 0 0 51.64494568109512,18.370000228881835 A8.68,8.68 0 0 0 53.89494568109512,14.010000228881836 a7.25,7.25 0 0 0 4.39,-0.08000000000000002 A12.81,12.81 0 0 1 55.024945681095126,21.130000228881837 zm0.9400000000000001,-8.2 a5.92,5.92 0 0 1 -3.42,-10.75 l0.36000000000000004,5.51 h6.12 l0.36000000000000004,-5.51 a5.92,5.92 0 0 1 -3.42,10.75 z",
+                            id: "svg_4"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#000" },
+                          attrs: {
+                            points:
+                              "34.814943850040436,16.350000381469727 29.504946291446686,21.979999542236328 31.774946749210358,22.760000228881836 29.554945528507233,29.23000144958496 34.86494690179825,23.600000381469727 32.594946444034576,22.82000160217285 34.814943850040436,16.350000381469727 ",
+                            id: "svg_5"
+                          }
+                        })
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
+            _c("div", { staticClass: "modal-body mt-3" }, [
               _vm._v(
                 "\n       This operation is irreversable. Are you sure?\n      "
               )
@@ -42983,14 +43066,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("content", { attrs: { select: ".modal-header" } }, [
-      _c("div", { staticClass: "modal-header" }, [
-        _c("h3", [
-          _vm._v(
-            "\n            Send project team request to client\n          "
-          )
-        ])
-      ])
+    return _c("h1", [
+      _vm._v("\n            SEND PROJECT TEAM REQUEST "),
+      _c("br"),
+      _vm._v(" TO CLIENT!\n          ")
     ])
   }
 ]
@@ -43321,7 +43400,7 @@ var render = function() {
                         ? _c(
                             "svg",
                             {
-                              staticClass: "absolute pin m-auto w-3/4",
+                              staticClass: "absolute pin m-auto w-4/5",
                               attrs: {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 viewBox: "0 0 512 512"
@@ -43341,11 +43420,14 @@ var render = function() {
                       _vm._v(" "),
                       _vm.projectTeam.some(function(teamMember) {
                         return teamMember.id === item.id
+                      }) &&
+                      !_vm.projectTeam.some(function(teamMember) {
+                        return teamMember.email === item.email
                       })
                         ? _c(
                             "svg",
                             {
-                              staticClass: "absolute pin m-auto w-3/4",
+                              staticClass: "slide-in absolute pin m-auto w-4/5",
                               attrs: {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 viewBox: "0 0 512 512"
