@@ -82,12 +82,13 @@ export default {
 </script>
 <style lang="scss">
 .float-in {
-  opacity: 0;
+  //opacity: 0;
   animation: float-in 0.3s ease forwards;
 }
 @keyframes float-in {
   to {
-    opacity: 1;
+    //opacity: 1;
+    //right: 50%;
     transform: translate(-50%, -50%);
   }
 }
@@ -116,7 +117,7 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
-    //transform: translate(-50%, -50%);
+    transform: translateY(-50%);
   }
 
   &-footer {
