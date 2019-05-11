@@ -2964,6 +2964,9 @@ __webpack_require__.r(__webpack_exports__);
       projectTeamDataClientView: []
     };
   },
+  mounted: function mounted() {
+    this.zoomEffect();
+  },
   created: function created() {
     var projectRequestId = this.$route.path.substring(this.$route.path.lastIndexOf("/") + 1);
     if (localStorage.projectRequests) this.projectTeamDataClientView = JSON.parse(localStorage.getItem("projectRequests")).find(function (projectRequest) {
@@ -2973,6 +2976,31 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     projectTeamData: function projectTeamData() {
       return JSON.parse(localStorage.getItem("projectTeam"));
+    }
+  },
+  methods: {
+    zoomEffect: function zoomEffect() {
+      var win = $(window);
+      var allImages = $(".teammember_big img"); // Already visible modules in the viewport
+
+      allImages.each(function (i, el) {
+        console.log("visible here");
+        var el = $(el);
+
+        if (el.visible(true)) {
+          el.addClass("zoom-in");
+        }
+      }); // Not visible modules in the viewport
+
+      win.scroll(function (event) {
+        allImages.each(function (i, el) {
+          var el = $(el);
+
+          if (el.visible(true)) {
+            el.addClass("zoom-in");
+          }
+        });
+      });
     }
   }
 });
@@ -5422,7 +5450,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".teammember_big .name {\n  font-size: 21px;\n  font-weight: 500;\n  margin-top: 24px;\n}\n.teammember_big .title {\n  font-size: 18px;\n  margin-top: 8px;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 32px;\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n", ""]);
+exports.push([module.i, ".zoom-in {\n  /* start state */\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-animation: zoom-in .2s ease-in-out forwards;\n          animation: zoom-in .2s ease-in-out forwards;\n}\n@-webkit-keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.teammember_big .name {\n  font-size: 21px;\n  font-weight: 500;\n  margin-top: 24px;\n}\n.teammember_big .title {\n  font-size: 18px;\n  margin-top: 8px;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 32px;\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n", ""]);
 
 // exports
 

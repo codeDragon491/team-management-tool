@@ -23,6 +23,9 @@ export default {
       projectTeamDataClientView: []
     };
   },
+  mounted() {
+    this.zoomEffect();
+  },
   created() {
     let projectRequestId = this.$route.path.substring(
       this.$route.path.lastIndexOf("/") + 1
@@ -38,10 +41,57 @@ export default {
     projectTeamData: function() {
       return JSON.parse(localStorage.getItem("projectTeam"));
     }
+  },
+  methods: {
+    zoomEffect: function() {
+      var win = $(window);
+      var allImages = $(".teammember_big img");
+      // Already visible modules in the viewport
+      allImages.each(function(i, el) {
+        console.log("visible here");
+        var el = $(el);
+        if (el.visible(true)) {
+          el.addClass("zoom-in");
+        }
+      });
+      // Not visible modules in the viewport
+      win.scroll(function(event) {
+        allImages.each(function(i, el) {
+          var el = $(el);
+          if (el.visible(true)) {
+            el.addClass("zoom-in");
+          }
+        });
+      });
+    }
   }
 };
 </script>
 <style <style lang="scss">
+.zoom-in {
+  /* start state */
+  opacity: 0;
+  transform: scale(0);
+  animation: zoom-in 0.2s ease-in-out forwards;
+}
+@keyframes zoom-in {
+  25% {
+    opacity: 0.25;
+    transform: scale(0.25);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  75% {
+    opacity: 0.75;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .teammember_big {
   .name {
     font-size: 21px;
