@@ -2374,6 +2374,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "modal",
@@ -5336,7 +5337,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "button.load-button {\n  padding: .75rem 2.5rem !important;\n}\nbutton.load-button svg {\n  margin: 0 auto;\n}\n", ""]);
+exports.push([module.i, "button.load-button {\n  padding: .75rem 2.75rem !important;\n}\nbutton.load-button svg {\n  margin: 0 auto;\n}\n", ""]);
 
 // exports
 
@@ -5374,7 +5375,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".float-in {\n  -webkit-animation: float-in .3s ease forwards;\n          animation: float-in .3s ease forwards;\n}\n@-webkit-keyframes float-in {\nto {\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n@keyframes float-in {\nto {\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n.modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  border-radius: .125rem;\n  padding: 3rem 2.5rem 1.5rem 2.5rem;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.modal-footer {\n  margin-top: 3.5rem;\n}\n@media (max-width: 540px) {\n.modal-footer button {\n    padding: .75rem !important;\n}\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter-enter .modal-enter-container,\n.modal-enter-leave .modal-enter-container,\n.modal-enter-enter .modal-leave-container,\n.modal-enter-leave .modal-leave-container,\n.modal-leave-enter .modal-enter-container,\n.modal-leave-leave .modal-enter-container,\n.modal-leave-enter .modal-leave-container,\n.modal-leave-leave .modal-leave-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".close-icon {\n  transition: .6s ease-out;\n}\n.close-icon:hover {\n  -webkit-transform: rotateZ(360deg);\n          transform: rotateZ(360deg);\n}\n.float-in {\n  opacity: 0;\n  -webkit-animation: float-in .2s ease-out forwards;\n          animation: float-in .2s ease-out forwards;\n}\n@-webkit-keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n@keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n.modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  border-radius: .125rem;\n  padding: 1.5rem 2.5rem 1.5rem 2.5rem;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.modal-footer {\n  margin-top: 3.5rem;\n}\n@media (max-width: 540px) {\n.modal-footer button {\n    padding: .75rem !important;\n}\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter-enter .modal-enter-container,\n.modal-enter-leave .modal-enter-container,\n.modal-enter-enter .modal-leave-container,\n.modal-enter-leave .modal-leave-container,\n.modal-leave-enter .modal-enter-container,\n.modal-leave-leave .modal-enter-container,\n.modal-leave-enter .modal-leave-container,\n.modal-leave-leave .modal-leave-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -5431,7 +5432,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".table-responsive {\n  margin-bottom: 1rem;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\nselect {\n  width: 4rem;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(/img/icons/arrow-dropdown.svg);\n  background-repeat: no-repeat;\n  background-position: 2rem center;\n}\n.glyphicon.glyphicon-eye-open {\n  width: 16px;\n  display: block;\n  margin: 0 auto;\n}\n.VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination nav .VuePagination__pagination {\n  margin: 1.5rem;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n\n/*.page-item:first-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\\f3cf\";\n}\n.page-item:nth-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\";\n}\n.page-item:last-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\\f3d1\";\n}\n.page-item:nth-last-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\";\n}*/\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search .VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__sortable {\n  cursor: pointer;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit .VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\n", ""]);
+exports.push([module.i, ".table-responsive {\n  margin-bottom: 1rem;\n}\nlabel {\n  font-size: 16px;\n  font-weight: 700;\n  padding-right: .5rem;\n}\nselect {\n  width: 4rem;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(/img/icons/arrow-dropdown.svg);\n  background-repeat: no-repeat;\n  background-position: 2rem center;\n}\n.eye-open {\n  fill: #ff91a6;\n}\n.eye-open:hover,\n.eye-open:focus {\n  fill: #f799ab;\n}\n.VuePagination {\n  text-align: center;\n}\n.VuePagination nav {\n  margin: auto;\n}\n.VuePagination nav .VuePagination__pagination {\n  margin: 1.5rem;\n}\n.vue-pagination-ad {\n  text-align: center;\n}\n\n/*.page-item:first-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\\f3cf\";\n}\n.page-item:nth-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3cf\";\n}\n.page-item:last-child a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\\f3d1\";\n}\n.page-item:nth-last-child(2) a:after {\n  font-family: \"Ionicons\";\n  font-weight: bold;\n  content: \"\\f3d1\";\n}*/\n.page-item.active .page-link {\n  background-color: #ffabbb !important;\n  border-color: #ffabbb !important;\n}\n.page-link {\n  color: #ffabbb;\n}\n.page-link:hover {\n  color: #ffabbb;\n}\n.VueTables__search {\n  float: left;\n  margin-bottom: 1.25rem;\n}\n.VueTables__search .VueTables__search-field {\n  display: flex;\n  align-items: center;\n}\n.VueTables__sortable {\n  cursor: pointer;\n}\n.VueTables__limit {\n  float: right;\n  margin-bottom: 1.25rem;\n}\n@media (max-width: 389px) {\n.VueTables__limit {\n    float: left;\n}\n}\n.VueTables__limit .VueTables__limit-field {\n  display: flex;\n  align-items: center;\n}\n", ""]);
 
 // exports
 
@@ -42975,7 +42976,27 @@ var render = function() {
         _c("div", { staticClass: "modal-wrapper" }, [
           _c("div", { staticClass: "modal-container float-in" }, [
             _c("content", { attrs: { select: ".modal-header" } }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header flex flex-col" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "w-6 ml-auto mb-12 cursor-pointer close-icon",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 512 512"
+                    },
+                    on: { click: _vm.closeModal }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
                 _c(
                   "svg",
                   {
@@ -43825,7 +43846,7 @@ var render = function() {
                                 _c(
                                   "svg",
                                   {
-                                    staticClass: "w-6",
+                                    staticClass: "w-6 eye-open",
                                     attrs: {
                                       xmlns: "http://www.w3.org/2000/svg",
                                       viewBox: "0 0 512 512"
@@ -43834,7 +43855,6 @@ var render = function() {
                                   [
                                     _c("path", {
                                       attrs: {
-                                        fill: "#ff91a6",
                                         d:
                                           "M256 105c-101.8 0-188.4 62.4-224 151 35.6 88.6 122.2 151 224 151s188.4-62.4 224-151c-35.6-88.6-122.2-151-224-151zm0 251.7c-56 0-101.8-45.3-101.8-100.7S200 155.3 256 155.3 357.8 200.6 357.8 256 312 356.7 256 356.7zm0-161.1c-33.6 0-61.1 27.2-61.1 60.4s27.5 60.4 61.1 60.4 61.1-27.2 61.1-60.4-27.5-60.4-61.1-60.4z"
                                       }

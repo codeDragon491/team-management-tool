@@ -3,7 +3,8 @@
     <div class="modal-wrapper">
       <div class="modal-container float-in">
         <content select=".modal-header">
-          <div class="modal-header">
+          <div class="modal-header flex flex-col">
+            <svg @click="closeModal" class="w-6 ml-auto mb-12 cursor-pointer close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"/></svg>
             <svg class="block mx-auto mb-8" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="63" height="53" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
               <title>prototype</title>
               <g class="currentLayer" style=""><title>Layer 1</title><g id="svg_1" class="">
@@ -81,14 +82,19 @@ export default {
 };
 </script>
 <style lang="scss">
+.close-icon {
+  transition: 0.6s ease-out;
+}
+.close-icon:hover {
+  transform: rotateZ(360deg);
+}
 .float-in {
-  //opacity: 0;
-  animation: float-in 0.3s ease forwards;
+  opacity: 0;
+  animation: float-in 0.2s ease-out forwards;
 }
 @keyframes float-in {
   to {
-    //opacity: 1;
-    //right: 50%;
+    opacity: 1;
     transform: translate(-50%, -50%);
   }
 }
@@ -99,7 +105,7 @@ export default {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: table;
-  //transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   &-wrapper {
     display: table-cell;
     vertical-align: middle;
@@ -113,7 +119,7 @@ export default {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
     border-radius: 0.125rem;
-    padding: 3rem 2.5rem 1.5rem 2.5rem;
+    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
     position: absolute;
     left: 50%;
     top: 50%;

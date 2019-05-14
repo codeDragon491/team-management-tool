@@ -17,4 +17,8 @@ Route::get('/send-project-team/{project_client_id}', 'SinglePageController@sendP
 
 Route::get('/get-project-requests/{client_id}', 'SinglePageController@getProjectRequests');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/{any}', 'SinglePageController@index')->where('any','.*');

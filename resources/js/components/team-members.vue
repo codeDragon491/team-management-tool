@@ -17,7 +17,7 @@
                         </div>
                       </li>
                     </ul>
-                  </vue-seamless-scroll>
+        </vue-seamless-scroll>
 </template>
 <script>
 export default {

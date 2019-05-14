@@ -18,7 +18,7 @@ export default {
 </script>
 <style lang="scss">
 button.load-button {
-  padding: 0.75rem 2.5rem !important;
+  padding: 0.75rem 2.75rem !important;
   svg {
     margin: 0 auto;
   }
