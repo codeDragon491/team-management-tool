@@ -86,7 +86,7 @@ export default {
   transition: 0.6s ease-out;
 }
 .close-icon:hover {
-  transform: rotateZ(360deg);
+  transform: rotateZ(90deg);
 }
 .float-in {
   opacity: 0;
@@ -105,6 +105,7 @@ export default {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: table;
+  z-index: 30;
   transition: opacity 0.3s ease;
   &-wrapper {
     display: table-cell;
@@ -119,7 +120,10 @@ export default {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
     border-radius: 0.125rem;
-    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    @media (min-width: 768px) {
+      padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+    }
     position: absolute;
     left: 50%;
     top: 50%;

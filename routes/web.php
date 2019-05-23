@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/{any}', 'SinglePageController@index')->where('any','.*');
+Route::get('{any}', 'SinglePageController@index')->where('any','.*');
