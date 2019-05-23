@@ -264,6 +264,9 @@ label {
   font-size: 16px;
   font-weight: 700;
 }
+.vs--searchable {
+  font-size: 14px;
+}
 .vs__dropdown-toggle {
   border: 1px solid #ccd1d9 !important;
 }
@@ -275,7 +278,6 @@ label {
 .vs__selected,
 .vs__search {
   height: 38px;
-  font-size: 14px;
   padding: 8px 10px;
   margin: 0;
   line-height: 1.42857143;
@@ -302,20 +304,11 @@ label {
 .vs__open-indicator {
   fill: #a0aab8 !important;
 }
-.vs__dropdown-menu {
-  .vs__dropdown-option {
-    font-size: 14px;
-  }
-}
 .come-in {
   opacity: 0;
   transform: translateY(150px);
   animation: come-in 0.8s ease forwards;
 }
-/*.come-in:nth-child(odd) {
-  animation-duration: 0.6s; /* So they look staggered */
-//}
-
 @keyframes come-in {
   to {
     opacity: 1;

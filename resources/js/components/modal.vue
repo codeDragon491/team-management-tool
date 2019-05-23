@@ -116,7 +116,6 @@ export default {
     background: #fff;
     min-width: 250px;
     max-width: 450px;
-    //border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
     border-radius: 0.125rem;
