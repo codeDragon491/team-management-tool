@@ -9,7 +9,7 @@
             <router-view></router-view>
           </v-client-table>  
           </div>  
-          <loader v-else class="mx-auto"></loader>       
+          <p v-else class="mx-auto">Loading...</p>       
        </div>
     </div>
 </template>

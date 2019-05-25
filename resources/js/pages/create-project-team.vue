@@ -48,6 +48,21 @@
     </div>
 </template>
 <script>
+jQuery(document).ready(function($) {
+  $(".vs__search")
+    .focus(function() {
+      $(this)
+        .parents()
+        .eq("1")
+        .addClass("focus");
+    })
+    .blur(function() {
+      $(this)
+        .parents()
+        .eq("1")
+        .removeClass("focus");
+    });
+});
 import BreadCrumb from "../components/bread-crumb.vue";
 import TeamMembers from "../components/team-members.vue";
 import Router from "../routes";
@@ -269,6 +284,11 @@ label {
 }
 .vs__dropdown-toggle {
   border: 1px solid #ccd1d9 !important;
+}
+.focus {
+  border: 1px solid #081228 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 }
 .vs__dropdown-toggle:focus {
   border-color: #081228;
