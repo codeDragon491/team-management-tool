@@ -306,6 +306,10 @@ label {
   border-radius: 4px;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+
+#id_title {
+  color: #333;
+}
 .vs__search:focus {
   margin: 0;
   padding: 0 8px;
