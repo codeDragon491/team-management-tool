@@ -2581,7 +2581,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-jQuery(document).ready(function ($) {
+$(document).ready(function () {
   $(".vs__search").focus(function () {
     $(this).parents().eq("1").addClass("focus");
   }).blur(function () {

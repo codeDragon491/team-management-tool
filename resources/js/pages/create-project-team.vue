@@ -48,7 +48,7 @@
     </div>
 </template>
 <script>
-jQuery(document).ready(function($) {
+$(document).ready(function() {
   $(".vs__search")
     .focus(function() {
       $(this)
