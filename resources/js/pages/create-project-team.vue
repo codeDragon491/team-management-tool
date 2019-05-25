@@ -320,7 +320,7 @@ label {
 }
 .vs__dropdown-toggle,
 .vs__selected-options {
-  padding: 0;
+  padding: 0 1px;
 }
 .vs__clear {
   fill: #a0aab8 !important;
