@@ -86,7 +86,8 @@ export default {
   transition: 0.6s ease-out;
 }
 .close-icon:hover {
-  transform: rotateZ(90deg);
+  transform: rotate(90deg);
+  backface-visibility: hidden;
 }
 .float-in {
   opacity: 0;

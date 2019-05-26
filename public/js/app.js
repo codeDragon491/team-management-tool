@@ -2581,6 +2581,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 $(document).ready(function () {
   $(".vs__search").focus(function () {
     $(this).parents().eq("1").addClass("focus");
@@ -2992,7 +2994,7 @@ __webpack_require__.r(__webpack_exports__);
       var allImages = $(".teammember_big img"); // Already visible modules in the viewport
 
       allImages.each(function (i, el) {
-        console.log("visible here");
+        //console.log("visible here");
         var el = $(el);
 
         if (el.visible(true)) {
@@ -5382,7 +5384,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".close-icon {\n  transition: .6s ease-out;\n}\n.close-icon:hover {\n  -webkit-transform: rotateZ(90deg);\n          transform: rotateZ(90deg);\n}\n.float-in {\n  opacity: 0;\n  -webkit-animation: float-in .2s ease-out forwards;\n          animation: float-in .2s ease-out forwards;\n}\n@-webkit-keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n@keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n.modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  z-index: 30;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  border-radius: .125rem;\n  padding: .5rem 1.5rem .5rem 1.5rem;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n@media (min-width: 768px) {\n.modal-container {\n    padding: 1.5rem 2.5rem 1.5rem 2.5rem;\n}\n}\n.modal-footer {\n  margin-top: 3.5rem;\n}\n@media (max-width: 540px) {\n.modal-footer button {\n    padding: .75rem !important;\n}\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter-enter .modal-enter-container,\n.modal-enter-leave .modal-enter-container,\n.modal-enter-enter .modal-leave-container,\n.modal-enter-leave .modal-leave-container,\n.modal-leave-enter .modal-enter-container,\n.modal-leave-leave .modal-enter-container,\n.modal-leave-enter .modal-leave-container,\n.modal-leave-leave .modal-leave-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".close-icon {\n  transition: .6s ease-out;\n}\n.close-icon:hover {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n}\n.float-in {\n  opacity: 0;\n  -webkit-animation: float-in .2s ease-out forwards;\n          animation: float-in .2s ease-out forwards;\n}\n@-webkit-keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n@keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n.modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  z-index: 30;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  border-radius: .125rem;\n  padding: .5rem 1.5rem .5rem 1.5rem;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n@media (min-width: 768px) {\n.modal-container {\n    padding: 1.5rem 2.5rem 1.5rem 2.5rem;\n}\n}\n.modal-footer {\n  margin-top: 3.5rem;\n}\n@media (max-width: 540px) {\n.modal-footer button {\n    padding: .75rem !important;\n}\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter-enter .modal-enter-container,\n.modal-enter-leave .modal-enter-container,\n.modal-enter-enter .modal-leave-container,\n.modal-enter-leave .modal-leave-container,\n.modal-leave-enter .modal-enter-container,\n.modal-leave-leave .modal-enter-container,\n.modal-leave-enter .modal-leave-container,\n.modal-leave-leave .modal-leave-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -5420,7 +5422,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 8px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.vs--searchable {\n  font-size: 14px;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.focus {\n  border: 1px solid #081228 !important;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__dropdown-toggle:focus {\n  border-color: #081228;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__selected,\n.vs__search {\n  height: 38px;\n  padding: 8px 10px;\n  margin: 0;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: none;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n#id_title {\n  color: #333;\n}\n.vs__search:focus {\n  margin: 0;\n  padding: 0 8px;\n  border: none;\n}\n.vs__actions {\n  padding-top: 2px;\n}\n.vs__dropdown-toggle,\n.vs__selected-options {\n  padding: 0 1px;\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
+exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 19px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.vs--searchable {\n  font-size: 14px;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.focus {\n  border: 1px solid #081228 !important;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__dropdown-toggle:focus {\n  border-color: #081228;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__selected,\n.vs__search {\n  height: 38px;\n  padding: 8px 10px;\n  margin: 0;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: none;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n#id_title {\n  color: #333;\n}\n.vs__search:focus {\n  margin: 0;\n  padding: 0 8px;\n  border: none;\n}\n.vs__actions {\n  padding-top: 2px;\n}\n.vs__dropdown-toggle,\n.vs__selected-options {\n  padding: 0;\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -43597,64 +43599,70 @@ var render = function() {
                   : _vm._e()
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "load-group flex flex-col items-start pb-5" },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.projectTitle,
-                        expression: "projectTitle"
-                      }
-                    ],
-                    staticClass: "w-full md:w-1/2 form-control",
-                    attrs: {
-                      type: "text",
-                      name: "title",
-                      id: "id_title",
-                      placeholder: "Project team title",
-                      maxlength: "128"
-                    },
-                    domProps: { value: _vm.projectTitle },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+              _c("div", { staticClass: "w-full flex flex-col md:flex-row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "load-group flex flex-col items-start pb-5 w-full md:w-1/2"
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.projectTitle,
+                          expression: "projectTitle"
                         }
-                        _vm.projectTitle = $event.target.value
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "z-10 load-group flex flex-col items-start pb-5"
-                },
-                [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("v-select", {
-                    staticClass: "w-full md:w-1/2",
-                    attrs: { label: "name", options: _vm.clientList },
-                    model: {
-                      value: _vm.projectClient,
-                      callback: function($$v) {
-                        _vm.projectClient = $$v
+                      ],
+                      staticClass: "w-full form-control",
+                      attrs: {
+                        type: "text",
+                        name: "title",
+                        id: "id_title",
+                        placeholder: "Project team title",
+                        maxlength: "128"
                       },
-                      expression: "projectClient"
-                    }
-                  })
-                ],
-                1
-              ),
+                      domProps: { value: _vm.projectTitle },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.projectTitle = $event.target.value
+                        }
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "md:ml-5 z-10 load-group flex flex-col items-start pb-5 w-full md:w-1/2"
+                  },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      staticClass: "w-full",
+                      attrs: { label: "name", options: _vm.clientList },
+                      model: {
+                        value: _vm.projectClient,
+                        callback: function($$v) {
+                          _vm.projectClient = $$v
+                        },
+                        expression: "projectClient"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
               _vm._v(" "),
               _c(
                 "div",

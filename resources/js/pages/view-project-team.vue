@@ -48,7 +48,7 @@ export default {
       var allImages = $(".teammember_big img");
       // Already visible modules in the viewport
       allImages.each(function(i, el) {
-        console.log("visible here");
+        //console.log("visible here");
         var el = $(el);
         if (el.visible(true)) {
           el.addClass("zoom-in");

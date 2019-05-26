@@ -11,17 +11,19 @@
                   </ul>
                 </p>
                </div>
-                <div class="load-group flex flex-col items-start pb-5">
+                <div class="w-full flex flex-col md:flex-row">
+                <div class="load-group flex flex-col items-start pb-5 w-full md:w-1/2">
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
-	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full md:w-1/2 form-control" maxlength="128">
+	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full form-control" maxlength="128">
                 </div>
-                 <div class="z-10 load-group flex flex-col items-start pb-5">
+                 <div class="md:ml-5 z-10 load-group flex flex-col items-start pb-5 w-full md:w-1/2">
                     <label for="id_client" class="control-label">
                       Select client<span title="required">*</span>
                     </label>
-                  <v-select class="w-full md:w-1/2" v-model="projectClient" label="name" :options="clientList"></v-select>
+                  <v-select class="w-full" v-model="projectClient" label="name" :options="clientList"></v-select>
+                </div>
                 </div>
                 <div class="load-group w-full flex flex-col pb-5">
                     <label class="control-label mr-auto">
@@ -262,7 +264,7 @@ export default {
 .form-control {
   display: block;
   height: 38px;
-  padding: 8px 10px;
+  padding: 19px 10px;
   font-size: 14px;
   line-height: 1.42857143;
   background-color: #f7f8f9;
@@ -320,7 +322,7 @@ label {
 }
 .vs__dropdown-toggle,
 .vs__selected-options {
-  padding: 0 1px;
+  padding: 0;
 }
 .vs__clear {
   fill: #a0aab8 !important;
