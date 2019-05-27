@@ -3,9 +3,12 @@
     <div class="modal-wrapper">
       <div class="modal-container float-in">
         <content select=".modal-header">
-          <div class="modal-header flex flex-col">
-            <svg @click="closeModal" class="w-6 ml-auto mb-12 cursor-pointer close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"/></svg>
-            <svg class="block mx-auto mb-8" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="63" height="53" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+          <div class="modal-header flex flex-col h-20">
+            <svg @click="closeModal" class="w-6 h-6 ml-auto mb-12 cursor-pointer close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"/></svg>
+          </div>
+        </content>
+        <div class="modal-body h-44">
+              <svg class="block mx-auto mb-8" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="63" height="53" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
               <title>prototype</title>
               <g class="currentLayer" style=""><title>Layer 1</title><g id="svg_1" class="">
                 <path d="M37.964945681095124,11.710000228881835 H26.394945681095123 a2.16,2.16 0 0 0 -2.16,2.16 v20 A2.16,2.16 0 0 0 26.394945681095123,36.010000228881836 H37.964945681095124 a2.16,2.16 0 0 0 2.16,-2.16 v-20 A2.16,2.16 0 0 0 37.964945681095124,11.710000228881835 zm0.8,22.14 a0.8,0.8 0 0 1 -0.8,0.8 H26.394945681095123 a0.8,0.8 0 0 1 -0.8,-0.8 v-20 a0.8,0.8 0 0 1 0.8,-0.8 H37.964945681095124 a0.8,0.8 0 0 1 0.8,0.8 z" style="fill: #000" id="svg_2"/>
@@ -17,16 +20,13 @@
             <h1>
               SEND PROJECT TEAM REQUEST <br> TO CLIENT!
             </h1>
-          </div>
-        </content>
-        <div class="modal-body mt-3">
-         This operation is irreversable. Are you sure?
+         <p class="mt-3">This operation is irreversable. Are you sure?</p>
         </div>
         <div v-if="!sent" class="modal-footer flex justify-between">
             <button v-if="!loading" @click="sendTeam" class="button-pink">Send request</button>
             <load-button v-else></load-button>
             <button @click="closeModal" class="button-green">Cancel</button>
-          </div>
+        </div>
         </div>
       </div>
     </div> 
@@ -86,8 +86,8 @@ export default {
   transition: 0.6s ease-out;
 }
 .close-icon:hover {
-  transform: rotate(90deg);
   backface-visibility: hidden;
+  transform: rotate(90deg);
 }
 .float-in {
   opacity: 0;
@@ -114,6 +114,7 @@ export default {
   }
 
   &-container {
+    //backface-visibility: hidden;
     background: #fff;
     min-width: 250px;
     max-width: 450px;

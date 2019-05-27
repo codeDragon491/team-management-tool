@@ -421,8 +421,7 @@ module.exports = {
     |
     */
 
-    borderColors: global.Object.assign(
-        { default: colors["grey-light"] },
+    borderColors: global.Object.assign({ default: colors["grey-light"] },
         colors
     ),
 
@@ -533,10 +532,12 @@ module.exports = {
         "10": "2.5rem",
         "12": "3rem",
         "16": "4rem",
+        "20": "5rem",
         "24": "6rem",
         "32": "8rem",
-        "48": "12rem",
         "40": "10rem",
+        "44": "11rem",
+        "48": "12rem",
         "64": "16rem",
         full: "100%",
         screen: "100vh"

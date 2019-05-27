@@ -5706,6 +5706,10 @@ button.button-green:focus {
   height: 4rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-24 {
   height: 6rem;
 }
@@ -5716,6 +5720,10 @@ button.button-green:focus {
 
 .h-40 {
   height: 10rem;
+}
+
+.h-44 {
+  height: 11rem;
 }
 
 .h-48 {
@@ -11487,6 +11495,10 @@ button.button-green:focus {
     height: 4rem;
   }
 
+  .sm\:h-20 {
+    height: 5rem;
+  }
+
   .sm\:h-24 {
     height: 6rem;
   }
@@ -11497,6 +11509,10 @@ button.button-green:focus {
 
   .sm\:h-40 {
     height: 10rem;
+  }
+
+  .sm\:h-44 {
+    height: 11rem;
   }
 
   .sm\:h-48 {
@@ -17245,6 +17261,10 @@ button.button-green:focus {
     height: 4rem;
   }
 
+  .md\:h-20 {
+    height: 5rem;
+  }
+
   .md\:h-24 {
     height: 6rem;
   }
@@ -17255,6 +17275,10 @@ button.button-green:focus {
 
   .md\:h-40 {
     height: 10rem;
+  }
+
+  .md\:h-44 {
+    height: 11rem;
   }
 
   .md\:h-48 {
@@ -23003,6 +23027,10 @@ button.button-green:focus {
     height: 4rem;
   }
 
+  .lg\:h-20 {
+    height: 5rem;
+  }
+
   .lg\:h-24 {
     height: 6rem;
   }
@@ -23013,6 +23041,10 @@ button.button-green:focus {
 
   .lg\:h-40 {
     height: 10rem;
+  }
+
+  .lg\:h-44 {
+    height: 11rem;
   }
 
   .lg\:h-48 {
@@ -28761,6 +28793,10 @@ button.button-green:focus {
     height: 4rem;
   }
 
+  .xl\:h-20 {
+    height: 5rem;
+  }
+
   .xl\:h-24 {
     height: 6rem;
   }
@@ -28771,6 +28807,10 @@ button.button-green:focus {
 
   .xl\:h-40 {
     height: 10rem;
+  }
+
+  .xl\:h-44 {
+    height: 11rem;
   }
 
   .xl\:h-48 {
