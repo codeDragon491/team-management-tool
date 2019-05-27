@@ -2509,9 +2509,9 @@ __webpack_require__.r(__webpack_exports__);
     classOption: function classOption() {
       return {
         limitMoveNum: 7,
-        direction: 3,
-        //singleWidth: 134,
-        autoPlay: false
+        direction: 3 //singleWidth: 134,
+        //autoPlay: false
+
       };
     }
   }

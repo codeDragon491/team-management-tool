@@ -27,9 +27,9 @@ export default {
     classOption: function() {
       return {
         limitMoveNum: 7,
-        direction: 3,
+        direction: 3
         //singleWidth: 134,
-        autoPlay: false
+        //autoPlay: false
       };
     }
   }
