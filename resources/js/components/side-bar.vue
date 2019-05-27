@@ -33,11 +33,6 @@ export default {
 </script>
 <style>
 /* Primary Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 em {
   font-style: normal;
   font-weight: 500;
@@ -57,8 +52,6 @@ a {
 /* Layout */
 .sidebar__layout {
   display: flex;
-  width: 100%;
-  height: auto;
 }
 
 .sidebar-layout__content {
@@ -158,9 +151,6 @@ a {
   .sidebar__layout {
     max-width: 15rem;
     width: auto;
-  }
-  .sidebar-layout__content {
-    margin-left: 4rem;
   }
 
   /* Sidebar */

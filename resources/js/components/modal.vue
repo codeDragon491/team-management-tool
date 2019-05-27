@@ -114,7 +114,6 @@ export default {
   }
 
   &-container {
-    //backface-visibility: hidden;
     background: #fff;
     min-width: 250px;
     max-width: 450px;
@@ -129,6 +128,9 @@ export default {
     left: 50%;
     top: 50%;
     transform: translateY(-50%);
+  }
+  &-body {
+    backface-visibility: hidden;
   }
 
   &-footer {
