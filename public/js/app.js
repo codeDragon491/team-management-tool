@@ -2583,13 +2583,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-$(document).ready(function () {
-  $(".vs__search").focus(function () {
-    $(this).parents().eq("1").addClass("focus");
-  }).blur(function () {
-    $(this).parents().eq("1").removeClass("focus");
-  });
-});
 
 
 
@@ -2603,6 +2596,7 @@ $(document).ready(function () {
   },
   mounted: function mounted() {
     this.slideInAsScroll();
+    this.addFocus();
     this.filterTeamMembersData();
     this.clientList = window.data.clients;
   },
@@ -2625,6 +2619,7 @@ $(document).ready(function () {
   computed: {},
   methods: {
     slideInAsScroll: function slideInAsScroll() {
+      var self = this;
       var win = $(window);
       var allMods = $(".load-group"); // Already visible modules in the viewport
 
@@ -2648,6 +2643,13 @@ $(document).ready(function () {
             el.addClass("come-in");
           }
         });
+      });
+    },
+    addFocus: function addFocus() {
+      $(".vs__search").focus(function () {
+        $(this).parents().eq("1").addClass("focus");
+      }).blur(function () {
+        $(this).parents().eq("1").removeClass("focus");
       });
     },
     checkForm: function checkForm() {

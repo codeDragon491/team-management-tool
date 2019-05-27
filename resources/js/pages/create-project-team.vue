@@ -50,21 +50,6 @@
     </div>
 </template>
 <script>
-$(document).ready(function() {
-  $(".vs__search")
-    .focus(function() {
-      $(this)
-        .parents()
-        .eq("1")
-        .addClass("focus");
-    })
-    .blur(function() {
-      $(this)
-        .parents()
-        .eq("1")
-        .removeClass("focus");
-    });
-});
 import BreadCrumb from "../components/bread-crumb.vue";
 import TeamMembers from "../components/team-members.vue";
 import Router from "../routes";
@@ -74,6 +59,7 @@ export default {
   components: { BreadCrumb, TeamMembers, LoadButton },
   mounted() {
     this.slideInAsScroll();
+    this.addFocus();
     this.filterTeamMembersData();
     this.clientList = window.data.clients;
   },
@@ -96,6 +82,7 @@ export default {
   computed: {},
   methods: {
     slideInAsScroll: function() {
+      var self = this;
       var win = $(window);
       var allMods = $(".load-group");
       // Already visible modules in the viewport
@@ -118,6 +105,21 @@ export default {
           }
         });
       });
+    },
+    addFocus: function() {
+      $(".vs__search")
+        .focus(function() {
+          $(this)
+            .parents()
+            .eq("1")
+            .addClass("focus");
+        })
+        .blur(function() {
+          $(this)
+            .parents()
+            .eq("1")
+            .removeClass("focus");
+        });
     },
     checkForm: function() {
       if (
