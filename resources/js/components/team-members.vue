@@ -26,10 +26,10 @@ export default {
   computed: {
     classOption: function() {
       return {
-        limitMoveNum: 7,
+        //limitMoveNum: 7,
         direction: 3
         //singleWidth: 134,
-        //autoPlay: false
+        //autoPlay: true
       };
     }
   }

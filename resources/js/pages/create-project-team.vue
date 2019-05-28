@@ -5,9 +5,9 @@
             <div class="sub-content relative bg-signifly-grey-lightest w-full p-5 flex flex-col">
               <div class="flex flex-col items-start pb-5">
                 <p class="text-left text-red" v-if="errors.length">
-                  <b>Please correct the following error(s):</b>
+                  <b class="font-bold">Please correct the following error(s):</b>
                   <ul class="p-0">
-                    <li v-for="error in errors">{{ error }}</li>
+                    <li v-for="error in errors" class="font-hairline">{{ error }}</li>
                   </ul>
                 </p>
                </div>
