@@ -2977,6 +2977,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "view-project-team",
   data: function data() {
@@ -5471,7 +5476,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".zoom-in {\n  /* start state */\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-animation: zoom-in .2s ease-in-out forwards;\n          animation: zoom-in .2s ease-in-out forwards;\n}\n@-webkit-keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.teammember_big .name {\n  font-size: 21px;\n  font-weight: 500;\n  margin-top: 24px;\n}\n.teammember_big .title {\n  font-size: 18px;\n  margin-top: 8px;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 32px;\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n", ""]);
+exports.push([module.i, ".zoom-in {\n  /* start state */\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-animation: zoom-in .2s ease-in-out forwards;\n          animation: zoom-in .2s ease-in-out forwards;\n}\n@-webkit-keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.teammember_big {\n  color: #fff;\n}\n.teammember_big .img-overlay {\n  background-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 7px;\n  left: 0;\n  width: 100%;\n  transition: background-color .25s ease-in-out;\n}\n.teammember_big .work-overlay {\n  font-family: National-Book;\n  border: none;\n  background-color: transparent;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  transition: opacity .15s linear, -webkit-transform .15s;\n  transition: transform .15s, opacity .15s linear;\n  transition: transform .15s, opacity .15s linear, -webkit-transform .15s;\n  -webkit-transform: translate3d(0, 40%, 0);\n          transform: translate3d(0, 40%, 0);\n  text-align: center;\n}\n.teammember_big .work-overlay .work-description .work-title:after {\n  content: \"\";\n  display: block;\n  width: 50px;\n  border-bottom: 2px solid #fff;\n  margin: 25px auto;\n}\n.teammember_big .work-overlay .work-description .work-phone,\n.teammember_big .work-overlay .work-description .work-email {\n  font-family: National-Light;\n}\n.teammember_big .button-holder {\n  opacity: 0;\n  position: absolute;\n  top: auto;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 40px;\n  text-align: center;\n  transition: -webkit-transform .35s;\n  transition: transform .35s;\n  transition: transform .35s, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 50px, 0);\n          transform: translate3d(0, 50px, 0);\n}\n.teammember_big .button-holder .button {\n  position: relative;\n  padding: 0 24px;\n  font-size: 13px;\n  line-height: 30px;\n  cursor: pointer;\n  transition: all .25s linear;\n}\n.teammember_big .name {\n  font-size: 21px;\n  font-weight: 500;\n  margin-top: 24px;\n}\n.teammember_big .work-title {\n  font-size: 18px;\n  margin-top: 8px;\n  text-transform: uppercase;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  font-weight: 500;\n  margin-top: 32px;\n}\n.teammember_big:hover .img-overlay {\n  background-color: rgba(58, 57, 57, .8);\n}\n.teammember_big:hover:hover .work-overlay {\n  opacity: 1;\n  transition: opacity .35s linear, -webkit-transform .35s;\n  transition: transform .35s, opacity .35s linear;\n  transition: transform .35s, opacity .35s linear, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 20%, 0);\n          transform: translate3d(0, 20%, 0);\n}\n.teammember_big:hover:hover .button-holder {\n  opacity: 1;\n  transition: opacity .45s linear, -webkit-transform .45s;\n  transition: transform .45s, opacity .45s linear;\n  transition: transform .45s, opacity .45s linear, -webkit-transform .45s;\n  -webkit-transform: translate3d(0, -30px, 0);\n          transform: translate3d(0, -30px, 0);\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n", ""]);
 
 // exports
 
@@ -44128,24 +44133,62 @@ var render = function() {
                     "w-full px-10 md:px-2 py-10 teammember_big text-left"
                 },
                 [
-                  _c("img", {
-                    staticClass: "w-full",
-                    attrs: { src: teammember.picture }
-                  }),
+                  _c("div", { staticClass: "img-wrapper relative" }, [
+                    _c("img", {
+                      staticClass: "w-full h-full",
+                      attrs: { src: teammember.picture }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "img-overlay" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "work-overlay" }, [
+                      _c("div", { staticClass: "work-description" }, [
+                        _c("div", {
+                          staticClass: "work-title",
+                          domProps: { textContent: _vm._s(teammember.title) }
+                        }),
+                        _c("div", { staticClass: "work-phone" }, [
+                          _c("span", [_vm._v("M:")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "tel:" + teammember.phone_number }
+                            },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  textContent: _vm._s(teammember.phone_number)
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _c("div", { staticClass: "work-email" }, [
+                          _c("span", [_vm._v("E:")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { attrs: { href: "mailto:" + teammember.email } },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  textContent: _vm._s(teammember.email)
+                                }
+                              })
+                            ]
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(0, true)
+                  ]),
                   _vm._v(" "),
                   _c("p", {
-                    staticClass: "text-black name",
+                    staticClass: "text-black text-center name",
                     domProps: { textContent: _vm._s(teammember.name) }
-                  }),
-                  _vm._v(" "),
-                  _c("p", {
-                    staticClass: "text-black title",
-                    domProps: { textContent: _vm._s(teammember.title) }
-                  }),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-black bio" }, [
-                    _vm._v("Bio & Details")
-                  ])
+                  })
                 ]
               )
             ]
@@ -44156,7 +44199,16 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "button-holder" }, [
+      _c("a", { staticClass: "button" }, [_vm._v("BIO & DETAILS")])
+    ])
+  }
+]
 render._withStripped = true
 
 
