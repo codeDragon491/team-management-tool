@@ -3,15 +3,16 @@
     <div class="inner">
       <ul class="w-full flex flex-wrap justify-center p-0">
         <li class="hover:cursor-none" v-for="teammember in projectTeamData || projectTeamDataClientView" :key="teammember.id" >
-          <div class="w-full px-10 md:px-2 py-10 teammember_big text-left">
+          <div class="w-full px-10 md:px-2 py-10 relative teammember_big text-left">
             <div class="img-wrapper relative hover:cursor-pointer">
-              <img class="w-full" :src="teammember.picture">
+              <img class="w-full block" :src="teammember.picture">
               <div class="img-overlay"></div>
               <div class="work-overlay"><div class="work-description"><div class="work-title" v-text="teammember.title"></div><div class="work-phone"><span>M:</span> <a :href="'tel:' + teammember.phone_number"><span v-text="teammember.phone_number"></span></a></div><div class="work-email"><span>E:</span> <a :href="'mailto:' + teammember.email"><span v-text="teammember.email"></span></a></div></div></div>
               <div class="button-holder"><a class="button">BIO & DETAILS</a>
               <div data-v-055cfa17="" class="arrow"><svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M14.348486,10 L0,10 L0,8 L13.9939884,8 L9.25192596,3.25793756 L10.6661395,1.843724 L17.9996643,9.17724878 L10.6494669,16.5274462 L9.23525332,15.1132326 L14.348486,10 Z" id="__22DLlEb__path-1"></path></defs><g id="__22DLlEb__Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="__22DLlEb__work/hover" transform="translate(-100.000000, -445.000000)"><g id="__22DLlEb__icons/forward" transform="translate(100.000000, 444.000000)"><mask id="__22DLlEb__mask-2" fill="white"><use xlink:href="#__22DLlEb__path-1"></use></mask><use id="__22DLlEb__base" fill="#ffffff" fill-rule="nonzero" xlink:href="#__22DLlEb__path-1"></use><g id="__22DLlEb__brand/colors/white" mask="url(#__22DLlEb__mask-2)"></g></g></g></g></svg></div>
               </div>
               </div>
+              <div class="ratioSave"></div>
             <p class="text-black text-center name" v-text="teammember.name"></p>
             <!--<p class="text-black title" v-text="teammember.title"></p>
             <p class="text-black bio" >Bio & Details</p>-->
@@ -101,12 +102,21 @@ export default {
 }
 .teammember_big {
   color: #ffffff;
+  .ratioSave {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-left: inherit;
+    padding-right: inherit;
+  }
   .img-overlay {
     background-color: transparent;
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 7px;
+    bottom: 0;
     left: 0;
     width: 100%;
     transition: background-color 0.25s ease-in-out;

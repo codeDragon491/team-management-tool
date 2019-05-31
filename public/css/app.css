@@ -2943,6 +2943,7 @@ table {
 body {
   line-height: 1.625rem;
   font-family: "Source Sans Pro", sans-serif;
+  box-sizing: border-box;
 }
 
 button,
