@@ -88,6 +88,10 @@ export default {
     margin-top: 12px;
   }
 }
+.teammember_small:hover,
+.teammember_small:hover .bio {
+  color: #90e3b6;
+}
 .slide-in {
   opacity: 0;
   transform: translateX(100px);
