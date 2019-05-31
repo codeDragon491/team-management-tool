@@ -100,8 +100,6 @@ export default {
   }
 }
 .teammember_big {
-  .img-wrapper {
-  }
   color: #ffffff;
   .img-overlay {
     background-color: transparent;
@@ -180,7 +178,7 @@ export default {
   }
 }
 .teammember_big .img-wrapper:hover .img-overlay {
-  background-color: rgba(58, 57, 57, 0.8);
+  background-color: rgba(37, 37, 39, 0.8);
 }
 .teammember_big .img-wrapper:hover .work-overlay {
   opacity: 1;

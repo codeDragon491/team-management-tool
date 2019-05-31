@@ -90,7 +90,7 @@ export default {
 }
 .teammember_small:hover,
 .teammember_small:hover .bio {
-  color: #90e3b6;
+  color: #187340;
 }
 .slide-in {
   opacity: 0;
