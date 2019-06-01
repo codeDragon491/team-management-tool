@@ -23,9 +23,10 @@
          <p class="mt-3">This operation is irreversable. Are you sure?</p>
         </div>
         <div v-if="!sent" class="modal-footer flex justify-between">
-            <button v-if="!loading" @click="sendTeam" class="button-pink">Send request</button>
+            <button v-if="!loading" @click="sendTeam" class="block md:hidden button-pink">SEND</button>
+            <button v-if="!loading" @click="sendTeam" class="hidden md:block button-pink">SEND REQUEST</button>
             <load-button v-else></load-button>
-            <button @click="closeModal" class="button-green">Cancel</button>
+            <button @click="closeModal" class="button-green">CANCEL</button>
         </div>
         </div>
       </div>
@@ -83,11 +84,11 @@ export default {
 </script>
 <style lang="scss">
 .close-icon {
-  transition: 0.6s ease-out;
+  //transition: 0.6s ease-out;
 }
 .close-icon:hover {
-  backface-visibility: hidden;
-  transform: rotate(90deg);
+  //backface-visibility: hidden;
+  //transform: rotate(90deg);
 }
 .float-in {
   opacity: 0;
@@ -130,16 +131,16 @@ export default {
     transform: translateY(-50%);
   }
   &-body {
-    backface-visibility: hidden;
+    //backface-visibility: hidden;
   }
 
   &-footer {
     margin-top: 3.5rem;
-    @media (max-width: 540px) {
+    /*@media (max-width: 540px) {
       button {
         padding: 0.75rem !important;
       }
-    }
+    }*/
   }
 
   &-enter,

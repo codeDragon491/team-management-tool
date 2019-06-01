@@ -12,9 +12,12 @@ body {
     box-sizing: border-box;
 }
 
-button,
 input {
     font-weight: 600;
+}
+
+input::placeholder {
+    font-weight: 400;
 }
 
 input:focus,
