@@ -160,12 +160,12 @@ export default {
     text-align: center;
     transition: transform 0.35s;
     transform: translate3d(0, 50px, 0);
+    cursor: pointer;
     .button {
       position: relative;
       padding: 0 24px;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 30px;
-      cursor: pointer;
       transition: all 0.25s linear;
     }
     .arrow {

@@ -11,14 +11,26 @@
                   </ul>
                 </p>
                </div>
-                <div class="w-full flex flex-col md:flex-row">
-                <div class="load-group flex flex-col items-start pb-5 w-full md:w-1/2">
+                <div class="md:hidden load-group w-full flex flex-col items-start pb-5 w-full md:w-1/2">
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
 	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full form-control" maxlength="128">
                 </div>
-                 <div class="md:ml-5 z-10 load-group flex flex-col items-start pb-5 w-full md:w-1/2">
+                 <div class="md:hidden load-group  w-full md:ml-5 z-10 flex flex-col items-start pb-5 w-full md:w-1/2">
+                    <label for="id_client" class="control-label">
+                      Select client<span title="required">*</span>
+                    </label>
+                  <v-select class="w-full" v-model="projectClient" label="name" :options="clientList"></v-select>
+                </div>
+                <div class="hidden load-group w-full md:flex flex-row">
+                <div class="flex flex-col items-start pb-5 w-full md:w-1/2">
+                    <label for="id_title" class="control-label">
+                        Project team title<span title="required">*</span>
+                    </label>
+	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full form-control" maxlength="128">
+                </div>
+                 <div class="md:ml-5 z-10 flex flex-col items-start pb-5 w-full md:w-1/2">
                     <label for="id_client" class="control-label">
                       Select client<span title="required">*</span>
                     </label>
@@ -90,10 +102,12 @@ export default {
         var el = $(el);
         if (el.visible(true)) {
           el.addClass("come-in");
-          $(".come-in:nth-child(3)").css("animation-delay", ".5s");
-          $(".come-in:nth-child(4)").css("animation-delay", "1s");
-          $(".come-in:nth-child(5)").css("animation-delay", "1.5s");
-          $(".come-in:nth-child(6)").css("animation-delay", "s");
+          if (win.scrollTop() == 0) {
+            $(".come-in:nth-child(2)").css("animation-delay", ".5s");
+            $(".come-in:nth-child(3)").css("animation-delay", "1s");
+            $(".come-in:nth-child(4)").css("animation-delay", "1.5s");
+            $(".come-in:nth-child(5)").css("animation-delay", "2s");
+          }
         }
       });
       // Not visible modules in the viewport
