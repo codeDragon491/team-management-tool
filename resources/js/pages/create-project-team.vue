@@ -266,9 +266,12 @@ label {
   font-size: 16px;
   font-weight: 700;
 }
-.vs--searchable {
+.v-select {
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 14px;
+  font-weight: 600;
 }
+
 .vs__dropdown-toggle {
   border: 1px solid #ccd1d9 !important;
 }
@@ -289,13 +292,10 @@ label {
   margin: 0;
   line-height: 1.42857143;
   background-color: #f7f8f9;
+  color: #000000;
   border: none;
   border-radius: 4px;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-
-#id_title {
-  color: #333;
 }
 .vs__search:focus {
   margin: 0;

@@ -175,7 +175,7 @@ export default {
   margin: 0 0 0;
 }
 .header-button-text {
-  font-family: National-Book;
+  font-family: National-Light;
   margin-left: 10px;
   vertical-align: middle;
   font-size: 16px;

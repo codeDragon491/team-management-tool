@@ -44,8 +44,8 @@ export default {
 /* Primary Styles */
 em {
   font-style: normal;
-  font-weight: 500;
-  font-family: National-Book;
+  /*font-weight: 500;*/
+  font-family: National-Light;
 }
 
 a {

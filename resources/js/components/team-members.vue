@@ -12,7 +12,7 @@
                         </div>
                         <p class="name" v-text="item.name"></p>
                         <p class="title" v-text="item.title"></p>
-                        <router-link to="#"><p class="text-black bio" >Bio & Details</p></router-link>
+                        <router-link to="#"><p class="bio">Bio & Details</p></router-link>
                         <router-view></router-view>
                         </div>
                       </li>
@@ -75,7 +75,8 @@ export default {
   }
   .name {
     font-size: 18px;
-    font-weight: 500;
+    font-family: National-Medium;
+    //font-weight: 500;
     margin-top: 10px;
   }
   .title {
@@ -84,7 +85,8 @@ export default {
   }
   .bio {
     font-size: 14px;
-    font-weight: 500;
+    font-family: National-Medium;
+    //font-weight: 500;
     margin-top: 12px;
   }
 }

@@ -39,7 +39,7 @@ export default {
 <style lang="scss">
 .main-breadcrumbs .link {
   font-weight: bold;
-  font-family: National-Book;
+  font-family: National-Bold;
   font-size: 1rem;
   padding-right: 2rem;
 

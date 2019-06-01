@@ -7,13 +7,14 @@
 @import "vue-select/src/scss/vue-select.scss";
 body {
     line-height: 1.625rem;
+    font-weight: 300;
     font-family: "Source Sans Pro", sans-serif;
     box-sizing: border-box;
 }
 
 button,
 input {
-    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
 }
 
 input:focus,
@@ -29,8 +30,23 @@ select:focus {
 }
 
 @font-face {
-    font-family: National-Book;
-    src: url(../css/National-Book.otf);
+    font-family: National-Light;
+    src: url(../css/National-Light.otf);
+}
+
+@font-face {
+    font-family: National-Regular;
+    src: url(../css/National-Regular.otf);
+}
+
+@font-face {
+    font-family: National-Medium;
+    src: url(../css/National-Medium.otf);
+}
+
+@font-face {
+    font-family: National-Bold;
+    src: url(../css/National-Bold.otf);
 }
 
 h1 {
@@ -38,7 +54,7 @@ h1 {
 }
 
 p {
-    font-family: National-Book;
+    font-family: National-Light;
 }
 
 ul {

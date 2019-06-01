@@ -13,7 +13,7 @@
               </div>
               </div>
               <div class="ratioSave"></div>
-            <p class="text-black text-center name" v-text="teammember.name"></p>
+            <p class="name text-center" v-text="teammember.name"></p>
             <!--<p class="text-black title" v-text="teammember.title"></p>
             <p class="text-black bio" >Bio & Details</p>-->
           </div>
@@ -122,7 +122,7 @@ export default {
     transition: background-color 0.25s ease-in-out;
   }
   .work-overlay {
-    font-family: National-Book;
+    font-family: National-Light;
     border: none;
     background-color: transparent;
     padding: 0;
@@ -150,6 +150,7 @@ export default {
     font-family: National-Light;
   }
   .button-holder {
+    font-family: National-Medium;
     opacity: 0;
     position: absolute;
     top: auto;
@@ -172,8 +173,9 @@ export default {
     }
   }
   .name {
+    font-family: National-Medium;
+    color: #000;
     font-size: 21px;
-    font-weight: 500;
     margin-top: 24px;
   }
   .work-title {
@@ -183,7 +185,6 @@ export default {
   }
   .bio {
     font-size: 14px;
-    font-weight: 500;
     margin-top: 32px;
   }
 }
