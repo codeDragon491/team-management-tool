@@ -163,6 +163,7 @@ a {
 /* Mobile First */
 @media (min-width: 48rem) {
   .sidebar__layout {
+    width: 4rem;
     max-width: 15rem;
   }
   .sidebar__nav {

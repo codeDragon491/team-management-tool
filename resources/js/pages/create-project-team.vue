@@ -1,9 +1,9 @@
 <template>
-    <div class="w-full md:min-w-40">
+    <div class="w-full mt-21 md:mt-0 md:min-w-40">
        <bread-crumb first-link="project-teams" second-link="create-project-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
             <div class="sub-content relative bg-signifly-grey-lightest w-full p-5 flex flex-col">
-              <div class="flex flex-col items-start pb-5">
+              <div v-if="errors.length" class="flex flex-col items-start pb-5">
                 <p class="text-left text-red" v-if="errors.length">
                   <b class="font-bold">Please correct the following error(s):</b>
                   <ul class="p-0">
@@ -153,34 +153,17 @@ export default {
         this.errors.push("At least one consultant must be selected.");
       }
       if (
-        this.projectTeam.filter(teamMember => teamMember.type === "consultant")
-          .length > 1
-      ) {
-        this.errors.push("You cannot select more then one consultant.");
-      }
-      if (
         this.projectTeam.filter(teamMember => teamMember.type === "designer")
           .length < 1
       ) {
         this.errors.push("At least one designer must be selected.");
       }
-      if (
-        this.projectTeam.filter(teamMember => teamMember.type === "designer")
-          .length > 1
-      ) {
-        this.errors.push("You cannot select more then one designer.");
-      }
+
       if (
         this.projectTeam.filter(teamMember => teamMember.type === "tech")
           .length < 1
       ) {
         this.errors.push("At least one techie must be selected.");
-      }
-      if (
-        this.projectTeam.filter(teamMember => teamMember.type === "tech")
-          .length > 1
-      ) {
-        this.errors.push("You cannot select more then one techie.");
       }
     },
     hover: function(id) {
