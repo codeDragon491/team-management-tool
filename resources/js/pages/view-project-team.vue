@@ -32,6 +32,7 @@ export default {
     };
   },
   mounted() {
+    //this.slideInAsScroll();
     this.zoomEffect();
   },
   created() {
@@ -53,7 +54,7 @@ export default {
   methods: {
     zoomEffect: function() {
       var win = $(window);
-      var allImages = $(".teammember_big img");
+      var allImages = $(".teammember_big .img-wrapper");
       // Already visible modules in the viewport
       allImages.each(function(i, el) {
         //console.log("visible here");
@@ -68,6 +69,27 @@ export default {
           var el = $(el);
           if (el.visible(true)) {
             el.addClass("zoom-in");
+          }
+        });
+      });
+    },
+    slideInAsScroll: function() {
+      var win = $(window);
+      console.log(win.scrollTop());
+      var allMods = $(".load-group");
+      // Already visible modules in the viewport
+      allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+          el.addClass("come-in");
+        }
+      });
+      // Not visible modules in the viewport
+      win.scroll(function(event) {
+        allMods.each(function(i, el) {
+          var el = $(el);
+          if (el.visible(true)) {
+            el.addClass("come-in");
           }
         });
       });
@@ -222,6 +244,17 @@ export default {
 @media (min-width: 768px) {
   .view-container {
     top: 70px;
+  }
+}
+.come-in {
+  opacity: 0;
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+}
+@keyframes come-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

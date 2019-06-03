@@ -17,20 +17,20 @@
                     </label>
 	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full form-control" maxlength="128">
                 </div>
-                 <div class="md:hidden load-group  w-full md:ml-5 z-10 flex flex-col items-start pb-5 w-full md:w-1/2">
+                 <div class="md:hidden z-10 load-group  w-full md:ml-5 flex flex-col items-start pb-5 w-full md:w-1/2">
                     <label for="id_client" class="control-label">
                       Select client<span title="required">*</span>
                     </label>
                   <v-select class="w-full" v-model="projectClient" label="name" :options="clientList"></v-select>
                 </div>
-                <div class="hidden load-group w-full md:flex flex-row">
+                <div class="hidden load-group w-full md:flex flex-row z-10">
                 <div class="flex flex-col items-start pb-5 w-full md:w-1/2">
                     <label for="id_title" class="control-label">
                         Project team title<span title="required">*</span>
                     </label>
 	                <input v-model="projectTitle" type="text" name="title" id="id_title" placeholder="Project team title" class="w-full form-control" maxlength="128">
                 </div>
-                 <div class="md:ml-5 z-10 flex flex-col items-start pb-5 w-full md:w-1/2">
+                 <div class="md:ml-5 flex flex-col items-start pb-5 w-full md:w-1/2">
                     <label for="id_client" class="control-label">
                       Select client<span title="required">*</span>
                     </label>
@@ -96,18 +96,19 @@ export default {
     slideInAsScroll: function() {
       var self = this;
       var win = $(window);
+      console.log(win.scrollTop());
       var allMods = $(".load-group");
       // Already visible modules in the viewport
       allMods.each(function(i, el) {
         var el = $(el);
         if (el.visible(true)) {
           el.addClass("come-in");
-          if (win.scrollTop() == 0) {
-            $(".come-in:nth-child(2)").css("animation-delay", ".5s");
-            $(".come-in:nth-child(3)").css("animation-delay", "1s");
-            $(".come-in:nth-child(4)").css("animation-delay", "1.5s");
-            $(".come-in:nth-child(5)").css("animation-delay", "2s");
-          }
+          /*if (win.scrollTop() == 0 ) {
+              $(".come-in:nth-child(2)").css("animation-delay", ".5s");
+              $(".come-in:nth-child(4)").css("animation-delay", "1s");
+              $(".come-in:nth-child(5)").css("animation-delay", "1.5s");
+              $(".come-in:nth-child(6)").css("animation-delay", "2s");
+            }*/
         }
       });
       // Not visible modules in the viewport
@@ -294,11 +295,6 @@ label {
 }
 .focus {
   border: 1px solid #081228 !important;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-    0 0 8px rgba(102, 175, 233, 0.6);
-}
-.vs__dropdown-toggle:focus {
-  border-color: #081228;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(102, 175, 233, 0.6);
 }

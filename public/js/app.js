@@ -2643,6 +2643,7 @@ __webpack_require__.r(__webpack_exports__);
     slideInAsScroll: function slideInAsScroll() {
       var self = this;
       var win = $(window);
+      console.log(win.scrollTop());
       var allMods = $(".load-group"); // Already visible modules in the viewport
 
       allMods.each(function (i, el) {
@@ -2650,13 +2651,12 @@ __webpack_require__.r(__webpack_exports__);
 
         if (el.visible(true)) {
           el.addClass("come-in");
-
-          if (win.scrollTop() == 0) {
-            $(".come-in:nth-child(2)").css("animation-delay", ".5s");
-            $(".come-in:nth-child(3)").css("animation-delay", "1s");
-            $(".come-in:nth-child(4)").css("animation-delay", "1.5s");
-            $(".come-in:nth-child(5)").css("animation-delay", "2s");
-          }
+          /*if (win.scrollTop() == 0 ) {
+              $(".come-in:nth-child(2)").css("animation-delay", ".5s");
+              $(".come-in:nth-child(4)").css("animation-delay", "1s");
+              $(".come-in:nth-child(5)").css("animation-delay", "1.5s");
+              $(".come-in:nth-child(6)").css("animation-delay", "2s");
+            }*/
         }
       }); // Not visible modules in the viewport
 
@@ -2992,6 +2992,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    //this.slideInAsScroll();
     this.zoomEffect();
   },
   created: function created() {
@@ -3008,7 +3009,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     zoomEffect: function zoomEffect() {
       var win = $(window);
-      var allImages = $(".teammember_big img"); // Already visible modules in the viewport
+      var allImages = $(".teammember_big .img-wrapper"); // Already visible modules in the viewport
 
       allImages.each(function (i, el) {
         //console.log("visible here");
@@ -3025,6 +3026,29 @@ __webpack_require__.r(__webpack_exports__);
 
           if (el.visible(true)) {
             el.addClass("zoom-in");
+          }
+        });
+      });
+    },
+    slideInAsScroll: function slideInAsScroll() {
+      var win = $(window);
+      console.log(win.scrollTop());
+      var allMods = $(".load-group"); // Already visible modules in the viewport
+
+      allMods.each(function (i, el) {
+        var el = $(el);
+
+        if (el.visible(true)) {
+          el.addClass("come-in");
+        }
+      }); // Not visible modules in the viewport
+
+      win.scroll(function (event) {
+        allMods.each(function (i, el) {
+          var el = $(el);
+
+          if (el.visible(true)) {
+            el.addClass("come-in");
           }
         });
       });
@@ -5401,7 +5425,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".float-in {\n  opacity: 0;\n  -webkit-animation: float-in .2s ease-out forwards;\n          animation: float-in .2s ease-out forwards;\n}\n@-webkit-keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n@keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n.modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  z-index: 30;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  border-radius: .125rem;\n  padding: 1.5rem;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n@media (min-width: 768px) {\n.modal-container {\n    padding: 1.5rem 2.5rem 1.5rem 2.5rem;\n}\n}\n.modal-footer {\n  margin-top: 3.5rem;\n  /*@media (max-width: 540px) {\n    button {\n      padding: 0.75rem !important;\n    }\n  }*/\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter-enter .modal-enter-container,\n.modal-enter-leave .modal-enter-container,\n.modal-enter-enter .modal-leave-container,\n.modal-enter-leave .modal-leave-container,\n.modal-leave-enter .modal-enter-container,\n.modal-leave-leave .modal-enter-container,\n.modal-leave-enter .modal-leave-container,\n.modal-leave-leave .modal-leave-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, ".close-icon {\n  position: absolute;\n  right: 1rem;\n  top: 1rem;\n}\n.float-in {\n  opacity: 0;\n  -webkit-animation: float-in .2s ease-out forwards;\n          animation: float-in .2s ease-out forwards;\n}\n@-webkit-keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n@keyframes float-in {\nto {\n    opacity: 1;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n}\n.modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background: rgba(0, 0, 0, .7);\n  display: table;\n  z-index: 30;\n  transition: opacity .3s ease;\n}\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container {\n  background: #fff;\n  min-width: 250px;\n  max-width: 450px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  border-radius: .125rem;\n  padding: 1.5rem;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n@media (min-width: 768px) {\n.modal-container {\n    padding: 1.5rem 2.5rem 1.5rem 2.5rem;\n}\n}\n.modal-footer {\n  margin-top: 3.5rem;\n  /*@media (max-width: 540px) {\n    button {\n      padding: 0.75rem !important;\n    }\n  }*/\n}\n.modal-enter,\n.modal-leave {\n  opacity: 0;\n}\n.modal-enter-enter .modal-enter-container,\n.modal-enter-leave .modal-enter-container,\n.modal-enter-enter .modal-leave-container,\n.modal-enter-leave .modal-leave-container,\n.modal-leave-enter .modal-enter-container,\n.modal-leave-leave .modal-enter-container,\n.modal-leave-enter .modal-leave-container,\n.modal-leave-leave .modal-leave-container {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -5439,7 +5463,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 19px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.error-wrapper p {\n  font-family: \"Source Sans Pro\", sans-serif;\n}\n.v-select {\n  font-family: \"Source Sans Pro\", sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.focus {\n  border: 1px solid #081228 !important;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__dropdown-toggle:focus {\n  border-color: #081228;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__selected,\n.vs__search {\n  height: 38px;\n  padding: 8px 10px;\n  margin: 0;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  color: #000;\n  border: none;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.vs__search:focus {\n  margin: 0;\n  padding: 0 8px;\n  border: none;\n}\n.vs__actions {\n  padding-top: 2px;\n}\n.vs__dropdown-toggle,\n.vs__selected-options {\n  padding: 0;\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
+exports.push([module.i, ".form-control {\n  display: block;\n  height: 38px;\n  padding: 19px 10px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  border: 1px solid #ccd1d9;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\nlabel {\n  display: inline-block;\n  max-width: 100%;\n  margin-bottom: 5px;\n}\n.control-label {\n  font-size: 16px;\n  font-weight: 700;\n}\n.error-wrapper p {\n  font-family: \"Source Sans Pro\", sans-serif;\n}\n.v-select {\n  font-family: \"Source Sans Pro\", sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n}\n.vs__dropdown-toggle {\n  border: 1px solid #ccd1d9 !important;\n}\n.focus {\n  border: 1px solid #081228 !important;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.vs__selected,\n.vs__search {\n  height: 38px;\n  padding: 8px 10px;\n  margin: 0;\n  line-height: 1.42857143;\n  background-color: #f7f8f9;\n  color: #000;\n  border: none;\n  border-radius: 4px;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n}\n.vs__search:focus {\n  margin: 0;\n  padding: 0 8px;\n  border: none;\n}\n.vs__actions {\n  padding-top: 2px;\n}\n.vs__dropdown-toggle,\n.vs__selected-options {\n  padding: 0;\n}\n.vs__clear {\n  fill: #a0aab8 !important;\n}\n.vs__open-indicator {\n  fill: #a0aab8 !important;\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -5477,7 +5501,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".zoom-in {\n  /* start state */\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-animation: zoom-in .2s ease-in-out forwards;\n          animation: zoom-in .2s ease-in-out forwards;\n}\n@-webkit-keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.teammember_big {\n  color: #fff;\n}\n.teammember_big .ratioSave {\n  width: 100%;\n  height: 60px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  padding-left: inherit;\n  padding-right: inherit;\n}\n.teammember_big .img-overlay {\n  background-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  transition: background-color .25s ease-in-out;\n}\n.teammember_big .work-overlay {\n  font-family: National-Light;\n  border: none;\n  background-color: transparent;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  transition: opacity .15s linear, -webkit-transform .15s;\n  transition: transform .15s, opacity .15s linear;\n  transition: transform .15s, opacity .15s linear, -webkit-transform .15s;\n  text-align: center;\n}\n.teammember_big .work-overlay .work-description .work-title:after {\n  content: \"\";\n  display: block;\n  width: 50px;\n  border-bottom: 2px solid #fff;\n  margin: 25px auto;\n}\n.teammember_big .work-overlay .work-description .work-phone,\n.teammember_big .work-overlay .work-description .work-email {\n  font-family: National-Light;\n}\n.teammember_big .button-holder {\n  font-family: National-Medium;\n  opacity: 0;\n  position: absolute;\n  top: auto;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: center;\n  transition: -webkit-transform .35s;\n  transition: transform .35s;\n  transition: transform .35s, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 50px, 0);\n          transform: translate3d(0, 50px, 0);\n  cursor: pointer;\n}\n.teammember_big .button-holder .button {\n  position: relative;\n  padding: 0 24px;\n  font-size: 14px;\n  line-height: 30px;\n  transition: all .25s linear;\n}\n.teammember_big .button-holder .arrow {\n  margin-top: 14px;\n}\n.teammember_big .name {\n  font-family: National-Medium;\n  color: #000;\n  font-size: 21px;\n  margin-top: 24px;\n}\n.teammember_big .work-title {\n  font-size: 18px;\n  margin-top: 8px;\n  text-transform: uppercase;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  margin-top: 32px;\n}\n.teammember_big .img-wrapper:hover .img-overlay {\n  background-color: rgba(37, 37, 39, .8);\n}\n.teammember_big .img-wrapper:hover .work-overlay {\n  opacity: 1;\n  transition: opacity .35s linear, -webkit-transform .35s;\n  transition: transform .35s, opacity .35s linear;\n  transition: transform .35s, opacity .35s linear, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 20%, 0);\n          transform: translate3d(0, 20%, 0);\n}\n.teammember_big .img-wrapper:hover .button-holder {\n  opacity: 1;\n  transition: opacity .45s linear, -webkit-transform .45s;\n  transition: transform .45s, opacity .45s linear;\n  transition: transform .45s, opacity .45s linear, -webkit-transform .45s;\n  -webkit-transform: translate3d(0, -30px, 0);\n          transform: translate3d(0, -30px, 0);\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n", ""]);
+exports.push([module.i, ".zoom-in {\n  /* start state */\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-animation: zoom-in .2s ease-in-out forwards;\n          animation: zoom-in .2s ease-in-out forwards;\n}\n@-webkit-keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.teammember_big {\n  color: #fff;\n}\n.teammember_big .ratioSave {\n  width: 100%;\n  height: 60px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  padding-left: inherit;\n  padding-right: inherit;\n}\n.teammember_big .img-overlay {\n  background-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  transition: background-color .25s ease-in-out;\n}\n.teammember_big .work-overlay {\n  font-family: National-Light;\n  border: none;\n  background-color: transparent;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  transition: opacity .15s linear, -webkit-transform .15s;\n  transition: transform .15s, opacity .15s linear;\n  transition: transform .15s, opacity .15s linear, -webkit-transform .15s;\n  text-align: center;\n}\n.teammember_big .work-overlay .work-description .work-title:after {\n  content: \"\";\n  display: block;\n  width: 50px;\n  border-bottom: 2px solid #fff;\n  margin: 25px auto;\n}\n.teammember_big .work-overlay .work-description .work-phone,\n.teammember_big .work-overlay .work-description .work-email {\n  font-family: National-Light;\n}\n.teammember_big .button-holder {\n  font-family: National-Medium;\n  opacity: 0;\n  position: absolute;\n  top: auto;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: center;\n  transition: -webkit-transform .35s;\n  transition: transform .35s;\n  transition: transform .35s, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 50px, 0);\n          transform: translate3d(0, 50px, 0);\n  cursor: pointer;\n}\n.teammember_big .button-holder .button {\n  position: relative;\n  padding: 0 24px;\n  font-size: 14px;\n  line-height: 30px;\n  transition: all .25s linear;\n}\n.teammember_big .button-holder .arrow {\n  margin-top: 14px;\n}\n.teammember_big .name {\n  font-family: National-Medium;\n  color: #000;\n  font-size: 21px;\n  margin-top: 24px;\n}\n.teammember_big .work-title {\n  font-size: 18px;\n  margin-top: 8px;\n  text-transform: uppercase;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  margin-top: 32px;\n}\n.teammember_big .img-wrapper:hover .img-overlay {\n  background-color: rgba(37, 37, 39, .8);\n}\n.teammember_big .img-wrapper:hover .work-overlay {\n  opacity: 1;\n  transition: opacity .35s linear, -webkit-transform .35s;\n  transition: transform .35s, opacity .35s linear;\n  transition: transform .35s, opacity .35s linear, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 20%, 0);\n          transform: translate3d(0, 20%, 0);\n}\n.teammember_big .img-wrapper:hover .button-holder {\n  opacity: 1;\n  transition: opacity .45s linear, -webkit-transform .45s;\n  transition: transform .45s, opacity .45s linear;\n  transition: transform .45s, opacity .45s linear, -webkit-transform .45s;\n  -webkit-transform: translate3d(0, -30px, 0);\n          transform: translate3d(0, -30px, 0);\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -5515,7 +5539,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* Layout */\n.main__layout[data-v-91ac6b5c] {\n  width: 100vw;\n  min-height: 100vh;\n}\n", ""]);
+exports.push([module.i, "/* Layout */\n.main__layout[data-v-91ac6b5c] {\n  width: 100vw;\n  /*min-height: 100vh;*/\n}\n", ""]);
 
 // exports
 
@@ -43000,14 +43024,13 @@ var render = function() {
   return _vm.show && this.$route.path.includes("/view-project-team")
     ? _c("div", { staticClass: "modal w-full flex justify-center" }, [
         _c("div", { staticClass: "modal-wrapper" }, [
-          _c("div", { staticClass: "modal-container float-in" }, [
+          _c("div", { staticClass: "modal-container relative float-in" }, [
             _c("content", { attrs: { select: ".modal-header" } }, [
-              _c("div", { staticClass: "modal-header flex flex-col h-20" }, [
+              _c("div", { staticClass: "modal-header h-20" }, [
                 _c(
                   "svg",
                   {
-                    staticClass:
-                      "w-6 h-6 ml-auto mb-12 cursor-pointer close-icon",
+                    staticClass: "w-6 h-6 mb-12 cursor-pointer close-icon",
                     attrs: {
                       xmlns: "http://www.w3.org/2000/svg",
                       viewBox: "0 0 512 512"
@@ -43707,7 +43730,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "md:hidden load-group  w-full md:ml-5 z-10 flex flex-col items-start pb-5 w-full md:w-1/2"
+                    "md:hidden z-10 load-group  w-full md:ml-5 flex flex-col items-start pb-5 w-full md:w-1/2"
                 },
                 [
                   _vm._m(1),
@@ -43729,7 +43752,9 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "hidden load-group w-full md:flex flex-row" },
+                {
+                  staticClass: "hidden load-group w-full md:flex flex-row z-10"
+                },
                 [
                   _c(
                     "div",
@@ -43774,7 +43799,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "md:ml-5 z-10 flex flex-col items-start pb-5 w-full md:w-1/2"
+                        "md:ml-5 flex flex-col items-start pb-5 w-full md:w-1/2"
                     },
                     [
                       _vm._m(3),

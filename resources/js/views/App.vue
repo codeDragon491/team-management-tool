@@ -32,7 +32,7 @@ export default {
 /* Layout */
 .main__layout {
   width: 100vw;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
 }
 </style>
 

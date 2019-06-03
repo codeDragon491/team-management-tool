@@ -1,10 +1,10 @@
 <template>
   <div class="modal w-full flex justify-center" v-if="show && this.$route.path.includes('/view-project-team')">
     <div class="modal-wrapper">
-      <div class="modal-container float-in">
+      <div class="modal-container relative float-in">
         <content select=".modal-header">
-          <div class="modal-header flex flex-col h-20">
-            <svg @click="closeModal" class="w-6 h-6 ml-auto mb-12 cursor-pointer close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"/></svg>
+          <div class="modal-header h-20">
+            <svg @click="closeModal" class="w-6 h-6 mb-12 cursor-pointer close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"/></svg>
           </div>
         </content>
         <div class="modal-body h-56 md:h-44">
@@ -84,6 +84,9 @@ export default {
 </script>
 <style lang="scss">
 .close-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
   //transition: 0.6s ease-out;
 }
 .close-icon:hover {
