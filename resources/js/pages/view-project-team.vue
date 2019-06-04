@@ -54,7 +54,7 @@ export default {
   methods: {
     zoomEffect: function() {
       var win = $(window);
-      var allImages = $(".teammember_big .img-wrapper");
+      var allImages = $("li");
       // Already visible modules in the viewport
       allImages.each(function(i, el) {
         //console.log("visible here");
@@ -76,7 +76,7 @@ export default {
     slideInAsScroll: function() {
       var win = $(window);
       console.log(win.scrollTop());
-      var allMods = $(".load-group");
+      var allMods = $("li");
       // Already visible modules in the viewport
       allMods.each(function(i, el) {
         var el = $(el);
@@ -224,7 +224,7 @@ export default {
   transform: translate3d(0, -30px, 0);
 }
 .view-container {
-  position: absolute;
+  position: fixed;
   top: 140px;
   left: 0;
   right: 0;

@@ -264,7 +264,7 @@ export default {
 .form-control {
   display: block;
   height: 38px;
-  padding: 19px 10px;
+  padding: 8px 10px;
   font-size: 14px;
   line-height: 1.42857143;
   background-color: #f7f8f9;
@@ -300,7 +300,7 @@ label {
 }
 .vs__selected,
 .vs__search {
-  height: 38px;
+  height: 36px;
   padding: 8px 10px;
   margin: 0;
   line-height: 1.42857143;
