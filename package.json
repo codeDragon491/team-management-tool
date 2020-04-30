@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "bootstrap": "^4.3.1",
-        "jquery": "^3.4.0",
+        "jquery": "^3.5.0",
         "jquery-visible": "^1.2.0",
         "jscroll": "^2.4.1",
         "lodash.orderby": "^4.6.0",
