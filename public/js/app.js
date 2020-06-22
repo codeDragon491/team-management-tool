@@ -2194,8 +2194,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2236,13 +2234,14 @@ __webpack_require__.r(__webpack_exports__);
 
         if ($(window).width() < 768) {
           $(".header-title").css("display", "none");
-          $(".dashboard-header").css("height", "70px");
-          $(".header").css("height", "70px");
+          $(".dashboard-header").css("height", "70px"); //$(".header").css("height", "70px");
+
           $(".view-container").css("top", "70px");
         }
       });
       $("body").mousestop(function (event) {
         Object(timers__WEBPACK_IMPORTED_MODULE_2__["setTimeout"])(function () {
+          $(".dashboard-header").css("height", "140px");
           $(".header-title").css("display", "block");
           $(".header-menu").css("top", "-80px");
 
@@ -2992,7 +2991,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    //this.slideInAsScroll();
+    this.slideInAsScroll();
     this.zoomEffect();
   },
   created: function created() {
@@ -3070,6 +3069,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_side_bar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/side-bar.vue */ "./resources/js/components/side-bar.vue");
 /* harmony import */ var _components_header_bar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/header-bar.vue */ "./resources/js/components/header-bar.vue");
 /* harmony import */ var _components_modal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/modal.vue */ "./resources/js/components/modal.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5501,7 +5505,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".zoom-in {\n  /* start state */\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-animation: zoom-in .2s ease-in-out forwards;\n          animation: zoom-in .2s ease-in-out forwards;\n}\n@-webkit-keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.teammember_big {\n  color: #fff;\n}\n.teammember_big .ratioSave {\n  width: 100%;\n  height: 60px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  padding-left: inherit;\n  padding-right: inherit;\n}\n.teammember_big .img-overlay {\n  background-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  transition: background-color .25s ease-in-out;\n}\n.teammember_big .work-overlay {\n  font-family: National-Light;\n  border: none;\n  background-color: transparent;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  transition: opacity .15s linear, -webkit-transform .15s;\n  transition: transform .15s, opacity .15s linear;\n  transition: transform .15s, opacity .15s linear, -webkit-transform .15s;\n  text-align: center;\n}\n.teammember_big .work-overlay .work-description .work-title:after {\n  content: \"\";\n  display: block;\n  width: 50px;\n  border-bottom: 2px solid #fff;\n  margin: 25px auto;\n}\n.teammember_big .work-overlay .work-description .work-phone,\n.teammember_big .work-overlay .work-description .work-email {\n  font-family: National-Light;\n}\n.teammember_big .button-holder {\n  font-family: National-Medium;\n  opacity: 0;\n  position: absolute;\n  top: auto;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: center;\n  transition: -webkit-transform .35s;\n  transition: transform .35s;\n  transition: transform .35s, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 50px, 0);\n          transform: translate3d(0, 50px, 0);\n  cursor: pointer;\n}\n.teammember_big .button-holder .button {\n  position: relative;\n  padding: 0 24px;\n  font-size: 14px;\n  line-height: 30px;\n  transition: all .25s linear;\n}\n.teammember_big .button-holder .arrow {\n  margin-top: 14px;\n}\n.teammember_big .name {\n  font-family: National-Medium;\n  color: #000;\n  font-size: 21px;\n  margin-top: 24px;\n}\n.teammember_big .work-title {\n  font-size: 18px;\n  margin-top: 8px;\n  text-transform: uppercase;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  margin-top: 32px;\n}\n.teammember_big .img-wrapper:hover .img-overlay {\n  background-color: rgba(37, 37, 39, .8);\n}\n.teammember_big .img-wrapper:hover .work-overlay {\n  opacity: 1;\n  transition: opacity .35s linear, -webkit-transform .35s;\n  transition: transform .35s, opacity .35s linear;\n  transition: transform .35s, opacity .35s linear, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 20%, 0);\n          transform: translate3d(0, 20%, 0);\n}\n.teammember_big .img-wrapper:hover .button-holder {\n  opacity: 1;\n  transition: opacity .45s linear, -webkit-transform .45s;\n  transition: transform .45s, opacity .45s linear;\n  transition: transform .45s, opacity .45s linear, -webkit-transform .45s;\n  -webkit-transform: translate3d(0, -30px, 0);\n          transform: translate3d(0, -30px, 0);\n}\n.view-container {\n  position: fixed;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n}\n.view-container .inner {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
+exports.push([module.i, ".zoom-in {\n  /* start state */\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-animation: zoom-in .2s ease-in-out forwards;\n          animation: zoom-in .2s ease-in-out forwards;\n}\n@-webkit-keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes zoom-in {\n25% {\n    opacity: .25;\n    -webkit-transform: scale(.25);\n            transform: scale(.25);\n}\n50% {\n    opacity: .5;\n    -webkit-transform: scale(.5);\n            transform: scale(.5);\n}\n75% {\n    opacity: .75;\n    -webkit-transform: scale(.75);\n            transform: scale(.75);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.teammember_big {\n  color: #fff;\n}\n.teammember_big .ratioSave {\n  width: 100%;\n  height: 60px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  padding-left: inherit;\n  padding-right: inherit;\n}\n.teammember_big .img-overlay {\n  background-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  transition: background-color .25s ease-in-out;\n}\n.teammember_big .work-overlay {\n  font-family: National-Light;\n  border: none;\n  background-color: transparent;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  transition: opacity .15s linear, -webkit-transform .15s;\n  transition: transform .15s, opacity .15s linear;\n  transition: transform .15s, opacity .15s linear, -webkit-transform .15s;\n  text-align: center;\n}\n.teammember_big .work-overlay .work-description .work-title:after {\n  content: \"\";\n  display: block;\n  width: 50px;\n  border-bottom: 2px solid #fff;\n  margin: 25px auto;\n}\n.teammember_big .work-overlay .work-description .work-phone,\n.teammember_big .work-overlay .work-description .work-email {\n  font-family: National-Light;\n}\n.teammember_big .button-holder {\n  font-family: National-Medium;\n  opacity: 0;\n  position: absolute;\n  top: auto;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: center;\n  transition: -webkit-transform .35s;\n  transition: transform .35s;\n  transition: transform .35s, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 50px, 0);\n          transform: translate3d(0, 50px, 0);\n  cursor: pointer;\n}\n.teammember_big .button-holder .button {\n  position: relative;\n  padding: 0 24px;\n  font-size: 14px;\n  line-height: 30px;\n  transition: all .25s linear;\n}\n.teammember_big .button-holder .arrow {\n  margin-top: 14px;\n}\n.teammember_big .name {\n  font-family: National-Medium;\n  color: #000;\n  font-size: 21px;\n  margin-top: 24px;\n}\n.teammember_big .work-title {\n  font-size: 18px;\n  margin-top: 8px;\n  text-transform: uppercase;\n}\n.teammember_big .bio {\n  font-size: 14px;\n  margin-top: 32px;\n}\n.teammember_big .img-wrapper:hover .img-overlay {\n  background-color: rgba(37, 37, 39, .8);\n}\n.teammember_big .img-wrapper:hover .work-overlay {\n  opacity: 1;\n  transition: opacity .35s linear, -webkit-transform .35s;\n  transition: transform .35s, opacity .35s linear;\n  transition: transform .35s, opacity .35s linear, -webkit-transform .35s;\n  -webkit-transform: translate3d(0, 20%, 0);\n          transform: translate3d(0, 20%, 0);\n}\n.teammember_big .img-wrapper:hover .button-holder {\n  opacity: 1;\n  transition: opacity .45s linear, -webkit-transform .45s;\n  transition: transform .45s, opacity .45s linear;\n  transition: transform .45s, opacity .45s linear, -webkit-transform .45s;\n  -webkit-transform: translate3d(0, -30px, 0);\n          transform: translate3d(0, -30px, 0);\n}\n.view-container {\n  position: absolute;\n  top: 140px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  transition: top .5s;\n  overflow: auto;\n}\n@media (min-width: 768px) {\n.view-container {\n    top: 70px;\n}\n}\n.come-in {\n  opacity: 0;\n  -webkit-transform: translateY(150px);\n          transform: translateY(150px);\n  -webkit-animation: come-in .8s ease forwards;\n          animation: come-in .8s ease forwards;\n}\n@-webkit-keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes come-in {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n", ""]);
 
 // exports
 
@@ -5539,7 +5543,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* Layout */\n.main__layout[data-v-91ac6b5c] {\n  width: 100vw;\n  /*min-height: 100vh;*/\n}\n", ""]);
+exports.push([module.i, "/* Layout */\n.main__layout[data-v-91ac6b5c] {\n  /*min-height: 100vh;*/\n}\n", ""]);
 
 // exports
 
@@ -42551,114 +42555,109 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "dashboard-header" }, [
-    _c("h2", { staticClass: "header-customer-name" }, [
-      _vm._v(_vm._s(_vm.clientName))
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "header" },
-      [
-        _c(
-          "div",
-          { staticClass: "header-menu bg-signifly-red-light" },
-          [
-            _c("logo", { staticClass: "header-menu-logo fill-white" }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "header-button",
-                attrs: { title: "Recompose team" }
-              },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "header-button",
-                    attrs: {
-                      tag: "li",
-                      to: "/project-teams/create-project-team"
-                    }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "header-button-icon",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          viewBox: "0 0 512 512"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            fill: "white",
-                            d:
-                              "M474.1 398.2L229.8 167.8s8.8-57.7 26.2-71.8c17.5-14.2 48-32 48-32V32c-32 0-58.8 8.3-96.9 27.3-38 18.9-66.8 47.8-74.4 55.4-7.6 7.6-18.1 19.5-24.7 28.9s-5.3 20.1-5.3 20.1l-19.7 17-4-4c-2.3-2.3-6.2-2.3-8.5 0l-36.8 36.8c-2.3 2.3-2.3 6.2 0 8.5l59.4 59.4c2.3 2.3 6.2 2.3 8.5 0l36.8-36.8c2.3-2.3 2.3-6.2 0-8.5l-10.3-10.3 14.6-14.3c6.8-3.7 25.4-8.9 39.1-5.1l214.9 267.3c8.1 8.2 20.3 8.2 28.5 0l46.8-47.1c10.3-8 10.3-22.3 2.1-28.4z"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "header-button-text" }, [
-                      _vm._v("Recompose team")
-                    ])
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "header-button",
-                attrs: { title: "Send request" },
-                on: { click: _vm.showModal }
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "header-button-icon",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      viewBox: "0 0 512 512"
-                    }
-                  },
-                  [
-                    _c("path", {
+  return _c(
+    "div",
+    { staticClass: "dashboard-header" },
+    [
+      _c(
+        "div",
+        { staticClass: "header-menu bg-signifly-red-light" },
+        [
+          _c("logo", { staticClass: "header-menu-logo fill-white" }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "header-button",
+              attrs: { title: "Recompose team" }
+            },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "header-button",
+                  attrs: { tag: "li", to: "/project-teams/create-project-team" }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "header-button-icon",
                       attrs: {
-                        fill: "white",
-                        d: "M48 448l416-192L48 64v149.333L346 256 48 298.667z"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 512 512"
                       }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "header-button-text" }, [
-                  _vm._v("Send request")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("router-view")
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("logo", { staticClass: "header-logo fill-black" }),
-        _vm._v(" "),
-        _c("h1", { staticClass: "header-title" }, [
-          _vm._v(_vm._s(_vm.projectTitle))
-        ])
-      ],
-      1
-    )
-  ])
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          fill: "white",
+                          d:
+                            "M474.1 398.2L229.8 167.8s8.8-57.7 26.2-71.8c17.5-14.2 48-32 48-32V32c-32 0-58.8 8.3-96.9 27.3-38 18.9-66.8 47.8-74.4 55.4-7.6 7.6-18.1 19.5-24.7 28.9s-5.3 20.1-5.3 20.1l-19.7 17-4-4c-2.3-2.3-6.2-2.3-8.5 0l-36.8 36.8c-2.3 2.3-2.3 6.2 0 8.5l59.4 59.4c2.3 2.3 6.2 2.3 8.5 0l36.8-36.8c2.3-2.3 2.3-6.2 0-8.5l-10.3-10.3 14.6-14.3c6.8-3.7 25.4-8.9 39.1-5.1l214.9 267.3c8.1 8.2 20.3 8.2 28.5 0l46.8-47.1c10.3-8 10.3-22.3 2.1-28.4z"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "header-button-text" }, [
+                    _vm._v("Recompose team")
+                  ])
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "header-button",
+              attrs: { title: "Send request" },
+              on: { click: _vm.showModal }
+            },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "header-button-icon",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 512 512"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      fill: "white",
+                      d: "M48 448l416-192L48 64v149.333L346 256 48 298.667z"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "header-button-text" }, [
+                _vm._v("Send request")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("router-view")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("h2", { staticClass: "header-customer-name" }, [
+        _vm._v(_vm._s(_vm.clientName))
+      ]),
+      _vm._v(" "),
+      _c("logo", { staticClass: "header-logo fill-black" }),
+      _vm._v(" "),
+      _c("h1", { staticClass: "header-title" }, [
+        _vm._v(_vm._s(_vm.projectTitle))
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -43652,7 +43651,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "sub-content relative bg-signifly-grey-lightest w-full p-5 flex flex-col"
+                "sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col"
             },
             [
               _vm.errors.length
@@ -44333,110 +44332,102 @@ var render = function() {
                           _vm._v("BIO & DETAILS")
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "arrow",
-                            attrs: { "data-v-055cfa17": "" }
-                          },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "18px",
-                                  height: "16px",
-                                  viewBox: "0 0 18 16",
-                                  version: "1.1",
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  "xmlns:xlink": "http://www.w3.org/1999/xlink"
-                                }
-                              },
-                              [
-                                _c("defs", [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M14.348486,10 L0,10 L0,8 L13.9939884,8 L9.25192596,3.25793756 L10.6661395,1.843724 L17.9996643,9.17724878 L10.6494669,16.5274462 L9.23525332,15.1132326 L14.348486,10 Z",
-                                      id: "__22DLlEb__path-1"
-                                    }
-                                  })
-                                ]),
-                                _c(
-                                  "g",
-                                  {
-                                    attrs: {
-                                      id: "__22DLlEb__Symbols",
-                                      stroke: "none",
-                                      "stroke-width": "1",
-                                      fill: "none",
-                                      "fill-rule": "evenodd"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "g",
-                                      {
-                                        attrs: {
-                                          id: "__22DLlEb__work/hover",
-                                          transform:
-                                            "translate(-100.000000, -445.000000)"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "g",
-                                          {
-                                            attrs: {
-                                              id: "__22DLlEb__icons/forward",
-                                              transform:
-                                                "translate(100.000000, 444.000000)"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "mask",
-                                              {
+                        _c("div", { staticClass: "arrow" }, [
+                          _c(
+                            "svg",
+                            {
+                              attrs: {
+                                width: "18px",
+                                height: "16px",
+                                viewBox: "0 0 18 16",
+                                version: "1.1",
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink"
+                              }
+                            },
+                            [
+                              _c("defs", [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M14.348486,10 L0,10 L0,8 L13.9939884,8 L9.25192596,3.25793756 L10.6661395,1.843724 L17.9996643,9.17724878 L10.6494669,16.5274462 L9.23525332,15.1132326 L14.348486,10 Z",
+                                    id: "__22DLlEb__path-1"
+                                  }
+                                })
+                              ]),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    id: "__22DLlEb__Symbols",
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    fill: "none",
+                                    "fill-rule": "evenodd"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      attrs: {
+                                        id: "__22DLlEb__work/hover",
+                                        transform:
+                                          "translate(-100.000000, -445.000000)"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "g",
+                                        {
+                                          attrs: {
+                                            id: "__22DLlEb__icons/forward",
+                                            transform:
+                                              "translate(100.000000, 444.000000)"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "mask",
+                                            {
+                                              attrs: {
+                                                id: "__22DLlEb__mask-2",
+                                                fill: "white"
+                                              }
+                                            },
+                                            [
+                                              _c("use", {
                                                 attrs: {
-                                                  id: "__22DLlEb__mask-2",
-                                                  fill: "white"
+                                                  "xlink:href":
+                                                    "#__22DLlEb__path-1"
                                                 }
-                                              },
-                                              [
-                                                _c("use", {
-                                                  attrs: {
-                                                    "xlink:href":
-                                                      "#__22DLlEb__path-1"
-                                                  }
-                                                })
-                                              ]
-                                            ),
-                                            _c("use", {
-                                              attrs: {
-                                                id: "__22DLlEb__base",
-                                                fill: "#ffffff",
-                                                "fill-rule": "nonzero",
-                                                "xlink:href":
-                                                  "#__22DLlEb__path-1"
-                                              }
-                                            }),
-                                            _c("g", {
-                                              attrs: {
-                                                id:
-                                                  "__22DLlEb__brand/colors/white",
-                                                mask: "url(#__22DLlEb__mask-2)"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
+                                              })
+                                            ]
+                                          ),
+                                          _c("use", {
+                                            attrs: {
+                                              id: "__22DLlEb__base",
+                                              fill: "#ffffff",
+                                              "fill-rule": "nonzero",
+                                              "xlink:href": "#__22DLlEb__path-1"
+                                            }
+                                          }),
+                                          _c("g", {
+                                            attrs: {
+                                              id:
+                                                "__22DLlEb__brand/colors/white",
+                                              mask: "url(#__22DLlEb__mask-2)"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
                       ])
                     ]
                   ),
@@ -44479,41 +44470,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "md:flex main__layout",
-      on: {
-        mousemove: function($event) {
-          _vm.displayHeaderMenu == true
-        }
-      }
-    },
-    [
-      !this.$route.path.includes("/view-project-team")
-        ? _c("side-bar")
-        : _c("header-bar", {
-            attrs: { displayHeaderMenu: _vm.displayHeaderMenu },
+  return _c("div", [
+    !this.$route.path.includes("/view-project-team")
+      ? _c(
+          "div",
+          { staticClass: "md:flex main__layout" },
+          [_c("side-bar"), _vm._v(" "), _c("router-view")],
+          1
+        )
+      : _c(
+          "div",
+          {
+            staticClass: "main__layout",
             on: {
-              showModal: function($event) {
-                _vm.showModal = true
+              mousemove: function($event) {
+                _vm.displayHeaderMenu == true
               }
             }
-          }),
-      _vm._v(" "),
-      _c("router-view"),
-      _vm._v(" "),
-      _c("modal", {
-        attrs: { show: _vm.showModal, sent: false },
-        on: {
-          closeModal: function($event) {
-            _vm.showModal = false
-          }
-        }
-      })
-    ],
-    1
-  )
+          },
+          [
+            _c("header-bar", {
+              attrs: { displayHeaderMenu: _vm.displayHeaderMenu },
+              on: {
+                showModal: function($event) {
+                  _vm.showModal = true
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("router-view"),
+            _vm._v(" "),
+            _c("modal", {
+              attrs: { show: _vm.showModal, sent: false },
+              on: {
+                closeModal: function($event) {
+                  _vm.showModal = false
+                }
+              }
+            })
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

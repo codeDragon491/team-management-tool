@@ -2,7 +2,7 @@
     <div class="w-full mt-21 md:mt-0 md:min-w-40">
        <bread-crumb first-link="project-teams" second-link="create-project-team" class="hidden md:flex"></bread-crumb>
        <div class="main-content m-5 text-center">
-            <div class="sub-content relative bg-signifly-grey-lightest w-full p-5 flex flex-col">
+            <div class="sub-content bg-signifly-grey-lightest w-full p-5 flex flex-col">
               <div v-if="errors.length" class="error-wrapper flex flex-col items-start pb-5">
                 <p class="text-left text-red" v-if="errors.length">
                   <b class="font-bold">Please correct the following error(s):</b>

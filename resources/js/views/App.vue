@@ -1,10 +1,15 @@
 <template>
-    <div v-on:mousemove="displayHeaderMenu == true" class="md:flex main__layout">
-        <side-bar v-if="!this.$route.path.includes('/view-project-team')"></side-bar>
-        <header-bar @showModal="showModal = true" v-else :displayHeaderMenu="displayHeaderMenu"></header-bar>
-        <router-view></router-view>
-        <modal @closeModal="showModal = false" :show="showModal" :sent="false"></modal>
-    </div>
+    <div>
+      <div v-if="!this.$route.path.includes('/view-project-team')" class="md:flex main__layout">
+          <side-bar></side-bar>
+          <router-view></router-view>
+      </div>
+        <div v-else v-on:mousemove="displayHeaderMenu == true" class="main__layout">
+          <header-bar @showModal="showModal = true" :displayHeaderMenu="displayHeaderMenu"></header-bar>
+          <router-view></router-view>
+          <modal @closeModal="showModal = false" :show="showModal" :sent="false"></modal>
+      </div>
+     </div>
 </template>
 
 <script>
@@ -31,7 +36,6 @@ export default {
 <style scoped>
 /* Layout */
 .main__layout {
-  width: 100vw;
   /*min-height: 100vh;*/
 }
 </style>

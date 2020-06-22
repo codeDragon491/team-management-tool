@@ -1,7 +1,5 @@
 <template>
     <div class="dashboard-header">
-        <h2 class="header-customer-name">{{clientName}}</h2>
-        <div class="header">
             <div class="header-menu bg-signifly-red-light">
                 <logo class="header-menu-logo fill-white"></logo>
                 <div class="header-button" title="Recompose team">
@@ -16,9 +14,9 @@
                 </div>
                 <router-view></router-view>
             </div>
+             <h2 class="header-customer-name">{{clientName}}</h2>
             <logo class="header-logo fill-black"></logo>
             <h1 class="header-title">{{projectTitle}}</h1>
-        </div>
     </div>
 </template>
 <script>
@@ -74,12 +72,13 @@ export default {
         if ($(window).width() < 768) {
           $(".header-title").css("display", "none");
           $(".dashboard-header").css("height", "70px");
-          $(".header").css("height", "70px");
+          //$(".header").css("height", "70px");
           $(".view-container").css("top", "70px");
         }
       });
       $("body").mousestop(function(event) {
         setTimeout(function() {
+          $(".dashboard-header").css("height", "140px");
           $(".header-title").css("display", "block");
           $(".header-menu").css("top", "-80px");
           if ($(window).width() < 768) {
