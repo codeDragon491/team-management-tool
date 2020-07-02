@@ -1,17 +1,29 @@
 <template>
-<div class="hidden md:block">
-    <div class="bg-signifly-grey-lightest py-2 p-5 w-full">
-        <ul class="main-breadcrumbs flex pl-0">
-	         <router-link class="link" to="/">Home</router-link>
-	         <router-link class="link" :to="'/' + firstLink">{{prettify(firstLink)}}</router-link>
-	         <router-link class="link" v-if="secondLink" :to="this.$route.path">{{prettify(secondLink)}}</router-link>
-           <router-view></router-view>
-        </ul>
-        <hr class="border-solid border-signifly-grey-light border-t">
-        <h1 v-if="!secondLink" class="py-3">{{prettify(capitalize(firstLink))}}</h1>
-        <h1 v-else class="py-3">{{prettify(capitalize(secondLink))}}</h1>
-    </div>
-  </div>
+        <div class="hidden md:block">
+            <div class="bg-signifly-grey-lightest py-2 p-5 w-full">
+                <ul class="main-breadcrumbs flex pl-0">
+                    <router-link class="link" to="/">Home</router-link>
+                    <router-link class="link" :to="'/' + firstLink">{{
+                        prettify(firstLink)
+                    }}</router-link>
+                    <router-link
+                        class="link"
+                        v-if="secondLink"
+                        :to="this.$route.path"
+                        >{{ prettify(secondLink) }}</router-link
+                    >
+                    <router-view></router-view>
+                </ul>
+                <hr class="border-solid border-signifly-grey-light border-t" />
+                <h1 v-if="!secondLink" class="py-3">
+                    {{ prettify(capitalize(firstLink)) }}
+                </h1>
+                <h1 v-else class="py-3">
+                    {{ prettify(capitalize(secondLink)) }}
+                </h1>
+                  </transition>
+            </div>
+        </div>
 </template>
 <script>
 export default {
@@ -51,5 +63,19 @@ export default {
     right: 1rem;
   }
 }
-</style>
+// animations
+.slide-fade-enter {
+  opacity: 0;
+  /*transform: translateX(10px);*/
+}
 
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.slide-fade-leave-to {
+  opacity: 0;
+  /*transform: translateX(-10px);*/
+}
+</style>
